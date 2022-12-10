@@ -35,16 +35,15 @@ class MyDocument extends Document {
     }
     render() {
         return (
-            <Html dir="rtl">
+            <Html>
                 <Head />
                 <body>
                     <Main />
                     <NextScript />
                 </body>
             </Html>
-        )
+        );
     }
 }
 
-
-export default MyDocument
+export default MyDocument;

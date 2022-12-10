@@ -9,7 +9,7 @@ interface LocalizationProviderState {
 type ContainerState = LocalizationProviderState;
 const initialState: LocalizationProviderState = {
     locale: DEFAULT_LOCALE,
-    isRtl: true,
+    isRtl: false,
 };
 
 const LocalizationProvider = createSlice({
