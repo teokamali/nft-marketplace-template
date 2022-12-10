@@ -1,3 +1,8 @@
+import { ContainerState as LocalizationProviderState } from "../redux/slices/localization/localizationSlice";
+
+export interface ApplicationRootState {
+    readonly localization: LocalizationProviderState;
+}
 export interface Response {
     data: string;
     message: string;
