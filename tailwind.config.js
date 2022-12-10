@@ -7,6 +7,16 @@ module.exports = {
     ],
 
     theme: {
+        fontSize: {
+            sm: '0.8rem',
+            base: '16px',
+            "buttun": '16px',
+            "bodytextnormal": '20px',
+            "bodytextsmall": '16px',
+            "title1": '20px',
+            "title2": '16px',
+            "title3": "12px"
+        },
         extend: {
             colors: {
                 "purple-1": "#202874",
