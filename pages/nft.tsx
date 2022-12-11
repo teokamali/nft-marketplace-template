@@ -31,10 +31,6 @@ const NFTLists = () => {
                                     src={nft.asset.image}
                                     style={{
                                         borderRadius: 16,
-                                        border: "1px solid red",
-                                        // Fit the image to the container
-                                        width: "200px",
-                                        height: "200px",
                                     }}
                                 />
                                 <h5>{nft.asset.name}</h5>
