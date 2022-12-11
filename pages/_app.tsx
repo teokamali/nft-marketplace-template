@@ -7,7 +7,7 @@ import LocalizationProvider from "../src/components/LocalizationProvider";
 import "../styles/globals.css";
 
 export default function App({ Component, pageProps }: AppProps) {
-    const activeChainId = ChainId.Mainnet;
+    const activeChainId = ChainId.Mumbai;
     return (
         <Provider store={store}>
             <PersistGate loading={null} persistor={persistor}>
