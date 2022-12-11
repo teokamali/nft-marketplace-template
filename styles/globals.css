@@ -2,54 +2,55 @@
 @tailwind components;
 @tailwind utilities;
 
+@import "@fontsource/poppins";
+
 html,
 body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    padding: 0;
+    margin: 0;
+    font-family: "Poppins";
 }
 
 a {
-  color: inherit;
-  text-decoration: none;
+    color: inherit;
+    text-decoration: none;
 }
 
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 h1 {
-  font-size: 61px;
+    font-size: 61px;
 }
 
 h2 {
-  font-size: 48px;
+    font-size: 48px;
 }
 
 h3 {
-  font-size: 39px;
+    font-size: 39px;
 }
 
 h4 {
-  font-size: 31px;
+    font-size: 31px;
 }
 
 h5 {
-  font-size: 25px;
+    font-size: 25px;
 }
 
 h6 {
-  font-size: 20px;
+    font-size: 20px;
 }
 
 @media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+    html {
+        color-scheme: dark;
+    }
 
-  body {
-    color: white;
-    background: black;
-  }
+    body {
+        color: white;
+        background: black;
+    }
 }

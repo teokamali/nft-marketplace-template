@@ -1,4 +1,8 @@
 /** @type {import('tailwindcss').Config} */
+
+
+
+
 module.exports = {
     content: [
         "./app/**/*.{js,ts,jsx,tsx}",
@@ -10,9 +14,9 @@ module.exports = {
         fontSize: {
             sm: '0.8rem',
             base: '16px',
-            "buttun": '16px',
-            "bodytextnormal": '20px',
-            "bodytextsmall": '16px',
+            "button": '16px',
+            "body-text-normal": '20px',
+            "body-text-small": '16px',
             "title1": '20px',
             "title2": '16px',
             "title3": "12px"

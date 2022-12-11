@@ -3,6 +3,7 @@ import {
     useContract,
     useActiveListings,
     MediaRenderer,
+    Web3Button,
 } from "@thirdweb-dev/react";
 import { useEffect, useState } from "react";
 
@@ -36,14 +37,14 @@ const NFTLists = () => {
                                         height: "200px",
                                     }}
                                 />
-                                <h2>{nft.asset.name}</h2>
+                                <h5>{nft.asset.name}</h5>
                                 <p>{nft.asset.description}</p>
                                 <span>
                                     {
                                         nft.buyoutCurrencyValuePerToken
                                             .displayValue
                                     }
-                                    $   
+                                    $
                                 </span>
                             </div>
                         ))}
