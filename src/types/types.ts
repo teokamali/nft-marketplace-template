@@ -8,35 +8,51 @@ export interface Response {
     message: string;
     status: boolean;
 }
-
-export interface User {
-    first_name?: string;
-    last_name?: string;
-    user_balance?: number;
-    national_code?: string;
-    avatar_url?: string;
-}
-
-export interface Todo {
-    completed: boolean;
-    id: number;
-    title: string;
-    userId: number;
-}
-
-export interface UserInfo {
-    email: string;
-    first_name: string;
-    is_male: number;
-    last_name: string;
-    mobile: string;
-    national_code: string;
-    sheba_number: string;
-}
-
-export interface ITodosListData {
-    userId: number;
-    id: number;
-    title: string;
-    completed: boolean;
+export interface NFT {
+    asset: {
+        attributes: {
+            trait_type: string;
+            value: string;
+        }[];
+        description: string;
+        id: string;
+        image: string;
+        name: string;
+        uri: string;
+    };
+    assetContractAddress: string;
+    buyoutCurrencyValuePerToken: {
+        decimals: number;
+        displayValue: string;
+        name: string;
+        symbol: string;
+        value: {
+            _hex: string;
+            _isBigNumber: boolean;
+        };
+    };
+    buyoutPrice: {
+        _hex: string;
+        _isBigNumber: boolean;
+    };
+    currencyContractAddress: string;
+    id: string;
+    quantity: {
+        _hex: string;
+        _isBigNumber: boolean;
+    };
+    secondsUntilEnd: {
+        _hex: string;
+        _isBigNumber: boolean;
+    };
+    sellerAddress: string;
+    startTimeInSeconds: {
+        _hex: string;
+        _isBigNumber: boolean;
+    };
+    tokenId: {
+        _hex: string;
+        _isBigNumber: boolean;
+    };
+    type: number;
 }

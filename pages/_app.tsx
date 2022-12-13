@@ -5,6 +5,7 @@ import store, { persistor } from "src/redux/store";
 import { PersistGate } from "redux-persist/integration/react";
 import LocalizationProvider from "../src/components/LocalizationProvider";
 import "../styles/globals.css";
+import Layout from "src/components/Common/Layout/Layout";
 
 export default function App({ Component, pageProps }: AppProps) {
     const activeChainId = ChainId.Mumbai;
@@ -13,7 +14,9 @@ export default function App({ Component, pageProps }: AppProps) {
             <PersistGate loading={null} persistor={persistor}>
                 <ThirdwebProvider desiredChainId={activeChainId}>
                     <LocalizationProvider messages={{ local: "en" }}>
-                        <Component {...pageProps} />
+                        <Layout>
+                            <Component {...pageProps} />
+                        </Layout>
                     </LocalizationProvider>
                 </ThirdwebProvider>
             </PersistGate>
