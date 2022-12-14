@@ -1,5 +1,5 @@
 import React, { FC, ReactNode } from "react";
-import { LayoutWrapper } from "./LayoutStyles";
+import { LayoutMain, LayoutWrapper } from "./LayoutStyles";
 
 interface IProps {
     children: ReactNode;
@@ -9,7 +9,7 @@ const Layout: FC<IProps> = ({ children }) => {
     return (
         <LayoutWrapper>
             <header>Header</header>
-            <main>{children}</main>
+            <LayoutMain>{children}</LayoutMain>
             <footer>Footer</footer>
         </LayoutWrapper>
     );
