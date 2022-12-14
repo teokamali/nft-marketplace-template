@@ -1,5 +1,5 @@
+import { FC, PropsWithChildren } from "react";
 import { ContainerState as LocalizationProviderState } from "../redux/slices/localization/localizationSlice";
-
 export interface ApplicationRootState {
     readonly localization: LocalizationProviderState;
 }

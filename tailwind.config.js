@@ -14,7 +14,7 @@ module.exports = {
             button: "16px",
             "body-text-normal": "20px",
             "body-text-small": "16px",
-            title1: "20px",
+            title1: "20px", 
             title2: "16px",
             title3: "12px",
         },
