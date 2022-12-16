@@ -1,4 +1,5 @@
-import React, { FC, ReactNode } from "react";
+import React, { FC, ReactNode, useEffect } from "react";
+import Header from "../Header/Header";
 import { LayoutMain, LayoutWrapper } from "./LayoutStyles";
 
 interface IProps {
@@ -8,7 +9,7 @@ interface IProps {
 const Layout: FC<IProps> = ({ children }) => {
     return (
         <LayoutWrapper>
-            <header>Header</header>
+            <Header />
             <LayoutMain>{children}</LayoutMain>
             <footer>Footer</footer>
         </LayoutWrapper>
