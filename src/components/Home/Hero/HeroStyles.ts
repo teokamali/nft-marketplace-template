@@ -28,7 +28,7 @@ export const HeroDescriptionWrapper = styled.div`
     ${tw`max-w-[286px] pt-[27px] flex flex-col items-start gap-2.5 sm:max-w-max xl:(w-[50%] max-w-max)`}
 `;
 export const HeroTitle = styled.h5`
-    ${tw`light:text-black dark:text-smokeWhite text-[26px] font-bold  lg:(text-[61px] max-w-[585px]) `}
+    ${tw`light:text-black dark:text-smokeWhite text-[26px] font-bold  xl:(text-[61px] max-w-[585px]) `}
 `;
 export const HeroDescription = styled.p`
     ${tw`light:text-black dark:text-smokeWhite`}

@@ -21,7 +21,6 @@ const Hero = (props: Props) => {
             <HeroFigureMobile>
                 <HeroImageMobile src={"/images/nft-3.png"} alt="nft-image" />
             </HeroFigureMobile>
-
             <HeroFigureDesktop>
                 <HeroImageDesktop
                     src={"/images/desktop-hero.png"}
@@ -38,8 +37,12 @@ const Hero = (props: Props) => {
                     video & music.
                 </HeroDescription>
                 <ButtonsWrapper>
-                    <Button variant="normal">Explore</Button>
-                    <Button variant="outlined">Create</Button>
+                    <Button variant="normal" isLarge>
+                        Explore
+                    </Button>
+                    <Button variant="outlined" isLarge>
+                        Create
+                    </Button>
                 </ButtonsWrapper>
             </HeroDescriptionWrapper>
         </HeroWrapper>
