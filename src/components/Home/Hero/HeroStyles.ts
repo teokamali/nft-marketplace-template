@@ -25,7 +25,7 @@ export const HeroImageDesktop = styled.img`
         inset 0px -30px 30px -10px #000;
 `;
 export const HeroDescriptionWrapper = styled.div`
-    ${tw`max-w-[286px] pt-[27px] flex flex-col items-start gap-2.5 sm:max-w-max xl:(w-[50%] max-w-max)`}
+    ${tw`max-w-[286px] pt-[27px] flex flex-col items-start gap-2.5 sm:max-w-max xl:(w-[50%] max-w-max ) xl:before:(content-["NFTMP"] text-purple-7 ) `}
 `;
 export const HeroTitle = styled.h5`
     ${tw`light:text-black dark:text-smokeWhite text-[26px] font-bold  xl:(text-[61px] max-w-[585px]) `}
