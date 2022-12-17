@@ -6,11 +6,11 @@ interface IProps extends PropsWithChildren {
     isLarge?: boolean;
 }
 
-const Button: FC<IProps> = ({ children, variant, isLarge }) => {
+const Button: FC<IProps> = ({ children, variant }) => {
     if (variant !== "outlined") {
-        return <NormalButton isLarge={isLarge}>{children}</NormalButton>;
+        return <NormalButton>{children}</NormalButton>;
     }
-    return <OutLinedButton isLarge={isLarge}>{children}</OutLinedButton>;
+    return <OutLinedButton>{children}</OutLinedButton>;
 };
 
 export default Button;
