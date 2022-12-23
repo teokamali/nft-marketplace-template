@@ -1,25 +1,22 @@
 /** @type {import('tailwindcss').Config} */
 
-
-
-
 module.exports = {
     content: [
         "./app/**/*.{js,ts,jsx,tsx}",
         "./pages/**/*.{js,ts,jsx,tsx}",
         "./components/**/*.{js,ts,jsx,tsx}",
     ],
-
+    darkMode: "class",
     theme: {
         fontSize: {
-            sm: '0.8rem',
-            base: '16px',
-            "button": '16px',
-            "body-text-normal": '20px',
-            "body-text-small": '16px',
-            "title1": '20px',
-            "title2": '16px',
-            "title3": "12px"
+            sm: "0.8rem",
+            base: "16px",
+            button: "16px",
+            "body-text-normal": "20px",
+            "body-text-small": "16px",
+            title1: "20px", 
+            title2: "16px",
+            title3: "12px",
         },
         extend: {
             colors: {
@@ -55,6 +52,10 @@ module.exports = {
                     success: "#3BD49B",
                     alternative: "#F29F7E",
                 },
+            },
+            backgroundImage: {
+                "layout-bg": "url('/images/bg-light.png')",
+                "layout-bg-dark": "url('/images/bg-dark.png')",
             },
         },
     },
