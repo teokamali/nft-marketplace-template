@@ -1,12 +1,9 @@
 import React, { FC, ReactNode, useEffect } from "react";
+import { ReactFC } from "src/types/types";
 import Header from "../Header/Header";
 import { Container, LayoutMain, LayoutWrapper } from "./LayoutStyles";
 
-interface IProps {
-    children: ReactNode;
-}
-
-const Layout: FC<IProps> = ({ children }) => {
+const Layout: ReactFC = ({ children }) => {
     return (
         <LayoutWrapper>
             <header>
