@@ -2,7 +2,7 @@ import styled from "styled-components";
 import tw from "twin.macro";
 
 export const HeroWrapper = styled.div`
-    ${tw`relative flex flex-col items-center sm:(w-full px-36) xl:(flex-row-reverse justify-evenly items-center gap-8) `}
+    ${tw`relative flex flex-col items-center sm:(w-full) xl:(flex-row-reverse justify-evenly items-center gap-8) `}
 `;
 export const HeroFigureMobile = styled.figure`
     ${tw`w-[286px] h-[440px] relative rounded-[11px] sm:(hidden invisible)`}

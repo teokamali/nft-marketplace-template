@@ -12,7 +12,7 @@ const StarIcon = () => {
                 width="25"
                 height="24"
                 fill="url(#pattern0)"
-                fill-opacity="0.5"
+                fillOpacity="0.5"
             />
             <defs>
                 <pattern

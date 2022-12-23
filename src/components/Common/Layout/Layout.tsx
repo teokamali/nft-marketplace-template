@@ -1,6 +1,6 @@
 import React, { FC, ReactNode, useEffect } from "react";
 import Header from "../Header/Header";
-import { LayoutMain, LayoutWrapper } from "./LayoutStyles";
+import { Container, LayoutMain, LayoutWrapper } from "./LayoutStyles";
 
 interface IProps {
     children: ReactNode;
@@ -9,9 +9,15 @@ interface IProps {
 const Layout: FC<IProps> = ({ children }) => {
     return (
         <LayoutWrapper>
-            <Header />
-            <LayoutMain>{children}</LayoutMain>
-            <footer>Footer</footer>
+            <Container>
+                <Header />
+            </Container>
+            <LayoutMain>
+                <Container>{children}</Container>
+            </LayoutMain>
+            <footer>
+                <Container>Footer</Container>
+            </footer>
         </LayoutWrapper>
     );
 };
