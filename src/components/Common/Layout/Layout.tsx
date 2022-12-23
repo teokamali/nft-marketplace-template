@@ -9,9 +9,11 @@ interface IProps {
 const Layout: FC<IProps> = ({ children }) => {
     return (
         <LayoutWrapper>
-            <Container>
-                <Header />
-            </Container>
+            <header>
+                <Container>
+                    <Header />
+                </Container>
+            </header>
             <LayoutMain>
                 <Container>{children}</Container>
             </LayoutMain>
