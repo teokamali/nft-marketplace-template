@@ -1,5 +1,5 @@
+import WhatsappIcon from "public/Icon/WhatsappIcon"
 import { Fragment, useState } from "react"
-import { useGetListPostsMutation } from 'src/api/updateUserInfo/updateUserInfo'
 import { StyledInput, StyledBtn } from "./updateStyles"
 
 
@@ -46,6 +46,7 @@ const UserUpdate = () => {
                     ارسال
                 </StyledBtn>
             }
+            <WhatsappIcon />
         </Fragment>
     )
 }

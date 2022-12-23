@@ -1,9 +1,9 @@
 import { StyledHeader, StyledHeaderLogoVMenu, StyledHeaderOprator } from "./homeStyles";
 import logo2 from '../../assets/logo2.png';
 import Image from "next/image";
-import HeaderHome from "src/components/Home/Test/headerHome";
+import Header from "src/components/Header/Header";
 
-export default function App() {
+export default function Home() {
     return (
         // <StyledHeader>
         //     <StyledHeaderLogoVMenu>
@@ -34,6 +34,6 @@ export default function App() {
         //         </svg>
         //     </StyledHeaderOprator>
         // </StyledHeader>
-        <HeaderHome />
+        <Header />
     );
 }

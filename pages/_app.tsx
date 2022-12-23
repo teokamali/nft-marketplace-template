@@ -11,11 +11,11 @@ export default function App({ Component, pageProps }: AppProps) {
     return (
         <Provider store={store}>
             <PersistGate loading={null} persistor={persistor}>
-                <ThirdwebProvider desiredChainId={activeChainId}>
-                    <LocalizationProvider messages={{ local: "en" }}>
-                        <Component {...pageProps} />
-                    </LocalizationProvider>
-                </ThirdwebProvider>
+                {/* <ThirdwebProvider desiredChainId={activeChainId}> */}
+                <LocalizationProvider messages={{ local: "en" }}>
+                    <Component {...pageProps} />
+                </LocalizationProvider>
+                {/* </ThirdwebProvider> */}
             </PersistGate>
         </Provider>
     );
