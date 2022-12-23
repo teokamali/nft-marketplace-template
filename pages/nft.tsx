@@ -1,25 +1,21 @@
 import {
-    ThirdwebNftMedia,
     useContract,
     useActiveListings,
     MediaRenderer,
-    Web3Button,
 } from "@thirdweb-dev/react";
-import { useEffect, useState } from "react";
+import { config } from "src/constants";
 
 const NFTLists = () => {
     // Connect your marketplace smart contract here (replace this address)
     const { contract } = useContract(
-        "0x993b187dFe816F501C6D93715Bc7be2eA2e49822",
+        config.MARKETPLACE_CONTRACT,
         "marketplace"
     );
 
     const { data: nfts, isLoading: isReadingNfts } =
         useActiveListings(contract);
-    console.log(nfts);
     return (
         <div>
-            {" "}
             {isReadingNfts ? (
                 <p>Loading...</p>
             ) : (
