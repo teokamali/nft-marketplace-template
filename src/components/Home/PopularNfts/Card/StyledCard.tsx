@@ -14,7 +14,7 @@ export const CardContent = styled.div`
 `;
 
 export const CardBadge = styled.span`
-    ${tw`bg-white rounded text-black px-5 py-0.5 text-title3 font-bold mb-2.5`}
+    ${tw`bg-white rounded text-black dark:(bg-darkMode-black text-white) px-5 py-0.5 text-title3 font-bold mb-2.5`}
 `;
 export const ImageContainer = styled.div`
     ${tw`w-full block pt-[135.38%] relative mb-2`}
@@ -23,8 +23,8 @@ export const NftInfoWrapper = styled.div`
     ${tw`w-full flex flex-col items-center`}
 `;
 export const NftTitle = styled.span`
-    ${tw`text-title1 xl:text-[25px] font-bold`}
+    ${tw`text-title1 xl:text-[25px] font-bold text-white`}
 `;
 export const NftDescription = styled.p`
-    ${tw`text-[10px] xl:text-title3 font-semibold text-center`}
+    ${tw`text-[10px] xl:text-title3 font-semibold text-center text-white`}
 `;
