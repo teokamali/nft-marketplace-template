@@ -8,6 +8,8 @@ import {
 import { ExceptMobile, Mobile } from "src/utils/BreakPoints";
 import Slider from "src/components/Common/Slider/Slider";
 import { SwiperSlide } from "swiper/react";
+import { useIntl } from "react-intl";
+import messages from "./messages";
 
 // types
 interface testNft {
@@ -21,9 +23,12 @@ type Props = {
 };
 
 const PopularNfts = ({ data }: Props) => {
+    const { formatMessage } = useIntl();
     return (
         <PopularNftsWrapper>
-            <PopularNftsTitle>Notable Drops</PopularNftsTitle>
+            <PopularNftsTitle>
+                {formatMessage({ ...messages.Notable_Drops })}
+            </PopularNftsTitle>
             <ExceptMobile>
                 <Slider>
                     {data.map(nft => (
