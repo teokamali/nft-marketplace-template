@@ -1,6 +1,4 @@
 import React from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation } from "swiper";
 import Card from "./Card/Card";
 import {
     MobilePopularNftsWrapper,
@@ -8,6 +6,8 @@ import {
     PopularNftsWrapper,
 } from "./StyledPopularNft";
 import { ExceptMobile, Mobile } from "src/utils/BreakPoints";
+import Slider from "src/components/Common/Slider/Slider";
+import { SwiperSlide } from "swiper/react";
 
 // types
 interface testNft {
@@ -25,26 +25,7 @@ const PopularNfts = ({ data }: Props) => {
         <PopularNftsWrapper>
             <PopularNftsTitle>Notable Drops</PopularNftsTitle>
             <ExceptMobile>
-                <Swiper
-                    slidesPerView={2}
-                    spaceBetween={20}
-                    navigation={{
-                        enabled: true,
-                    }}
-                    grabCursor
-                    modules={[Navigation]}
-                    className="mySwiper"
-                    breakpoints={{
-                        768: {
-                            slidesPerView: 3,
-                            spaceBetween: 20,
-                        },
-                        1024: {
-                            slidesPerView: 4,
-                            spaceBetween: 50,
-                        },
-                    }}
-                >
+                <Slider>
                     {data.map(nft => (
                         <SwiperSlide key={nft.id}>
                             <Card
@@ -54,7 +35,7 @@ const PopularNfts = ({ data }: Props) => {
                             />
                         </SwiperSlide>
                     ))}
-                </Swiper>
+                </Slider>
             </ExceptMobile>
             <Mobile>
                 <MobilePopularNftsWrapper>
