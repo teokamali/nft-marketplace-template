@@ -1,4 +1,5 @@
 import React from "react";
+import FeatureBox from "src/components/Home/FeatureBox/FeatureBox";
 import Hero from "src/components/Home/Hero/Hero";
 import PopularNfts from "src/components/Home/PopularNfts/PopularNfts";
 
@@ -57,6 +58,7 @@ function HomePage() {
         <div>
             <Hero />
             <PopularNfts data={data} />
+            <FeatureBox />
         </div>
     );
 }
