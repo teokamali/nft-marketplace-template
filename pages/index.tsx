@@ -1,6 +1,7 @@
 import React from "react";
 import FeatureBox from "src/components/Home/FeatureBox/FeatureBox";
 import Hero from "src/components/Home/Hero/Hero";
+import NewsLetter from "src/components/Home/NewsLetter/NewsLetter";
 import PopularNfts from "src/components/Home/PopularNfts/PopularNfts";
 
 function HomePage() {
@@ -59,6 +60,7 @@ function HomePage() {
             <Hero />
             <PopularNfts data={data} />
             <FeatureBox />
+            <NewsLetter />
         </div>
     );
 }

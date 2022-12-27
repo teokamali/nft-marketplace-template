@@ -2,6 +2,7 @@ import Image from "next/image";
 import StarIcon from "public/Icon/StarIcon";
 import React from "react";
 import Button from "src/components/Common/Button/Button";
+import { Mobile, ExceptMobile } from "src/utils/BreakPoints";
 import {
     ButtonsWrapper,
     HeroDescription,
@@ -57,12 +58,22 @@ const Hero = () => {
                     video & music.
                 </HeroDescription>
                 <ButtonsWrapper>
-                    <Button variant="normal" isLarge>
-                        Explore
-                    </Button>
-                    <Button variant="outlined" isLarge>
-                        Create
-                    </Button>
+                    <Mobile>
+                        <Button variant="normal" size="xs">
+                            Explore
+                        </Button>
+                        <Button variant="outlined" size="xs">
+                            Create
+                        </Button>
+                    </Mobile>
+                    <ExceptMobile>
+                        <Button variant="normal" size="md">
+                            Explore
+                        </Button>
+                        <Button variant="outlined" size="md">
+                            Create
+                        </Button>
+                    </ExceptMobile>
                 </ButtonsWrapper>
             </HeroDescriptionWrapper>
         </HeroWrapper>

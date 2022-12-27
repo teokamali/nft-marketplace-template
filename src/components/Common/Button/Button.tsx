@@ -3,14 +3,22 @@ import { NormalButton, OutLinedButton } from "./ButtonStyles";
 
 interface IProps extends PropsWithChildren {
     variant: "normal" | "outlined";
-    isLarge?: boolean;
+    size: "xs" | "sm" | "md" | "lg";
 }
 
-const Button: FC<IProps> = ({ children, variant }) => {
+const Button: FC<IProps> = ({ children, variant, size, ...props }) => {
     if (variant !== "outlined") {
-        return <NormalButton>{children}</NormalButton>;
+        return (
+            <NormalButton size={size} {...props}>
+                {children}
+            </NormalButton>
+        );
     }
-    return <OutLinedButton>{children}</OutLinedButton>;
+    return (
+        <OutLinedButton size={size} {...props}>
+            {children}
+        </OutLinedButton>
+    );
 };
 
 export default Button;
