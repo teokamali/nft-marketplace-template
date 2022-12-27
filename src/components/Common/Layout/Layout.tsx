@@ -7,16 +7,10 @@ const Layout: ReactFC = ({ children }) => {
     return (
         <LayoutWrapper>
             <header>
-                <Container>
-                    <Header />
-                </Container>
+                <Header />
             </header>
-            <LayoutMain>
-                <Container>{children}</Container>
-            </LayoutMain>
-            <footer>
-                <Container>Footer</Container>
-            </footer>
+            <LayoutMain>{children}</LayoutMain>
+            <footer>Footer</footer>
         </LayoutWrapper>
     );
 };

@@ -1,6 +1,6 @@
 import { defineMessages } from "react-intl";
 
-export const scope = "app.productPage";
+export const scope = "app.HomePage";
 
 export default defineMessages({
     Notable_Drops: {

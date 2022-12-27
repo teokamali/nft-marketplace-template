@@ -1,8 +1,11 @@
+import { formatMessage } from "@formatjs/intl";
 import CollectionBoxIcon from "public/Icon/CollectionBoxIcon";
 import OnSaleIcon from "public/Icon/OnSaleIcon";
 import UploadNFTIcon from "public/Icon/UploadNFTIcon";
 import WalletIcon from "public/Icon/WalletIcon";
 import React from "react";
+import { useIntl } from "react-intl";
+import messages from "./messages";
 import {
     FeatureBoxDescription,
     FeatureBoxIconWrapper,
@@ -12,50 +15,57 @@ import {
 } from "./StyledFeatureBox";
 
 function FeatureBox() {
+    const { formatMessage } = useIntl();
     return (
         <FeatureBoxWrapper>
             <FeatureBoxItemWrapper>
                 <FeatureBoxIconWrapper>
                     <WalletIcon />
                 </FeatureBoxIconWrapper>
-                <FeatureBoxTitle>Set up your wallet</FeatureBoxTitle>
+                <FeatureBoxTitle>
+                    {formatMessage({ ...messages.SET_UP_YOUR_WALLET })}
+                </FeatureBoxTitle>
                 <FeatureBoxDescription>
-                    Once you’ve set up your wallet of choice, connect it to
-                    OpenSea by clicking the wallet icon in the top right corner.
-                    Learn about the wallets we support.
+                    {formatMessage({
+                        ...messages.SET_UP_YOUR_WALLET_DESCRIPTION,
+                    })}
                 </FeatureBoxDescription>
             </FeatureBoxItemWrapper>
             <FeatureBoxItemWrapper>
                 <FeatureBoxIconWrapper>
                     <CollectionBoxIcon />
                 </FeatureBoxIconWrapper>
-                <FeatureBoxTitle>Create your collection</FeatureBoxTitle>
+                <FeatureBoxTitle>
+                    {formatMessage({ ...messages.CREATE_YOUR_COLLECTION })}
+                </FeatureBoxTitle>
                 <FeatureBoxDescription>
-                    Click My Collections and set up your collection. Add social
-                    links, a description, profile & banner images, and set a
-                    secondary sales fee.
+                    {formatMessage({
+                        ...messages.CREATE_YOUR_COLLECTION_DESCRIPTION,
+                    })}
                 </FeatureBoxDescription>
             </FeatureBoxItemWrapper>
             <FeatureBoxItemWrapper>
                 <FeatureBoxIconWrapper>
                     <UploadNFTIcon />
                 </FeatureBoxIconWrapper>
-                <FeatureBoxTitle>Add your NFTs</FeatureBoxTitle>
+                <FeatureBoxTitle>
+                    {formatMessage({ ...messages.ADD_YOUR_NFTS })}
+                </FeatureBoxTitle>
                 <FeatureBoxDescription>
-                    Upload your work (image, video, audio, or 3D art), add a
-                    title and description, and customize your NFTs with
-                    properties, stats, and unlockable content.
+                    {formatMessage({ ...messages.ADD_YOUR_NFTS_DESCRIPTION })}
                 </FeatureBoxDescription>
             </FeatureBoxItemWrapper>
             <FeatureBoxItemWrapper>
                 <FeatureBoxIconWrapper>
                     <OnSaleIcon />
                 </FeatureBoxIconWrapper>
-                <FeatureBoxTitle>List them for sale</FeatureBoxTitle>
+                <FeatureBoxTitle>
+                    {formatMessage({ ...messages.LIST_THEM_FOR_SALE })}
+                </FeatureBoxTitle>
                 <FeatureBoxDescription>
-                    Choose between auctions, fixed-price listings, and
-                    declining-price listings. You choose how you want to sell
-                    your NFTs, and we help you sell
+                    {formatMessage({
+                        ...messages.LIST_THEM_FOR_SALE_DESCRIPTION,
+                    })}
                 </FeatureBoxDescription>
             </FeatureBoxItemWrapper>
         </FeatureBoxWrapper>

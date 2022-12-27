@@ -30,5 +30,9 @@ export const OutLinedButton = styled.button<{
     width: ${props => props.size === "sm" && "93px"};
     width: ${props => props.size === "md" && "144px"};
     width: ${props => props.size === "lg" && "200px"};
+    font-size: ${props => props.size === "xs" && "9px"};
+    font-size: ${props => props.size === "sm" && "12px"};
+    font-size: ${props => props.size === "md" && "20px"};
+    font-size: ${props => props.size === "lg" && "20px"};
     ${tw`bg-white text-black hover:(bg-purple-5 text-white) whitespace-nowrap transition-all dark:(bg-darkMode-white text-black) dark:hover:(bg-darkMode-purple-5 text-darkMode-white) border border-purple-5  rounded font-medium `}
 `;

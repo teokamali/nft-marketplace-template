@@ -1,6 +1,7 @@
 import Image from "next/image";
 import StarIcon from "public/Icon/StarIcon";
 import React from "react";
+import { useIntl } from "react-intl";
 import Button from "src/components/Common/Button/Button";
 import { Mobile, ExceptMobile } from "src/utils/BreakPoints";
 import {
@@ -16,10 +17,12 @@ import {
     StyledStar,
     StyledStarWrapper,
 } from "./HeroStyles";
+import messages from "./messages";
 
 type Props = {};
 
 const Hero = () => {
+    const { formatMessage } = useIntl();
     return (
         <HeroWrapper>
             {/* stars */}
@@ -49,29 +52,25 @@ const Hero = () => {
                 />
             </HeroFigureDesktop>
             <HeroDescriptionWrapper>
-                <HeroTitle>
-                    NFT Market Place - Explore , By & Sell Digital Items
-                </HeroTitle>
+                <HeroTitle>{formatMessage({ ...messages.TITLE })}</HeroTitle>
                 <HeroDescription>
-                    Discover unique NFTs (Digital collectibles) list your items
-                    to sell, buy other unique items like visual arts, games,
-                    video & music.
+                    {formatMessage({ ...messages.DESCRIPTION })}
                 </HeroDescription>
                 <ButtonsWrapper>
                     <Mobile>
                         <Button variant="normal" size="xs">
-                            Explore
+                            {formatMessage({ ...messages.EXPLORE })}
                         </Button>
                         <Button variant="outlined" size="xs">
-                            Create
+                            {formatMessage({ ...messages.CREATE })}
                         </Button>
                     </Mobile>
                     <ExceptMobile>
                         <Button variant="normal" size="md">
-                            Explore
+                            {formatMessage({ ...messages.EXPLORE })}
                         </Button>
                         <Button variant="outlined" size="md">
-                            Create
+                            {formatMessage({ ...messages.CREATE })}
                         </Button>
                     </ExceptMobile>
                 </ButtonsWrapper>

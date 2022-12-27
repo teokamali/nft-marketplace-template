@@ -1,5 +1,6 @@
 import { useFormik } from "formik";
 import React from "react";
+import { useIntl } from "react-intl";
 import Button from "src/components/Common/Button/Button";
 import Input from "src/components/Common/Input/Input";
 import { emailValidation } from "src/validations/emailValidation";
@@ -10,12 +11,16 @@ import {
     NewsLetterForm,
     NewsLetterBlueText,
 } from "./StyledNewsLetter";
+import messages from "./messages";
+
 interface IProps {}
 interface NewsLetterForm {
     email: string;
 }
 
 function NewsLetter({}: IProps) {
+    const { formatMessage } = useIntl();
+
     // formik setup for login
     const initialValues: NewsLetterForm = {
         email: "",
@@ -33,10 +38,11 @@ function NewsLetter({}: IProps) {
     };
     return (
         <NewsLetterWrapper>
-            <NewsLetterTitle>Stay in the loop</NewsLetterTitle>
+            <NewsLetterTitle>
+                {formatMessage({ ...messages.TITLE })}
+            </NewsLetterTitle>
             <NewsLetterDescription>
-                Join our mailing list to stay in the loop with our newest
-                feature releases, NFT drops, and tips and tricks for navigating
+                {formatMessage({ ...messages.DESCRIPTION })}
                 <NewsLetterBlueText> NFTMP.IO.</NewsLetterBlueText>
             </NewsLetterDescription>
             <NewsLetterForm onSubmit={formik.handleSubmit}>
@@ -50,7 +56,9 @@ function NewsLetter({}: IProps) {
                             email: e.target.value,
                         }));
                     }}
-                    placeholder="Please Enter Your Email..."
+                    placeholder={formatMessage({
+                        ...messages.INPUT_PLACEHOLDER,
+                    })}
                     error={
                         formik.errors.email && formik.touched.email
                             ? formik.errors.email
@@ -64,7 +72,7 @@ function NewsLetter({}: IProps) {
                     //@ts-ignore
                     style={{ borderRadius: "8px" }}
                 >
-                    Sign Up
+                    {formatMessage({ ...messages.SIGN_UP })}
                 </Button>
             </NewsLetterForm>
         </NewsLetterWrapper>
