@@ -8,5 +8,5 @@ export const LayoutMain = styled.main`
     ${tw`w-full`}
 `;
 export const Container = styled.div`
-    ${tw`w-full max-w-[1640px] px-2.5 mx-auto `}
+    ${tw`w-full max-w-[1640px] px-7 mx-auto `}
 `;
