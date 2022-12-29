@@ -12,12 +12,14 @@ const Layout: ReactFC = ({ children }) => {
         <LayoutWrapper>
             <header>
                 <Header />
-                <Mobile>
-                    <MobileHeader />
-                </Mobile>
-                <ExceptMobile>
-                    <DefaultHeader />
-                </ExceptMobile>
+                <Container>
+                    <Mobile>
+                        <MobileHeader />
+                    </Mobile>
+                    <ExceptMobile>
+                        <DefaultHeader />
+                    </ExceptMobile>
+                </Container>
             </header>
             <LayoutMain>{children}</LayoutMain>
             <footer>
