@@ -14,7 +14,7 @@ module.exports = {
             button: "16px",
             "body-text-normal": "20px",
             "body-text-small": "16px",
-            title1: "20px", 
+            title1: "20px",
             title2: "16px",
             title3: "12px",
         },
@@ -56,7 +56,10 @@ module.exports = {
             backgroundImage: {
                 "layout-bg": "url('/images/bg-light.png')",
                 "layout-bg-dark": "url('/images/bg-dark.png')",
+                "layout-bg-footer-dark": "url('/images/FooterBackground.png')",
+                "footer-bg": "url('/images/FooterLightBackground.png')",
             },
+
         },
     },
     plugins: [],

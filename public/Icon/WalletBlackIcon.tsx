@@ -1,5 +1,5 @@
 import React from "react"
-const WalletIcon = () => {
+const WalletBlackIcon = () => {
     return (
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M20 16V20C20 20.2652 19.8946 20.5196 19.7071 20.7071C19.5196 20.8946 19.2652 21 19 21H4C3.73478 21 3.48043 20.8946 3.29289 20.7071C3.10536 20.5196 3 20.2652 3 20V8C3 7.73478 3.10536 7.48043 3.29289 7.29289C3.48043 7.10536 3.73478 7 4 7H19C19.2652 7 19.5196 7.10536 19.7071 7.29289C19.8946 7.48043 20 7.73478 20 8V12" stroke="#212121" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
@@ -9,4 +9,4 @@ const WalletIcon = () => {
 
     )
 }
-export default WalletIcon
+export default WalletBlackIcon
