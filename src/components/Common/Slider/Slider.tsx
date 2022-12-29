@@ -21,9 +21,6 @@ const Slider: ReactFC = ({ children, ...props }) => {
                 className="mySlider"
                 slidesPerView={2}
                 spaceBetween={20}
-                navigation={{
-                    enabled: true,
-                }}
                 grabCursor
                 modules={[Navigation]}
                 onSwiper={s => {

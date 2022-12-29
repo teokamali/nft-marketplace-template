@@ -1,7 +1,9 @@
 import Image from "next/image";
 import StarIcon from "public/Icon/StarIcon";
 import React from "react";
+import { useIntl } from "react-intl";
 import Button from "src/components/Common/Button/Button";
+import { Mobile, ExceptMobile } from "src/utils/BreakPoints";
 import {
     ButtonsWrapper,
     HeroDescription,
@@ -15,10 +17,12 @@ import {
     StyledStar,
     StyledStarWrapper,
 } from "./HeroStyles";
+import messages from "./messages";
 
 type Props = {};
 
 const Hero = () => {
+    const { formatMessage } = useIntl();
     return (
         <HeroWrapper>
             {/* stars */}
@@ -48,21 +52,27 @@ const Hero = () => {
                 />
             </HeroFigureDesktop>
             <HeroDescriptionWrapper>
-                <HeroTitle>
-                    NFT Market Place - Explore , By & Sell Digital Items
-                </HeroTitle>
+                <HeroTitle>{formatMessage({ ...messages.TITLE })}</HeroTitle>
                 <HeroDescription>
-                    Discover unique NFTs (Digital collectibles) list your items
-                    to sell, buy other unique items like visual arts, games,
-                    video & music.
+                    {formatMessage({ ...messages.DESCRIPTION })}
                 </HeroDescription>
                 <ButtonsWrapper>
-                    <Button variant="normal" isLarge>
-                        Explore
-                    </Button>
-                    <Button variant="outlined" isLarge>
-                        Create
-                    </Button>
+                    <Mobile>
+                        <Button variant="normal" size="xs">
+                            {formatMessage({ ...messages.EXPLORE })}
+                        </Button>
+                        <Button variant="outlined" size="xs">
+                            {formatMessage({ ...messages.CREATE })}
+                        </Button>
+                    </Mobile>
+                    <ExceptMobile>
+                        <Button variant="normal" size="md">
+                            {formatMessage({ ...messages.EXPLORE })}
+                        </Button>
+                        <Button variant="outlined" size="md">
+                            {formatMessage({ ...messages.CREATE })}
+                        </Button>
+                    </ExceptMobile>
                 </ButtonsWrapper>
             </HeroDescriptionWrapper>
         </HeroWrapper>

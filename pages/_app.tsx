@@ -3,7 +3,7 @@ import { ChainId, ThirdwebProvider } from "@thirdweb-dev/react";
 import { Provider } from "react-redux";
 import store, { persistor } from "src/redux/store";
 import { PersistGate } from "redux-persist/integration/react";
-import LocalizationProvider from "../src/components/LocalizationProvider";
+import LocalizationProvider from "src/components/Common/LocalizationProvider";
 import Layout from "src/components/Common/Layout/Layout";
 import { ThemeProvider } from "next-themes";
 // Import Swiper styles

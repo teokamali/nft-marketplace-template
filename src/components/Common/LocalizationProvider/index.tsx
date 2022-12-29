@@ -1,6 +1,6 @@
 import React from "react";
 import { IntlProvider } from "react-intl";
-import { useAppSelector } from "../../redux/hooks";
+import { useAppSelector } from "../../../redux/hooks";
 
 export interface Props {
     messages: any;

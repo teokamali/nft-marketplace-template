@@ -28,10 +28,10 @@ export const HeroDescription = styled.p`
     ${tw`light:text-black dark:text-smokeWhite`}
 `;
 export const ButtonsWrapper = styled.div`
-    ${tw`light:text-black dark:text-smokeWhite flex items-center gap-2 pl-1`}
+    ${tw`light:text-black dark:text-smokeWhite flex items-stretch gap-2 pl-1`}
 `;
 export const StyledStarWrapper = styled.div`
-    ${tw`absolute hidden xl:block w-full h-full top-0 right-0 left-0 z-10`}
+    ${tw`absolute hidden xl:block w-full h-full top-0 right-0 left-0 `}
 `;
 export const StyledStar = styled.span<{
     top?: string;

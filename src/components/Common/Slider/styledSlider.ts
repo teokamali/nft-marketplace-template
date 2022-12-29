@@ -2,8 +2,9 @@ import styled from "styled-components";
 import tw from "twin.macro";
 
 export const SliderWrapper = styled.div`
-    ${tw`h-full w-full relative block z-10 `}
+    ${tw`h-full w-full mx-auto relative block z-10  `}
 `;
+
 export const ButtonNext = styled.div`
     ${tw`w-14 h-14 absolute top-1/2 -right-7 text-white cursor-pointer bg-purple-5 rounded-full z-30`}
     background-image: url(/svg/chervon-right.svg);

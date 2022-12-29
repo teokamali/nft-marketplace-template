@@ -1,5 +1,8 @@
 import React from "react";
+import { Container } from "src/components/Common/Layout/LayoutStyles";
+import FeatureBox from "src/components/Home/FeatureBox/FeatureBox";
 import Hero from "src/components/Home/Hero/Hero";
+import NewsLetter from "src/components/Home/NewsLetter/NewsLetter";
 import PopularNfts from "src/components/Home/PopularNfts/PopularNfts";
 
 function HomePage() {
@@ -55,8 +58,12 @@ function HomePage() {
     ];
     return (
         <div>
-            <Hero />
-            <PopularNfts data={data} />
+            <Container>
+                <Hero />
+                <PopularNfts data={data} />
+                <FeatureBox />
+            </Container>
+            <NewsLetter />
         </div>
     );
 }
