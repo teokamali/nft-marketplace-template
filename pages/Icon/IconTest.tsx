@@ -32,9 +32,8 @@ import WhatsappIcon from "public/Icon/WhatsappIcon";
 
 export default function IconTest() {
     return (
-        <div style={{ display: "flex", flexDirection: "row", gap: "20px" }}>
+        <>
 
-            <h2 className="text-buttun">aaaaa</h2>
             <FolderIcon />
             <LockIcon />
             <CheckCircleIcon />
@@ -65,6 +64,6 @@ export default function IconTest() {
             <TwitterIcon />
             <WhatsappIcon />
             ac
-        </div>
+        </>
     );
 }
