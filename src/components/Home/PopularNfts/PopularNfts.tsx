@@ -1,6 +1,4 @@
 import React from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation } from "swiper";
 import Card from "./Card/Card";
 import {
     MobilePopularNftsWrapper,
@@ -8,6 +6,10 @@ import {
     PopularNftsWrapper,
 } from "./StyledPopularNft";
 import { ExceptMobile, Mobile } from "src/utils/BreakPoints";
+import Slider from "src/components/Common/Slider/Slider";
+import { SwiperSlide } from "swiper/react";
+import { useIntl } from "react-intl";
+import messages from "./messages";
 
 // types
 interface testNft {
@@ -21,30 +23,14 @@ type Props = {
 };
 
 const PopularNfts = ({ data }: Props) => {
+    const { formatMessage } = useIntl();
     return (
         <PopularNftsWrapper>
-            <PopularNftsTitle>Notable Drops</PopularNftsTitle>
+            <PopularNftsTitle>
+                {formatMessage({ ...messages.Notable_Drops })}
+            </PopularNftsTitle>
             <ExceptMobile>
-                <Swiper
-                    slidesPerView={2}
-                    spaceBetween={20}
-                    navigation={{
-                        enabled: true,
-                    }}
-                    grabCursor
-                    modules={[Navigation]}
-                    className="mySwiper"
-                    breakpoints={{
-                        768: {
-                            slidesPerView: 3,
-                            spaceBetween: 20,
-                        },
-                        1024: {
-                            slidesPerView: 4,
-                            spaceBetween: 50,
-                        },
-                    }}
-                >
+                <Slider>
                     {data.map(nft => (
                         <SwiperSlide key={nft.id}>
                             <Card
@@ -54,7 +40,7 @@ const PopularNfts = ({ data }: Props) => {
                             />
                         </SwiperSlide>
                     ))}
-                </Swiper>
+                </Slider>
             </ExceptMobile>
             <Mobile>
                 <MobilePopularNftsWrapper>
