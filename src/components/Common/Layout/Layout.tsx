@@ -2,7 +2,7 @@ import React, { FC, ReactNode, useEffect } from "react";
 import { ReactFC } from "src/types/types";
 import Header from "../Header/Header";
 import { Container, LayoutMain, LayoutWrapper } from "./LayoutStyles";
-import { ExceptMobile, Mobile } from "src/utils/BreakPoints";
+import { Desktop, ExceptMobile, Mobile, Tablet } from "src/utils/BreakPoints";
 import MobileHeader from "src/components/Header/MobileHeader/MobileHeader";
 import DefaultHeader from "src/components/Header/DefaultHeader/DefaultHeader";
 import DefaultFooter from "src/components/Footer/DefaultFooter/DefaultFooter";
@@ -16,9 +16,12 @@ const Layout: ReactFC = ({ children }) => {
                     <Mobile>
                         <MobileHeader />
                     </Mobile>
-                    <ExceptMobile>
+                    <Tablet>
+                        <MobileHeader />
+                    </Tablet>
+                    <Desktop>
                         <DefaultHeader />
-                    </ExceptMobile>
+                    </Desktop>
                 </Container>
             </header>
             <LayoutMain>{children}</LayoutMain>

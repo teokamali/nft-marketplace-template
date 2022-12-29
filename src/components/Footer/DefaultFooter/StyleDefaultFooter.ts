@@ -3,7 +3,7 @@ import tw from "twin.macro";
 const bg = "./images/FooterBackground.png";
 
 export const SectionWraper = styled.div`
-    ${tw`w-full  flex flex-row   h-[358px]   pt-[90px] pl-[156px] bg-footer-bg dark:bg-layout-bg-footer-dark bg-no-repeat bg-center `}
+    ${tw`w-full flex flex-row py-8 px-36 bg-footer-bg dark:bg-layout-bg-footer-dark bg-no-repeat bg-center `}
 `;
 export const DescriptionSection = styled.div`
     ${tw`  flex flex-col gap-[10px] `}
