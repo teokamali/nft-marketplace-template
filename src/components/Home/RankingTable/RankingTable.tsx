@@ -1,6 +1,8 @@
 import CheckCircleIcon from "public/Icon/CheckCircleIcon";
 import React from "react";
+import Button from "src/components/Common/Button/Button";
 import abbrNum from "src/utils/abbrNum";
+import { Mobile, ExceptMobile } from "src/utils/BreakPoints";
 import PumpOrDump from "./PumpOrDump/PumpOrDump";
 import {
     StyledRankingTable,
@@ -16,6 +18,8 @@ import {
     StyledRankingCollectionWrapper,
     StyledVerifiedIconWrapper,
     StyledRankingCollectionName,
+    StyledRankingNormalTd,
+    StyledRankingTableButton,
 } from "./StyledRankingTable";
 
 interface IProps {
@@ -88,32 +92,46 @@ function RankingTable({ data }: IProps) {
                                         )}
                                     </StyledRankingCollectionWrapper>
                                 </StyledRankingTd>
-                                <td>
+                                <StyledRankingNormalTd>
                                     {abbrNum({
                                         number: item.volume,
                                         decPlaces: 0,
                                     })}
-                                </td>
+                                </StyledRankingNormalTd>
                                 <PumpOrDump data={item.last_24h} />
                                 <PumpOrDump data={item.last_7D} />
-                                <td>{item.floorPrice} Eth</td>
-                                <td>
+                                <StyledRankingNormalTd>
+                                    {item.floorPrice} Eth
+                                </StyledRankingNormalTd>
+                                <StyledRankingNormalTd>
                                     {abbrNum({
                                         number: item.Owner,
                                         decPlaces: 0,
                                     })}
-                                </td>
-                                <td>
+                                </StyledRankingNormalTd>
+                                <StyledRankingNormalTd>
                                     {abbrNum({
                                         number: item.items,
                                         decPlaces: 0,
                                     })}
-                                </td>
+                                </StyledRankingNormalTd>
                             </StyledRankingTableRow>
                         );
                     })}
                 </StyledRankingTableBody>
             </StyledRankingTable>
+            <StyledRankingTableButton>
+                <Mobile>
+                    <Button size="xs" variant="normal">
+                        Go to Ranking
+                    </Button>
+                </Mobile>
+                <ExceptMobile>
+                    <Button size="md" variant="normal">
+                        Go to Ranking
+                    </Button>
+                </ExceptMobile>
+            </StyledRankingTableButton>
         </StyledRankingTableWrapper>
     );
 }
