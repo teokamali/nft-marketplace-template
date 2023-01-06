@@ -31,6 +31,9 @@ export const StyledRankingTableTheadTH = styled.th`
 `;
 export const StyledRankingTableRow = styled.tr`
     ${tw`border-b border-[rgba(0, 0, 0, 0.2)] text-left`}
+    &:last-child {
+        border: 0;
+    }
 `;
 export const StyledRankingTd = styled.td`
     ${tw`py-4`}
@@ -38,6 +41,9 @@ export const StyledRankingTd = styled.td`
 
 export const StyledRankingNumber = styled.span`
     ${tw`text-title1 font-medium`}
+`;
+export const StyledRankingCollectionName = styled.span`
+    ${tw`text-title1 font-semibold`}
 `;
 
 export const StyledRankingCollectionWrapper = styled.div`

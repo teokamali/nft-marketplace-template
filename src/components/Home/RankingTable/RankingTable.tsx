@@ -1,6 +1,7 @@
 import CheckCircleIcon from "public/Icon/CheckCircleIcon";
 import React from "react";
 import abbrNum from "src/utils/abbrNum";
+import PumpOrDump from "./PumpOrDump/PumpOrDump";
 import {
     StyledRankingTable,
     StyledRankingTableTitle,
@@ -14,6 +15,7 @@ import {
     StyledRankingTableRow,
     StyledRankingCollectionWrapper,
     StyledVerifiedIconWrapper,
+    StyledRankingCollectionName,
 } from "./StyledRankingTable";
 
 interface IProps {
@@ -63,11 +65,6 @@ function RankingTable({ data }: IProps) {
                 </StyledRankingTableThead>
                 <StyledRankingTableBody>
                     {data.map((item, i) => {
-                        const volume = abbrNum({
-                            number: item.volume,
-                            decPlaces: 0,
-                        });
-
                         return (
                             <StyledRankingTableRow key={i}>
                                 <StyledRankingTd>
@@ -81,7 +78,9 @@ function RankingTable({ data }: IProps) {
                                             src={item.avatar}
                                             alt="avatar"
                                         />
-                                        <span>{item.name}</span>
+                                        <StyledRankingCollectionName>
+                                            {item.name}
+                                        </StyledRankingCollectionName>
                                         {item.isVerified && (
                                             <StyledVerifiedIconWrapper>
                                                 <CheckCircleIcon />
@@ -89,12 +88,27 @@ function RankingTable({ data }: IProps) {
                                         )}
                                     </StyledRankingCollectionWrapper>
                                 </StyledRankingTd>
-                                <td>{volume}</td>
-                                <td>{item.last_24h}%</td>
-                                <td>{item.last_7D}%</td>
-                                <td>{item.floorPrice}</td>
-                                <td>{item.Owner}</td>
-                                <td>{item.items}</td>
+                                <td>
+                                    {abbrNum({
+                                        number: item.volume,
+                                        decPlaces: 0,
+                                    })}
+                                </td>
+                                <PumpOrDump data={item.last_24h} />
+                                <PumpOrDump data={item.last_7D} />
+                                <td>{item.floorPrice} Eth</td>
+                                <td>
+                                    {abbrNum({
+                                        number: item.Owner,
+                                        decPlaces: 0,
+                                    })}
+                                </td>
+                                <td>
+                                    {abbrNum({
+                                        number: item.items,
+                                        decPlaces: 0,
+                                    })}
+                                </td>
                             </StyledRankingTableRow>
                         );
                     })}
