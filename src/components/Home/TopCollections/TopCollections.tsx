@@ -1,12 +1,15 @@
 import ChevronDownIcon from "public/Icon/ChevronDownIcon";
-import React from "react";
+import React, { useRef, useState } from "react";
 import { useIntl } from "react-intl";
+import { useOnClickOutside } from "src/hooks/useOnClickOutside";
 import messages from "./messages";
 import {
     StyledTopCollectionContent,
+    StyledTopCollectionDropdownButton,
+    StyledTopCollectionDropdownItem,
+    StyledTopCollectionDropdownList,
     StyledTopCollectionDropdownWrapper,
     StyledTopCollectionIconWrapper,
-    StyledTopCollectionMainSubTitle,
     StyledTopCollectionMainTitle,
     StyledTopCollectionSubTitle,
     StyledTopCollectionsWrapper,
@@ -26,19 +29,57 @@ interface IProps {
 
 const TopCollections = ({ data }: IProps) => {
     const { formatMessage } = useIntl();
+    const [dropDown, setDropDown] = useState("last 24 hours");
+    const [showDropDown, setShowDropDown] = useState(false);
+
+    const dropdownRef = useRef<any>(null);
+
+    const toggleDropdown = () => {
+        setShowDropDown(prev => !prev);
+    };
+    useOnClickOutside(dropdownRef, () => {
+        setShowDropDown(false);
+    });
+
     return (
         <StyledTopCollectionsWrapper>
             <StyledTopCollectionTitleWrapper>
                 <StyledTopCollectionMainTitle>
                     {formatMessage({ ...messages.TITLE })}
                 </StyledTopCollectionMainTitle>
-                <StyledTopCollectionDropdownWrapper>
-                    <StyledTopCollectionMainSubTitle>
-                        last 24 hours
-                    </StyledTopCollectionMainSubTitle>
-                    <StyledTopCollectionIconWrapper>
-                        <ChevronDownIcon />
-                    </StyledTopCollectionIconWrapper>
+                <StyledTopCollectionDropdownWrapper ref={dropdownRef}>
+                    <StyledTopCollectionDropdownButton onClick={toggleDropdown}>
+                        {dropDown}
+                        <StyledTopCollectionIconWrapper>
+                            <ChevronDownIcon />
+                        </StyledTopCollectionIconWrapper>
+                    </StyledTopCollectionDropdownButton>
+                    <StyledTopCollectionDropdownList show={showDropDown}>
+                        <StyledTopCollectionDropdownItem
+                            onClick={e => {
+                                setDropDown(e.currentTarget.innerText);
+                                toggleDropdown();
+                            }}
+                        >
+                            last 24 hours
+                        </StyledTopCollectionDropdownItem>
+                        <StyledTopCollectionDropdownItem
+                            onClick={e => {
+                                setDropDown(e.currentTarget.innerText);
+                                toggleDropdown();
+                            }}
+                        >
+                            last 7 days
+                        </StyledTopCollectionDropdownItem>
+                        <StyledTopCollectionDropdownItem
+                            onClick={e => {
+                                setDropDown(e.currentTarget.innerText);
+                                toggleDropdown();
+                            }}
+                        >
+                            last 30 days
+                        </StyledTopCollectionDropdownItem>
+                    </StyledTopCollectionDropdownList>
                 </StyledTopCollectionDropdownWrapper>
             </StyledTopCollectionTitleWrapper>
             <StyledTopCollectionSubTitle>

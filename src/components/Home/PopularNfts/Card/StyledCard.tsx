@@ -7,7 +7,7 @@ export const CardWrapper = styled.div`
 export const CarOverLay = styled.div<{ url: string }>`
     background-image: ${props => props.url && `url(${props.url})`};
     ${tw`w-full h-full absolute top-0 left-0 z-10 bg-no-repeat bg-cover`};
-    filter: blur(4px);
+    filter: blur(10px);
 `;
 export const CardContent = styled.div`
     ${tw`w-full h-full absolute top-0 left-0 z-20 px-[50px] py-5 flex flex-col items-start`}
