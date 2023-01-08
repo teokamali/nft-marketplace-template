@@ -1,5 +1,7 @@
 import React from "react";
+import { useIntl } from "react-intl";
 import PumpOrDump from "src/components/Common/PumpOrDump/PumpOrDump";
+import messages from "./messages";
 import {
     StyledPumpOrDumpWrapper,
     StyledTopCollectionFloorPrice,
@@ -24,6 +26,7 @@ interface IProps {
     rank: number;
 }
 const TopCollectionItem = ({ itemData, rank }: IProps) => {
+    const { formatMessage } = useIntl();
     return (
         <StyledTopCollectionItemWrapper>
             <StyledTopCollectionItemRank>{rank}</StyledTopCollectionItemRank>
@@ -37,7 +40,7 @@ const TopCollectionItem = ({ itemData, rank }: IProps) => {
                 </StyledTopCollectionName>
                 <StyledTopCollectionFloorPriceWrapper>
                     <StyledTopCollectionFloorPriceTitle>
-                        Floor Price:
+                        {formatMessage({ ...messages.FLOOR_PRICE })}
                     </StyledTopCollectionFloorPriceTitle>
                     <StyledTopCollectionFloorPrice>
                         {itemData.floor_price} Eth

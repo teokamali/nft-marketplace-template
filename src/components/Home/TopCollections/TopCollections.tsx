@@ -1,5 +1,7 @@
 import ChevronDownIcon from "public/Icon/ChevronDownIcon";
 import React from "react";
+import { useIntl } from "react-intl";
+import messages from "./messages";
 import {
     StyledTopCollectionContent,
     StyledTopCollectionDropdownWrapper,
@@ -23,11 +25,12 @@ interface IProps {
 }
 
 const TopCollections = ({ data }: IProps) => {
+    const { formatMessage } = useIntl();
     return (
         <StyledTopCollectionsWrapper>
             <StyledTopCollectionTitleWrapper>
                 <StyledTopCollectionMainTitle>
-                    Top collections over
+                    {formatMessage({ ...messages.TITLE })}
                 </StyledTopCollectionMainTitle>
                 <StyledTopCollectionDropdownWrapper>
                     <StyledTopCollectionMainSubTitle>
@@ -39,7 +42,7 @@ const TopCollections = ({ data }: IProps) => {
                 </StyledTopCollectionDropdownWrapper>
             </StyledTopCollectionTitleWrapper>
             <StyledTopCollectionSubTitle>
-                Collecting digital art is the best hobby ever.
+                {formatMessage({ ...messages.SUBTITLE })}
             </StyledTopCollectionSubTitle>
             <StyledTopCollectionContent>
                 {data.map((item, i) => (

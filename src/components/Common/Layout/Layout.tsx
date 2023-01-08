@@ -39,7 +39,10 @@ const Layout: ReactFC = ({ children }) => {
                 </Container>
             </header>
 
-            <LayoutMain isWalletDropDownOpen={wallet} onClick={walletCloseHandler}>
+            <LayoutMain
+                isWalletDropDownOpen={wallet}
+                onClick={walletCloseHandler}
+            >
                 {children}
             </LayoutMain>
 

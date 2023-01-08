@@ -2,7 +2,7 @@ import styled from "styled-components";
 import tw from "twin.macro";
 
 export const StyledTopCollectionsWrapper = styled.div`
-    ${tw`w-full text-black dark:text-smokeWhite p-6`}
+    ${tw`w-full text-black dark:text-smokeWhite p-6 mt-6`}
 `;
 export const StyledTopCollectionTitleWrapper = styled.div`
     ${tw`flex items-center justify-center gap-1`}
@@ -18,11 +18,11 @@ export const StyledTopCollectionIconWrapper = styled.div`
     ${tw`w-6 h-6 text-purple-6 dark:text-darkMode-purple-7`}
 `;
 export const StyledTopCollectionMainTitle = styled.h4`
-    ${tw`text-[31px] font-semibold drop-shadow-lg shadow-[rgba(0, 0, 0, 0.15)]`}
+    ${tw`text-title1 md:text-[31px] font-semibold drop-shadow-lg shadow-[rgba(0, 0, 0, 0.15)]`}
 `;
 export const StyledTopCollectionMainSubTitle = styled.span`
-    ${tw`text-[25px] text-purple-6 font-medium dark:text-darkMode-purple-7`}
+    ${tw`text-base md:text-[25px] text-purple-6 font-medium dark:text-darkMode-purple-7`}
 `;
 export const StyledTopCollectionContent = styled.div`
-    ${tw`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 py-14`}
+    ${tw`grid justify-items-center grid-cols-1 md:grid-cols-2 xl:grid-cols-4 py-14`}
 `;
