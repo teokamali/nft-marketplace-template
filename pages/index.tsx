@@ -5,6 +5,7 @@ import Hero from "src/components/Home/Hero/Hero";
 import NewsLetter from "src/components/Home/NewsLetter/NewsLetter";
 import PopularNfts from "src/components/Home/PopularNfts/PopularNfts";
 import RankingTable from "src/components/Home/RankingTable/RankingTable";
+import TopCollections from "src/components/Home/TopCollections/TopCollections";
 
 function HomePage() {
     const data = [
@@ -114,12 +115,99 @@ function HomePage() {
             volume: 103200,
         },
     ];
+    const topCollections = [
+        {
+            avatar: "/images/nft-4.png",
+            name: "The NFT",
+            floor_price: 0.01,
+            pump: "+205.9",
+            items: 2048,
+        },
+        {
+            avatar: "/images/nft-4.png",
+            name: "The NFT",
+            floor_price: 0.01,
+            pump: "+205.9",
+            items: 2048,
+        },
+        {
+            avatar: "/images/nft-4.png",
+            name: "The NFT",
+            floor_price: 0.01,
+            pump: "+205.9",
+            items: 2048,
+        },
+        {
+            avatar: "/images/nft-4.png",
+            name: "The NFT",
+            floor_price: 0.01,
+            pump: "+205.9",
+            items: 2048,
+        },
+        {
+            avatar: "/images/nft-4.png",
+            name: "The NFT",
+            floor_price: 0.01,
+            pump: "+205.9",
+            items: 2048,
+        },
+        {
+            avatar: "/images/nft-4.png",
+            name: "The NFT",
+            floor_price: 0.01,
+            pump: "+205.9",
+            items: 2048,
+        },
+        {
+            avatar: "/images/nft-4.png",
+            name: "The NFT",
+            floor_price: 0.01,
+            pump: "+205.9",
+            items: 2048,
+        },
+        {
+            avatar: "/images/nft-4.png",
+            name: "The NFT",
+            floor_price: 0.01,
+            pump: "+205.9",
+            items: 2048,
+        },
+        {
+            avatar: "/images/nft-4.png",
+            name: "The NFT",
+            floor_price: 0.01,
+            pump: "+205.9",
+            items: 2048,
+        },
+        {
+            avatar: "/images/nft-4.png",
+            name: "The NFT",
+            floor_price: 0.01,
+            pump: "+205.9",
+            items: 2048,
+        },
+        {
+            avatar: "/images/nft-4.png",
+            name: "The NFT",
+            floor_price: 0.01,
+            pump: "+205.9",
+            items: 2048,
+        },
+        {
+            avatar: "/images/nft-4.png",
+            name: "The NFT",
+            floor_price: 0.01,
+            pump: "+205.9",
+            items: 2048,
+        },
+    ];
 
     return (
         <div>
             <Container>
                 <Hero />
                 <PopularNfts data={data} />
+                <TopCollections data={topCollections} />
                 <FeatureBox />
                 <RankingTable data={rankingTableData} />
             </Container>

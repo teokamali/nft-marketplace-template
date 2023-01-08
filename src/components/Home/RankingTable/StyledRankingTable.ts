@@ -2,7 +2,7 @@ import styled from "styled-components";
 import tw from "twin.macro";
 
 export const StyledRankingTableWrapper = styled.div`
-    ${tw`text-black dark:text-white text-center `}
+    ${tw`text-black dark:text-white text-center w-[90%] mx-auto`}
 `;
 export const StyledRankingTableTitle = styled.h5`
     ${tw`font-semibold text-[1rem] lg:text-[1.9375rem] p-6`}
@@ -61,4 +61,7 @@ export const StyledRankingImage = styled.img`
 `;
 export const StyledRankingTableButton = styled.div`
     ${tw`mt-6 lg:mt-24`}
+`;
+export const StyledPumpOrDumpWrapper = styled.div`
+    ${tw`font-medium text-[8px] md:text-base lg:text-title1 inline`}
 `;

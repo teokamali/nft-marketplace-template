@@ -1,9 +1,10 @@
 import CheckCircleIcon from "public/Icon/CheckCircleIcon";
 import React from "react";
+import { useIntl } from "react-intl";
 import Button from "src/components/Common/Button/Button";
+import PumpOrDump from "src/components/Common/PumpOrDump/PumpOrDump";
 import abbrNum from "src/utils/abbrNum";
 import { Mobile, ExceptMobile } from "src/utils/BreakPoints";
-import PumpOrDump from "./PumpOrDump/PumpOrDump";
 import {
     StyledRankingTable,
     StyledRankingTableTitle,
@@ -20,8 +21,9 @@ import {
     StyledRankingCollectionName,
     StyledRankingNormalTd,
     StyledRankingTableButton,
+    StyledPumpOrDumpWrapper,
 } from "./StyledRankingTable";
-
+import messages from "./messages";
 interface IProps {
     data: {
         avatar: string;
@@ -37,33 +39,37 @@ interface IProps {
 }
 
 function RankingTable({ data }: IProps) {
+    const { formatMessage } = useIntl();
+
     return (
         <StyledRankingTableWrapper>
-            <StyledRankingTableTitle>RankingTable</StyledRankingTableTitle>
+            <StyledRankingTableTitle>
+                {formatMessage({ ...messages.RANKING_TABLE })}
+            </StyledRankingTableTitle>
             <StyledRankingTable>
                 <StyledRankingTableThead>
                     <tr>
                         <StyledRankingTableTheadTH>#</StyledRankingTableTheadTH>
                         <StyledRankingTableTheadTH>
-                            Collections
+                            {formatMessage({ ...messages.COLLECTIONS })}
                         </StyledRankingTableTheadTH>
                         <StyledRankingTableTheadTH>
-                            Volume
+                            {formatMessage({ ...messages.VOLUME })}
                         </StyledRankingTableTheadTH>
                         <StyledRankingTableTheadTH>
-                            24H %
+                            {formatMessage({ ...messages.LAST_24H })}
                         </StyledRankingTableTheadTH>
                         <StyledRankingTableTheadTH>
-                            7D %
+                            {formatMessage({ ...messages.LAST_7D })}
                         </StyledRankingTableTheadTH>
                         <StyledRankingTableTheadTH>
-                            Floor Price
+                            {formatMessage({ ...messages.FLOOR_PRICE })}
                         </StyledRankingTableTheadTH>
                         <StyledRankingTableTheadTH>
-                            Owner
+                            {formatMessage({ ...messages.OWNER })}
                         </StyledRankingTableTheadTH>
                         <StyledRankingTableTheadTH>
-                            Items
+                            {formatMessage({ ...messages.ITEMS })}
                         </StyledRankingTableTheadTH>
                     </tr>
                 </StyledRankingTableThead>
@@ -80,7 +86,7 @@ function RankingTable({ data }: IProps) {
                                     <StyledRankingCollectionWrapper>
                                         <StyledRankingImage
                                             src={item.avatar}
-                                            alt="avatar"
+                                            alt={item.name}
                                         />
                                         <StyledRankingCollectionName>
                                             {item.name}
@@ -98,8 +104,16 @@ function RankingTable({ data }: IProps) {
                                         decPlaces: 0,
                                     })}
                                 </StyledRankingNormalTd>
-                                <PumpOrDump data={item.last_24h} />
-                                <PumpOrDump data={item.last_7D} />
+                                <StyledRankingNormalTd>
+                                    <StyledPumpOrDumpWrapper>
+                                        <PumpOrDump data={item.last_24h} />
+                                    </StyledPumpOrDumpWrapper>
+                                </StyledRankingNormalTd>
+                                <StyledRankingNormalTd>
+                                    <StyledPumpOrDumpWrapper>
+                                        <PumpOrDump data={item.last_7D} />
+                                    </StyledPumpOrDumpWrapper>
+                                </StyledRankingNormalTd>
                                 <StyledRankingNormalTd>
                                     {item.floorPrice} Eth
                                 </StyledRankingNormalTd>
@@ -123,12 +137,12 @@ function RankingTable({ data }: IProps) {
             <StyledRankingTableButton>
                 <Mobile>
                     <Button size="xs" variant="normal">
-                        Go to Ranking
+                        {formatMessage({ ...messages.BUTTON })}
                     </Button>
                 </Mobile>
                 <ExceptMobile>
                     <Button size="md" variant="normal">
-                        Go to Ranking
+                        {formatMessage({ ...messages.BUTTON })}
                     </Button>
                 </ExceptMobile>
             </StyledRankingTableButton>
