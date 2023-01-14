@@ -5,8 +5,45 @@ import Hero from "src/components/Home/Hero/Hero";
 import NewsLetter from "src/components/Home/NewsLetter/NewsLetter";
 import PopularNfts from "src/components/Home/PopularNfts/PopularNfts";
 import RankingTable from "src/components/Home/RankingTable/RankingTable";
+import TradingCategories from "src/components/Home/TradingCategories/TradingCategories";
 
 function HomePage() {
+    const TradingCategoriesData = [
+        {
+            id: 1,
+            url: "/images/nft-7.png",
+            text: "Mortimer Crypto Mystic",
+            checked: true
+        },
+        {
+            id: 2,
+            url: "/images/nft-8.png",
+            text: "Mortimer Crypto Mystic",
+        },
+        {
+            id: 3,
+            url: "/images/nft-9.png",
+            text: "Mortimer Crypto Mystic",
+        },
+        {
+            id: 4,
+            url: "/images/nft-7.png",
+            text: "Mortimer Crypto Mystic",
+            checked: true
+        },
+        {
+            id: 5,
+            url: "/images/nft-8.png",
+            text: "Mortimer Crypto Mystic",
+        },
+        {
+            id: 6,
+            url: "/images/nft-9.png",
+            text: "Mortimer Crypto Mystic",
+        },
+
+
+    ]
     const data = [
         {
             id: 1,
@@ -120,8 +157,9 @@ function HomePage() {
             <Container>
                 <Hero />
                 <PopularNfts data={data} />
-                <FeatureBox />
                 <RankingTable data={rankingTableData} />
+                <TradingCategories TradingCategoriesData={TradingCategoriesData} />
+                <FeatureBox />
             </Container>
             <NewsLetter />
         </div>

@@ -3,7 +3,7 @@ import tw from "twin.macro";
 const bg = "./images/FooterBackground.png";
 
 export const SectionWraper = styled.div`
-    ${tw`w-full flex flex-row py-8 px-36 bg-footer-bg dark:bg-layout-bg-footer-dark bg-no-repeat bg-center `}
+    ${tw`w-full flex  flex-row justify-between py-8 px-16 bg-footer-bg dark:bg-layout-bg-footer-dark bg-no-repeat bg-center `}
 `;
 export const DescriptionSection = styled.div`
     ${tw`  flex flex-col gap-[10px] `}
@@ -33,7 +33,7 @@ export const MenuText = styled.span`
     ${tw`font-light text-title2 light:text-black dark:text-smokeWhite cursor-pointer opacity-[70%]`}
 `;
 export const SocialSection = styled.span`
-    ${tw`flex flex-col gap-[10px] ml-[128px]`}
+    ${tw`flex flex-col gap-[10px] `}
 `;
 export const SocialTitle = styled.h6`
     ${tw`font-semibold light:text-black dark:text-white`}

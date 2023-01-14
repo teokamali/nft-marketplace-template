@@ -4,14 +4,27 @@ import { Swiper, useSwiper } from "swiper/react";
 import { Navigation } from "swiper";
 import { ButtonNext, ButtonPrev, SliderWrapper } from "./styledSlider";
 
+interface ISlider {
+    children: any;
+    breakpoints?: any;
+}
 const SwiperButtonNext = ({ onClick }: { onClick: () => void }) => {
     return;
 };
 const SwiperButtonPrev = ({ onClick }: { onClick: () => void }) => {
     return;
 };
-
-const Slider: ReactFC = ({ children, ...props }) => {
+const defaultBreakpoints = {
+    768: {
+        slidesPerView: 3,
+        spaceBetween: 20,
+    },
+    1024: {
+        slidesPerView: 4,
+        spaceBetween: 50,
+    },
+}
+const Slider = ({ children, breakpoints = defaultBreakpoints, ...props }: ISlider) => {
     const [swiperRef, setSwiperRef] = useState<any>();
     const swiper = useSwiper();
 
@@ -26,16 +39,7 @@ const Slider: ReactFC = ({ children, ...props }) => {
                 onSwiper={s => {
                     setSwiperRef(s);
                 }}
-                breakpoints={{
-                    768: {
-                        slidesPerView: 3,
-                        spaceBetween: 20,
-                    },
-                    1024: {
-                        slidesPerView: 4,
-                        spaceBetween: 50,
-                    },
-                }}
+                breakpoints={breakpoints}
                 {...props}
             >
                 {children}

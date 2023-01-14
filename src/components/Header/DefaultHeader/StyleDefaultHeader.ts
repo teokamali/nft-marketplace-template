@@ -8,22 +8,25 @@ export const Title = styled.h6`
     ${tw`font-bold light:text-black dark:text-smokeWhite`}
 `;
 export const SearchBox = styled.form`
-    ${tw`w-[504px] h-[40px] mx-[50px]  `}
+    ${tw`w-[504px] h-[40px] mx-[10px]  `}
 `;
 export const MenuSection = styled.div`
-    ${tw`flex  flex-row gap-[24px] text-title1  items-center  font-bold light:text-black dark:text-smokeWhite`}
+    ${tw`flex flex-row justify-between text-[17px]  gap-[10px] items-center  font-bold light:text-black dark:text-smokeWhite`}
 `;
 export const MenuItem = styled.a`
     ${tw`cursor-pointer font-medium  light:stroke-[#212121] dark:stroke-[#fff] `}
 `;
 export const LanguageVsWalletSection = styled.a`
-    ${tw`flex flex-row gap-[23px] items-center`}
+    ${tw`flex flex-row justify-between gap-[10px] items-center`}
 `;
 export const RoundedButton = styled.button`
-    ${tw`w-[50px] h-[50px] rounded-[50px]  ml-[29px]  bg-gradient-to-t from-[#FCABF4]  to-[#580CFA]`}
+    ${tw`w-[50px] h-[50px]   rounded-[50%]    bg-gradient-to-t from-[#FCABF4]  to-[#580CFA]`}
+`;
+export const ButtonWallet = styled.button`
+    ${tw`light:stroke-[#212121] dark:stroke-[#fff]`}
 `;
 export const DropDounBox = styled.div`
-    ${tw`w-[438px] light:bg-[#fff] dark:bg-[#212121] absolute right-0 top-[91px] border-[#4B4A4A] border-t-[1px] z-10 flex flex-col pl-[20px] py-[21px] rounded-bl-[10px]`}
+    ${tw`max-w-[438px] light:bg-[#fff] dark:bg-[#212121] absolute right-[-30PX] top-[91px] border-[#4B4A4A] border-t-[1px] z-10 flex flex-col pl-[20px] py-[21px] rounded-bl-[10px]`}
 `;
 export const TitleDropDounBox = styled.div`
     ${tw`flex flex-row gap-[14px] light:stroke-[#212121] dark:stroke-[#fff]`}

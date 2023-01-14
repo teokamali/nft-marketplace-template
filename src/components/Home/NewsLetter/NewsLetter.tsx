@@ -13,12 +13,12 @@ import {
 } from "./StyledNewsLetter";
 import messages from "./messages";
 
-interface IProps {}
+interface IProps { }
 interface NewsLetterForm {
     email: string;
 }
 
-function NewsLetter({}: IProps) {
+function NewsLetter({ }: IProps) {
     const { formatMessage } = useIntl();
 
     // formik setup for login
