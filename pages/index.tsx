@@ -2,6 +2,7 @@ import React from "react";
 import { Container } from "src/components/Common/Layout/LayoutStyles";
 import FeatureBox from "src/components/Home/FeatureBox/FeatureBox";
 import Hero from "src/components/Home/Hero/Hero";
+import LiveAuctions from "src/components/Home/LiveAuctions/LiveAuctions";
 import NewsLetter from "src/components/Home/NewsLetter/NewsLetter";
 import PopularNfts from "src/components/Home/PopularNfts/PopularNfts";
 import RankingTable from "src/components/Home/RankingTable/RankingTable";
@@ -208,6 +209,7 @@ function HomePage() {
                 <Hero />
                 <PopularNfts data={data} />
                 <TopCollections data={topCollections} />
+                <LiveAuctions />
                 <FeatureBox />
                 <RankingTable data={rankingTableData} />
             </Container>
