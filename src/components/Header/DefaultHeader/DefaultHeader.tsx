@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import Input from "../../Input/Input";
 import {
+    ButtonWallet,
     DescriptionDropDoun,
     DropDounBox,
     LanguageVsWalletSection,
@@ -27,8 +28,12 @@ import { useTheme } from "next-themes";
 import { openWalletDropDown } from "src/redux/slices/modals/modalsSlice";
 import { useDispatch } from "react-redux";
 import { useAppSelector } from "src/redux/hooks";
+import { useIntl } from "react-intl";
+import messages from "../messages";
 
 const DefaultHeader = () => {
+    const { formatMessage } = useIntl();
+    const [search, setSearch] = useState("")
     const { wallet } = useAppSelector(state => state.modals);
     const dispatch = useDispatch();
     const handleOpen = () => {
@@ -38,12 +43,12 @@ const DefaultHeader = () => {
 
     return (
         <Section>
-            <Title>NFTMarketplace</Title>
+            <Title>{formatMessage({ ...messages.NFT_MARKETPLACE })}</Title>
             <SearchBox>
                 <form className="flex items-center">
                     <Input
-                        value=""
-                        onChange={() => {}}
+                        value={search}
+                        onChange={(e) => { setSearch(e.target.value) }}
                         placeholder="Search items , collections and accounts"
                         type="text"
                         inputMode="search"
@@ -59,13 +64,13 @@ const DefaultHeader = () => {
                 </form>
             </SearchBox>
             <MenuSection>
-                <MenuItem>Home</MenuItem>
-                <MenuItem>Create an item</MenuItem>
-                <MenuItem>Explore</MenuItem>
-                <MenuItem>Community</MenuItem>
-                <MenuItem>Resource</MenuItem>
+                <MenuItem>{formatMessage({ ...messages.HOME })}</MenuItem>
+                <MenuItem style={{ textOverflow: "ellipsis", overflow: "hidden", whiteSpace: "nowrap" }}> {formatMessage({ ...messages.CREATE_AN_ITEM })}</MenuItem>
+                <MenuItem>{formatMessage({ ...messages.EXPLORE })}</MenuItem>
+                <MenuItem>{formatMessage({ ...messages.COMMUNITY })}</MenuItem>
+                <MenuItem>{formatMessage({ ...messages.RESOURECE })}</MenuItem>
                 <LanguageVsWalletSection>
-                    <MenuItem>AR</MenuItem>
+                    <MenuItem>{formatMessage({ ...messages.AR })}</MenuItem>
                     <div
                         style={{
                             width: "1px",
@@ -73,9 +78,9 @@ const DefaultHeader = () => {
                             background: "#C0BABA",
                         }}
                     />
-                    <button onClick={handleOpen}>
+                    <ButtonWallet onClick={handleOpen}>
                         <WalletWhiteIcon />
-                    </button>
+                    </ButtonWallet>
                     <MenuItem>
                         {wallet && (
                             <DropDounBox>
@@ -110,12 +115,11 @@ const DefaultHeader = () => {
                                         />
                                     </svg>
                                     <TitleDropDounText>
-                                        My Wallet
+                                        {formatMessage({ ...messages.MY_WALLET })}
                                     </TitleDropDounText>
                                 </TitleDropDounBox>
                                 <DescriptionDropDoun>
-                                    If you dont have a wallet yet, you can
-                                    select a provider and create one now.
+                                    {formatMessage({ ...messages.TEXT_DESC_WALLET_DEROP_DOWN })}
                                 </DescriptionDropDoun>
                                 <MenuDropDoun>
                                     <MenuDropDounItem>
@@ -123,7 +127,7 @@ const DefaultHeader = () => {
                                             <img src={walletconnect} alt="" />
                                         </MenuDropDounItemImg>
                                         <MenuDropDounItemText>
-                                            Wallet Connect
+                                            {formatMessage({ ...messages.WALLET_CONNECT })}
                                         </MenuDropDounItemText>
                                     </MenuDropDounItem>
                                     <MenuDropDounItem>
@@ -131,7 +135,7 @@ const DefaultHeader = () => {
                                             <img src={Group} alt="" />
                                         </MenuDropDounItemImg>
                                         <MenuDropDounItemText>
-                                            Meta Mask
+                                            {formatMessage({ ...messages.META_MASK })}
                                         </MenuDropDounItemText>
                                     </MenuDropDounItem>
                                     <MenuDropDounItem>
@@ -139,7 +143,7 @@ const DefaultHeader = () => {
                                             <img src={Group2} alt="" />
                                         </MenuDropDounItemImg>
                                         <MenuDropDounItemText>
-                                            Coinbase
+                                            {formatMessage({ ...messages.COINBASE })}
                                         </MenuDropDounItemText>
                                     </MenuDropDounItem>
                                     <MenuDropDounItem
@@ -152,7 +156,7 @@ const DefaultHeader = () => {
                                             />
                                         </MenuDropDounItemImg>
                                         <MenuDropDounItemText>
-                                            Phantom
+                                            {formatMessage({ ...messages.PHANTOM })}
                                         </MenuDropDounItemText>
                                     </MenuDropDounItem>
                                 </MenuDropDoun>

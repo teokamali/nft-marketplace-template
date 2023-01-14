@@ -25,7 +25,7 @@ type Props = {
 const PopularNfts = ({ data }: Props) => {
     const { formatMessage } = useIntl();
     return (
-        <PopularNftsWrapper>
+        <PopularNftsWrapper >
             <PopularNftsTitle>
                 {formatMessage({ ...messages.Notable_Drops })}
             </PopularNftsTitle>

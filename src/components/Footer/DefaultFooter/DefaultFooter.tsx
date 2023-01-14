@@ -1,4 +1,5 @@
 import React from "react";
+import { useIntl } from "react-intl";
 import { Container } from "src/components/Common/Layout/LayoutStyles";
 import {
     DescriptionDesc,
@@ -16,8 +17,16 @@ import {
     SocialSection,
     SocialTitle,
 } from "./StyleDefaultFooter";
+import messages from "../messages";
+import { useDispatch } from "react-redux";
+import { openWalletDropDown } from "src/redux/slices/modals/modalsSlice";
+import { useTheme } from "styled-components";
+import { useAppSelector } from "src/redux/hooks";
 
 const DefaultFooter = () => {
+    const { formatMessage } = useIntl();
+
+
     const menu = [
         {
             title: "My Account",
@@ -75,15 +84,13 @@ const DefaultFooter = () => {
         <SectionWraper>
             <DescriptionSection>
                 <DescriptionTileBox>
-                    <DescriptionTile>NFTMarketplace</DescriptionTile>
-                    <DescriptionTileDesc>NFTMP</DescriptionTileDesc>
+                    <DescriptionTile>{formatMessage({ ...messages.NFT_MARKETPLACE })}</DescriptionTile>
+                    <DescriptionTileDesc>{formatMessage({ ...messages.NFTMP })}</DescriptionTileDesc>
                     <DescriptionDesc>
-                        Find, Buy, and Sell Amazing Digital Items On One
-                        Platform With The All-New Non-Fungible Tokens (NFTs)
-                        Marketplace.
+                        {formatMessage({ ...messages.NFT_FOOTER_DESC })}
                         <br />
                         <br />
-                        Email: yourname@yourdomain.com
+                        {formatMessage({ ...messages.EMAIL_NFT_FOOTER })}
                     </DescriptionDesc>
                 </DescriptionTileBox>
             </DescriptionSection>
@@ -100,7 +107,7 @@ const DefaultFooter = () => {
                 })}
             </MenuFooterSection>
             <SocialSection>
-                <SocialTitle>Join the community</SocialTitle>
+                <SocialTitle>{formatMessage({ ...messages.JOIN_COMMUNITY })}</SocialTitle>
                 <SocialBox>
                     <SocialIcon>
                         <svg
@@ -161,7 +168,7 @@ const DefaultFooter = () => {
                             />
                         </svg>
                     </SocialIcon>
-                    <SocialIcon>
+                    <SocialIcon >
                         <svg
                             width="21"
                             height="18"
