@@ -42,7 +42,7 @@ const TradingCategories = ({ TradingCategoriesData }: Props) => {
     return (
         <>
             <ExceptMobile>
-                <StyleTradingCategoriesSection>
+                <StyleTradingCategoriesSection >
                     <StyleTradingCategoriesTitleBox>
                         <StyleTradingCategoriesTitleText>
                             <StyleTradingCategoriesTitleTextone>
@@ -69,7 +69,7 @@ const TradingCategories = ({ TradingCategoriesData }: Props) => {
                         <StyleTradingCategoriesTitleDesc>
                             {formatMessage({ ...messages.COLLECTING_DIGITAL_ART })}
                         </StyleTradingCategoriesTitleDesc>
-                    </StyleTradingCategoriesTitleBox>
+                    </StyleTradingCategoriesTitleBox >
                     <Slider breakpoints={{
                         768: {
                             slidesPerView: 2,
@@ -80,10 +80,10 @@ const TradingCategories = ({ TradingCategoriesData }: Props) => {
                             spaceBetween: 50,
                         },
                     }}>
-                        <StyleTradingCategoriesSliderSection>
+                        <StyleTradingCategoriesSliderSection >
                             {TradingCategoriesData.map(data => (
                                 <SwiperSlide key={data.id}>
-                                    <StyleTradingCategoriesCardBox>
+                                    <StyleTradingCategoriesCardBox style={{ paddingBottom: "20px" }}    >
                                         <StyleTradingCategoriesCardImage src={data.url} alt="" />
                                         <StyleTradingCategoriesCardTextBox>
                                             <div style={{ width: "112px", height: "80px", }}>
@@ -135,7 +135,7 @@ const TradingCategories = ({ TradingCategoriesData }: Props) => {
                         </StyleTradingCategoriesTitleDescMobile>
                     </StyleTradingCategoriesTitleBox>
                     {TradingCategoriesData.map(data => (
-                        <StyleTradingCategoriesCardBox key={data.id}>
+                        <StyleTradingCategoriesCardBox style={{ paddingBottom: "20px" }} key={data.id}>
                             <StyleTradingCategoriesCardImage src={data.url} alt="" />
                             <StyleTradingCategoriesCardTextBox>
                                 <div style={{ width: "112px", height: "50px", }}>
