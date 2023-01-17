@@ -1,7 +1,10 @@
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import ExplorePagesHeader from "src/components/Common/ExplorePagesHeader/ExplorePagesHeader";
+import { Container } from "src/components/Common/Layout/LayoutStyles";
+import TrendingCard from "src/components/Common/TrendingCard/TrendingCard";
 import { Category } from "src/types/types";
+import { ExploreCategoryWrapper } from "./StyledExploreCategoryPage";
 
 const Categories: Category[] = [
     { name: "Art", slug: "art" },
@@ -10,11 +13,27 @@ const Categories: Category[] = [
     { name: "Gif", slug: "Gif" },
 ];
 const ExploreCategory = () => {
+    const items = [
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+    ];
     return (
-        <div>
+        <Container>
             <ExplorePagesHeader categories={Categories} />
-            ExploreCategory
-        </div>
+            <ExploreCategoryWrapper>
+                {items.map((item, i) => (
+                    <TrendingCard
+                        key={i}
+                        data={{
+                            id: 1,
+                            url: "/images/nft-7.png",
+                            text: "Mortimer Crypto Mystic",
+                            checked: true,
+                        }}
+                    />
+                ))}
+            </ExploreCategoryWrapper>
+        </Container>
     );
 };
 
