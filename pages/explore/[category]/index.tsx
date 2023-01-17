@@ -4,7 +4,6 @@ import ExplorePagesHeader from "src/components/Common/ExplorePagesHeader/Explore
 import { Container } from "src/components/Common/Layout/LayoutStyles";
 import TrendingCard from "src/components/Common/TrendingCard/TrendingCard";
 import { Category } from "src/types/types";
-import { ExploreCategoryWrapper } from "./StyledExploreCategoryPage";
 
 const Categories: Category[] = [
     { name: "Art", slug: "art" },
@@ -20,7 +19,7 @@ const ExploreCategory = () => {
     return (
         <Container>
             <ExplorePagesHeader categories={Categories} />
-            <ExploreCategoryWrapper>
+            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4 mt-10">
                 {items.map((item, i) => (
                     <TrendingCard
                         key={i}
@@ -32,7 +31,7 @@ const ExploreCategory = () => {
                         }}
                     />
                 ))}
-            </ExploreCategoryWrapper>
+            </div>
         </Container>
     );
 };
