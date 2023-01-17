@@ -5,7 +5,6 @@ import ChevronRight from "public/Icon/ChevronRight";
 import React, { useEffect, useState } from "react";
 import { useIntl } from "react-intl";
 import { Category } from "src/types/types";
-import { Container } from "../Layout/LayoutStyles";
 import messages from "./messages";
 import {
     StyledExplorePagesHeaderWrapper,
@@ -48,7 +47,7 @@ const ExplorePagesHeader = ({ categories }: IProps) => {
     }, [query]);
 
     return (
-        <Container>
+        <>
             <Head>
                 <title>Explore {category?.name}</title>
             </Head>
@@ -94,7 +93,7 @@ const ExplorePagesHeader = ({ categories }: IProps) => {
                     </StyledIconWrapper>
                 </StyledNavigationLink>
             </StyledExplorePagesHeaderWrapper>
-        </Container>
+        </>
     );
 };
 

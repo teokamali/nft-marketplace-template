@@ -18,7 +18,6 @@ interface IProps {
 }
 
 const TrendingCard = ({ data }: IProps) => {
-    console.log(data);
     return (
         <StyleTradingCategoriesCardBox style={{ paddingBottom: "20px" }}>
             <StyleTradingCategoriesCardImage src={data.url} alt="" />

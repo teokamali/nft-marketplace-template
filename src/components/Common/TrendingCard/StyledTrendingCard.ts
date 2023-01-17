@@ -5,7 +5,7 @@ export const StyleTradingCategoriesCardBox = styled.div`
     ${tw`flex flex-col items-center relative  rounded-[16px]  bg-white text-black dark:(bg-black text-white) `}
 `;
 export const StyleTradingCategoriesCardImage = styled.img`
-    ${tw``}
+    ${tw`w-full object-cover`}
 `;
 
 export const StyleTradingCategoriesCardTextBox = styled.div`
