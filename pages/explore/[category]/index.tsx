@@ -10,7 +10,7 @@ const Categories: Category[] = [
     { name: "Art", slug: "art" },
     { name: "Photography", slug: "photography" },
     { name: "Music", slug: "music" },
-    { name: "Gif", slug: "Gif" },
+    { name: "Gif", slug: "gif" },
 ];
 const ExploreCategory = () => {
     const items = [
