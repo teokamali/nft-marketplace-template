@@ -62,3 +62,9 @@ export interface Category {
     name: string;
     slug: string;
 }
+export interface TradingCategoriesType {
+    id: number;
+    url: string;
+    text: string;
+    checked: boolean;
+}

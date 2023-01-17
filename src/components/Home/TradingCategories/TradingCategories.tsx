@@ -3,15 +3,10 @@ import {
     StyleTradingCategorieDropDown,
     StyleTradingCategorieDropDownText,
     StyleTradingCategoriesButton,
-    StyleTradingCategoriesCardBox,
-    StyleTradingCategoriesCardImage,
     StyleTradingCategoriesCardMobile,
-    StyleTradingCategoriesCardText,
-    StyleTradingCategoriesCardTextBox,
     StyleTradingCategoriesSection,
     StyleTradingCategoriesSectionMobile,
     StyleTradingCategoriesSliderSection,
-    StyleTradingCategoriesThumbnailBox,
     StyleTradingCategoriesTitleBox,
     StyleTradingCategoriesTitleDesc,
     StyleTradingCategoriesTitleDescMobile,
@@ -26,18 +21,15 @@ import Slider from "src/components/Common/Slider/Slider";
 import { SwiperSlide } from "swiper/react";
 import Card from "../../../../public/Images/images/nft-2.png";
 import { ExceptMobile, Mobile } from "src/utils/BreakPoints";
-import OrginalIcon from "public/Icon/OrginalIcon";
+import OrginalIcon from "public/Icon/VerifiedIcon";
 import { useAppSelector } from "src/redux/hooks";
 import { useDispatch } from "react-redux";
 import { openTradingCategories } from "src/redux/slices/modals/modalsSlice";
-interface TradingCategoriesProps {
-    id: number;
-    url: string;
-    text: string;
-    checked?: boolean;
-}
+import TrendingCard from "src/components/Common/TrendingCard/TrendingCard";
+import { TradingCategoriesType } from "src/types/types";
+
 type Props = {
-    TradingCategoriesData: TradingCategoriesProps[];
+    TradingCategoriesData: TradingCategoriesType[];
 };
 
 const TradingCategories = ({ TradingCategoriesData }: Props) => {
@@ -126,34 +118,7 @@ const TradingCategories = ({ TradingCategoriesData }: Props) => {
                         <StyleTradingCategoriesSliderSection>
                             {TradingCategoriesData.map(data => (
                                 <SwiperSlide key={data.id}>
-                                    <StyleTradingCategoriesCardBox
-                                        style={{ paddingBottom: "20px" }}
-                                    >
-                                        <StyleTradingCategoriesCardImage
-                                            src={data.url}
-                                            alt=""
-                                        />
-                                        <StyleTradingCategoriesCardTextBox>
-                                            <div
-                                                style={{
-                                                    width: "112px",
-                                                    height: "80px",
-                                                }}
-                                            >
-                                                <StyleTradingCategoriesThumbnailBox
-                                                    style={{
-                                                        backgroundImage: `url(${data.url})`,
-                                                    }}
-                                                />
-                                            </div>
-                                            <StyleTradingCategoriesCardText>
-                                                {data.text}
-                                                {data.checked ? (
-                                                    <OrginalIcon />
-                                                ) : null}
-                                            </StyleTradingCategoriesCardText>
-                                        </StyleTradingCategoriesCardTextBox>
-                                    </StyleTradingCategoriesCardBox>
+                                    <TrendingCard data={data} />
                                 </SwiperSlide>
                             ))}
                         </StyleTradingCategoriesSliderSection>
@@ -212,29 +177,8 @@ const TradingCategories = ({ TradingCategoriesData }: Props) => {
                             })}
                         </StyleTradingCategoriesTitleDescMobile>
                     </StyleTradingCategoriesTitleBox>
-                    {TradingCategoriesData.map(data => (
-                        <StyleTradingCategoriesCardBox
-                            style={{ paddingBottom: "20px" }}
-                            key={data.id}
-                        >
-                            <StyleTradingCategoriesCardImage
-                                src={data.url}
-                                alt=""
-                            />
-                            <StyleTradingCategoriesCardTextBox>
-                                <div style={{ width: "112px", height: "50px" }}>
-                                    <StyleTradingCategoriesThumbnailBox
-                                        style={{
-                                            backgroundImage: `url(${data.url})`,
-                                        }}
-                                    />
-                                </div>
-                                <StyleTradingCategoriesCardMobile>
-                                    {data.text}
-                                    {data.checked ? <OrginalIcon /> : null}
-                                </StyleTradingCategoriesCardMobile>
-                            </StyleTradingCategoriesCardTextBox>
-                        </StyleTradingCategoriesCardBox>
+                    {TradingCategoriesData.map((data, index) => (
+                        <TrendingCard data={data} key={index} />
                     ))}
                     <StyleTradingCategoriesButton>
                         {formatMessage({ ...messages.EXPLORE })}
