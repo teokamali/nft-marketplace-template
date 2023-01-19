@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import StarIcon from "public/Icon/StarIcon";
 import React from "react";
 import { useIntl } from "react-intl";
@@ -58,17 +59,21 @@ const Hero = () => {
                 </HeroDescription>
                 <ButtonsWrapper>
                     <Mobile>
-                        <Button variant="normal" size="xs">
-                            {formatMessage({ ...messages.EXPLORE })}
-                        </Button>
+                        <Link href="/explore">
+                            <Button variant="normal" size="xs">
+                                {formatMessage({ ...messages.EXPLORE })}
+                            </Button>
+                        </Link>
                         <Button variant="outlined" size="xs">
                             {formatMessage({ ...messages.CREATE })}
                         </Button>
                     </Mobile>
                     <ExceptMobile>
-                        <Button variant="normal" size="md">
-                            {formatMessage({ ...messages.EXPLORE })}
-                        </Button>
+                        <Link href="/explore">
+                            <Button variant="normal" size="md">
+                                {formatMessage({ ...messages.EXPLORE })}
+                            </Button>
+                        </Link>
                         <Button variant="outlined" size="md">
                             {formatMessage({ ...messages.CREATE })}
                         </Button>
