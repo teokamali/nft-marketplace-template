@@ -36,7 +36,7 @@ export const SocialIcon = styled.h6`
      light:fill-[#4858EF] dark:fill-[#6573F2] cursor-pointer`}
 `;
 export const MenuFooterSection = styled.div`
-    ${tw`flex flex flex-wrap  justify-between`}
+    ${tw`flex  flex-wrap  justify-between`}
 `;
 export const MenuSection = styled.div`
     ${tw`flex flex-col   gap-[5px]`}
