@@ -201,7 +201,7 @@ const DefaultHeader = () => {
                                 inputMode="search"
                                 style={{
                                     height: "35px",
-                                    backgroundImage: "url(/images/search.svg)",
+                                    backgroundImage: "url(/images/search.png)",
                                     backgroundRepeat: "no-repeat",
                                     backgroundPosition: " 28px center",
                                     textIndent: "47px",

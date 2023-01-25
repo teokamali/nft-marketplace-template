@@ -240,13 +240,89 @@ function HomePage() {
         },
     ];
 
+    const dataLiveAction = [
+        {
+            imgSrc: "/images/nft-4.png",
+            timeLeft: 15,
+            name: "Mortimer Crypto Mystic",
+            price: 0.2,
+            likeCount: 400,
+            seeCount: 88,
+            link: "#"
+        },
+        {
+            imgSrc: "/images/nft-4.png",
+            timeLeft: 15,
+            name: "Mortimer Crypto Mystic",
+            price: 0.2,
+            likeCount: 400,
+            seeCount: 88,
+            link: "#"
+        },
+        {
+            imgSrc: "/images/nft-4.png",
+            timeLeft: 15,
+            name: "Mortimer Crypto Mystic",
+            price: 0.2,
+            likeCount: 400,
+            seeCount: 88,
+            link: "#"
+        },
+        {
+            imgSrc: "/images/nft-4.png",
+            timeLeft: 15,
+            name: "Mortimer Crypto Mystic",
+            price: 0.2,
+            likeCount: 400,
+            seeCount: 88,
+            link: "#"
+        },
+        {
+            imgSrc: "/images/nft-4.png",
+            timeLeft: 15,
+            name: "Mortimer Crypto Mystic",
+            price: 0.2,
+            likeCount: 400,
+            seeCount: 88,
+            link: "#"
+        },
+        {
+            imgSrc: "/images/nft-4.png",
+            timeLeft: 15,
+            name: "Mortimer Crypto Mystic",
+            price: 0.2,
+            likeCount: 400,
+            seeCount: 88,
+            link: "#"
+        },
+        {
+            imgSrc: "/images/nft-4.png",
+            timeLeft: 15,
+            name: "Mortimer Crypto Mystic",
+            price: 0.2,
+            likeCount: 400,
+            seeCount: 88,
+            link: "#"
+        },
+        {
+            imgSrc: "/images/nft-4.png",
+            timeLeft: 15,
+            name: "Mortimer Crypto Mystic",
+            price: 0.2,
+            likeCount: 400,
+            seeCount: 88,
+            link: "#"
+        },
+
+    ]
+
     return (
         <div>
             <Container>
                 <Hero />
                 <PopularNfts data={data} />
                 <TopCollections data={topCollections} />
-                <LiveAuctions />
+                <LiveAuctions data={dataLiveAction} />
                 <FeatureBox />
                 <RankingTable data={rankingTableData} />
                 <TradingCategories TradingCategoriesData={TradingCategoriesData} />

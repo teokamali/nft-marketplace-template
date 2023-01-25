@@ -24,7 +24,7 @@ export const StyledImageBadgeIconWrapper = styled.div`
 `;
 
 export const StyledImageBadgeText = styled.span`
-    ${tw`text-[12px] font-medium`}
+    ${tw`text-[12px] font-medium `}
 `;
 export const StyledLiveAuctionCardContent = styled.div`
     ${tw`pt-4 w-full`}
