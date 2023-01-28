@@ -1,7 +1,7 @@
 import ChevronDownIcon from "public/Icon/ChevronDownIcon";
 import React, { useRef, useState } from "react";
 import { useIntl } from "react-intl";
-import { useOnClickOutside } from "src/hooks/useOnClickOutside";
+import useOnClickOutside from "src/hooks/useOnClickOutside";
 import messages from "./messages";
 import {
     StyledTopCollectionContent,

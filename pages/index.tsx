@@ -6,46 +6,49 @@ import LiveAuctions from "src/components/Home/LiveAuctions/LiveAuctions";
 import NewsLetter from "src/components/Home/NewsLetter/NewsLetter";
 import PopularNfts from "src/components/Home/PopularNfts/PopularNfts";
 import RankingTable from "src/components/Home/RankingTable/RankingTable";
-import TradingCategories from "src/components/Home/TradingCategories/TradingCategories";
 import TopCollections from "src/components/Home/TopCollections/TopCollections";
+import TradingCategories from "src/components/Home/TradingCategories/TradingCategories";
+import { TradingCategoriesType } from "src/types/types";
 
 function HomePage() {
-    const TradingCategoriesData = [
+    const TradingCategoriesData: TradingCategoriesType[] = [
         {
             id: 1,
             url: "/images/nft-7.png",
             text: "Mortimer Crypto Mystic",
-            checked: true
+            checked: true,
         },
         {
             id: 2,
             url: "/images/nft-8.png",
             text: "Mortimer Crypto Mystic",
+            checked: false,
         },
         {
             id: 3,
             url: "/images/nft-9.png",
             text: "Mortimer Crypto Mystic",
+            checked: false,
         },
         {
             id: 4,
             url: "/images/nft-7.png",
             text: "Mortimer Crypto Mystic",
-            checked: true
+            checked: true,
         },
         {
             id: 5,
             url: "/images/nft-8.png",
             text: "Mortimer Crypto Mystic",
+            checked: false,
         },
         {
             id: 6,
             url: "/images/nft-9.png",
             text: "Mortimer Crypto Mystic",
+            checked: false,
         },
-
-
-    ]
+    ];
     const data = [
         {
             id: 1,
@@ -325,7 +328,9 @@ function HomePage() {
                 <LiveAuctions data={dataLiveAction} />
                 <FeatureBox />
                 <RankingTable data={rankingTableData} />
-                <TradingCategories TradingCategoriesData={TradingCategoriesData} />
+                <TradingCategories
+                    TradingCategoriesData={TradingCategoriesData}
+                />
                 <FeatureBox />
             </Container>
             <NewsLetter />
