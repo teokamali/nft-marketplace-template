@@ -14,11 +14,10 @@ import DefaultFooter from "src/components/Footer/DefaultFooter/DefaultFooter";
 import MobileFooter from "src/components/Footer/MobileFooter/MobileFooter";
 import { useAppSelector } from "src/redux/hooks";
 import { useDispatch } from "react-redux";
-import { openMenuDropDown, openSearchInput, openTradingCategories, openWalletDropDown } from "src/redux/slices/modals/modalsSlice";
+import { openMenuDropDown, openSearchInput, openShowFilter, openTradingCategories, openWalletDropDown } from "src/redux/slices/modals/modalsSlice";
 const Layout: ReactFC = ({ children }) => {
     const { wallet } = useAppSelector(state => state.modals);
     const { menu } = useAppSelector(state => state.modals);
-    const { TradingCategoriesd } = useAppSelector(state => state.modals);
 
     const dispatch = useDispatch();
     const walletCloseHandler = () => {
@@ -27,12 +26,15 @@ const Layout: ReactFC = ({ children }) => {
         dispatch(openSearchInput(false));
         dispatch(openTradingCategories(false));
     };
+    const FilterCloseHandler = () => {
+        dispatch(openShowFilter(false));
+    };
     // const menuCloseHandler = () => {
     //     dispatch(openMenuDropDown(false));
     // };
     return (
-        <LayoutWrapper>
-            <header>
+        <LayoutWrapper onClick={FilterCloseHandler}>
+            <header  >
                 <Header />
                 <Container>
                     <Mobile>
@@ -51,7 +53,7 @@ const Layout: ReactFC = ({ children }) => {
                 {children}
             </LayoutMain>
 
-            <LayoutFooter isWalletDropDownOpen={wallet} isMenuDropDownOpen={menu}>
+            <LayoutFooter isWalletDropDownOpen={wallet} isMenuDropDownOpen={menu} onClick={FilterCloseHandler}>
                 <Desktop>
                     <DefaultFooter />
                 </Desktop>

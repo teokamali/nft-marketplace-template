@@ -1,5 +1,6 @@
 import React from "react";
-import LiveAuctionCard from "./LiveAuctionCard/LiveAuctionCard";
+import { useIntl } from "react-intl";
+import LiveAuctionCard, { ILiveAuctionDataProps } from "./LiveAuctionCard/LiveAuctionCard";
 import {
     StyledDescription,
     StyledLiveAuctionCardWrapper,
@@ -8,21 +9,27 @@ import {
     StyledLiveAuctionTitleWrapper,
     StyledTitle,
 } from "./StyledLiveAuctions";
-const LiveAuctions = () => {
-    const liveAuctions = [1, 2, 3, 4, 5, 6, 7, 8];
+import messages from "./messages";
+
+export interface ILiveAuctionProps {
+    data: ILiveAuctionDataProps[]
+}
+
+const LiveAuctions = ({ data }: ILiveAuctionProps) => {
+    const { formatMessage } = useIntl();
+
     return (
         <StyledLiveAuctionSectionWrapper>
             <StyledLiveAuctionTitleWrapper>
-                <StyledTitle>Live Auctions</StyledTitle>
+                <StyledTitle>{formatMessage({ ...messages.LIVE_AUCTIONS })}</StyledTitle>
                 <StyledDescription>
-                    Explore the newly listed remarkable NFTs on NFTLand, choose
-                    the best one, and place your bid to purchase it.
+                    {formatMessage({ ...messages.LIVE_AUCTIONS_TITLE_DESC })}
                 </StyledDescription>
             </StyledLiveAuctionTitleWrapper>
             <StyledLiveAuctionsWrapper>
-                {liveAuctions.map((item, index) => (
+                {data.map((item, index) => (
                     <StyledLiveAuctionCardWrapper key={index}>
-                        <LiveAuctionCard />
+                        <LiveAuctionCard data={item} />
                     </StyledLiveAuctionCardWrapper>
                 ))}
             </StyledLiveAuctionsWrapper>
