@@ -1,5 +1,5 @@
 import React from "react";
-const OrginalIcon = () => {
+const VerifiedIcon = () => {
     return (
         <svg
             width="24"
@@ -26,4 +26,4 @@ const OrginalIcon = () => {
         </svg>
     );
 };
-export default OrginalIcon;
+export default VerifiedIcon;
