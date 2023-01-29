@@ -14,6 +14,7 @@ import {
     RoundedButton,
     SearchBox,
     Section,
+    StyledOptionWrapper,
     Title,
     TitleDropDounBox,
     TitleDropDounText,
@@ -80,6 +81,8 @@ const DefaultHeader = () => {
                 <MenuItem>{formatMessage({ ...messages.EXPLORE })}</MenuItem>
                 <MenuItem>{formatMessage({ ...messages.COMMUNITY })}</MenuItem>
                 <MenuItem>{formatMessage({ ...messages.RESOURECE })}</MenuItem>
+            </MenuSection>
+            <StyledOptionWrapper>
                 <LanguageVsWalletSection>
                     <MenuItem>{formatMessage({ ...messages.AR })}</MenuItem>
                     <div
@@ -187,8 +190,8 @@ const DefaultHeader = () => {
                         )}
                     </MenuItem>
                 </LanguageVsWalletSection>
-            </MenuSection>
-            <RoundedButton />
+                <RoundedButton />
+            </StyledOptionWrapper>
         </Section>
     );
 };
