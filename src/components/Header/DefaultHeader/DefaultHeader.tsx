@@ -20,10 +20,10 @@ import {
 } from "./StyleDefaultHeader";
 import WalletBlackIcon from "public/Icon/WalletBlackIcon";
 import WalletWhiteIcon from "public/Icon/WalletWhiteIcon";
-const walletconnect = "/Images/walletconnect.svg";
-const Group = "/Images/Group.svg";
-const Group2 = "/Images/Group2.svg";
-const walletlinkalternative = "/Images/walletlinkalternative .svg";
+const walletconnect = "/Images/walletConnect.png";
+const Group = "/Images/Group.png";
+const Group2 = "/Images/Group2.png";
+const walletlinkalternative = "/Images/walletlinkalternative.png";
 import { useTheme } from "next-themes";
 import { openWalletDropDown } from "src/redux/slices/modals/modalsSlice";
 import { useDispatch } from "react-redux";
@@ -55,7 +55,7 @@ const DefaultHeader = () => {
                         type="text"
                         inputMode="search"
                         style={{
-                            backgroundImage: "url(/images/search.svg)",
+                            backgroundImage: "url(/images/search.png)",
                             backgroundRepeat: "no-repeat",
                             backgroundPosition: " 28px center",
                             textIndent: "47px",

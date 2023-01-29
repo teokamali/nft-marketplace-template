@@ -20,26 +20,59 @@ import {
     StyledLiveAuctionsCardWrapper,
     StyledPrice,
 } from "./StyledLiveActionCard";
+import messages from "../messages";
+import { useIntl } from "react-intl";
 
-const LiveAuctionCard = () => {
+
+export interface ILiveAuctionCardProps {
+    data: ILiveAuctionDataProps
+}
+export interface ILiveAuctionDataProps {
+    imgSrc: string
+    timeLeft: number
+    name: string
+    price: number
+    likeCount: number
+    seeCount: number
+    link: string
+}
+const LiveAuctionCard = ({ data }: ILiveAuctionCardProps) => {
+    const { formatMessage } = useIntl();
+
     return (
         <StyledLiveAuctionsCardWrapper>
             <StyledLiveAuctionsCardImageWrapper>
-                <StyledImage src="/images/nft-4.png" alt="" />
+                <StyledImage src={data.imgSrc} alt="" />
                 <StyledImageBadge>
                     <StyledImageBadgeIconWrapper>
                         <TimerErrorIcon />
                     </StyledImageBadgeIconWrapper>
-                    <StyledImageBadgeText>15 minutes left</StyledImageBadgeText>
+                    <StyledImageBadgeText>
+                        {
+                            formatMessage(
+                                { ...messages.TIME_LEFT },
+                                { timeLeft: data.timeLeft }
+                            )
+                        }
+                    </StyledImageBadgeText>
                 </StyledImageBadge>
             </StyledLiveAuctionsCardImageWrapper>
             <StyledLiveAuctionCardContent>
                 <StyledLiveAuctionCardTitle>
-                    Mortimer Crypto Mystic
+                    {data.name}
                 </StyledLiveAuctionCardTitle>
                 <StyledLiveAuctionPriceWrapper>
-                    <StyledPrice>Price : 0.2 ETH</StyledPrice>
-                    <StyledLink href="#">Place a bid</StyledLink>
+                    <StyledPrice>
+                        {
+                            formatMessage(
+                                { ...messages.PRICE },
+                                { price: data.price }
+                            )
+                        }
+                    </StyledPrice>
+                    <StyledLink href={data.link}>
+                        {formatMessage({ ...messages.PLACE_BID })}
+                    </StyledLink>
                 </StyledLiveAuctionPriceWrapper>
             </StyledLiveAuctionCardContent>
             <StyledLiveAuctionCardFooter>
@@ -47,14 +80,14 @@ const LiveAuctionCard = () => {
                     <StyledIconWrapper>
                         <LikeIcon />
                     </StyledIconWrapper>
-                    <StyledFooterText>400</StyledFooterText>
+                    <StyledFooterText>{data.likeCount}</StyledFooterText>
                 </StyledDetailWrapper>
                 <div>
                     <StyledDetailWrapper>
                         <StyledIconWrapper>
                             <EyeIcon />
                         </StyledIconWrapper>
-                        <StyledFooterText>88</StyledFooterText>
+                        <StyledFooterText>{data.seeCount}</StyledFooterText>
                     </StyledDetailWrapper>
                 </div>
             </StyledLiveAuctionCardFooter>
