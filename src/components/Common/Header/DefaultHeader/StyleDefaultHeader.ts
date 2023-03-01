@@ -1,3 +1,4 @@
+import Link from "next/link";
 import styled, { css } from "styled-components";
 import tw from "twin.macro";
 
@@ -13,7 +14,7 @@ export const SearchBox = styled.form`
 export const MenuSection = styled.div`
     ${tw`flex flex-row justify-between text-[17px]  gap-[10px] items-center  font-bold light:text-black dark:text-smokeWhite`}
 `;
-export const MenuItem = styled.a`
+export const MenuItem = styled(Link)`
     ${tw`cursor-pointer font-medium  light:stroke-[#212121] dark:stroke-[#fff] `}
 `;
 export const LanguageVsWalletSection = styled.a`
