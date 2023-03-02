@@ -8,7 +8,7 @@ export const Section = styled.div`
 export const Title = styled.h6`
     ${tw`font-bold light:text-black dark:text-smokeWhite`}
 `;
-export const SearchBox = styled.form`
+export const SearchBox = styled.div`
     ${tw`w-[504px] h-[40px] mx-[10px]  `}
 `;
 export const MenuSection = styled.div`

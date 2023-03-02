@@ -1,0 +1,34 @@
+interface Properties {
+    type: string;
+    name: string;
+}
+interface Levels {
+    name: string;
+    value: string;
+    maxValue: string;
+}
+interface Stats {
+    name: string;
+    value: string;
+    maxValue: string;
+}
+
+export interface FormState {
+    file: FileList | null;
+    name: string;
+    externalLink: string;
+    description: string;
+    collection: string;
+    supply: string;
+    blockChain: string;
+    freezeMetaData: string;
+    properties: Properties[];
+    levels: Levels[];
+    stats: Stats[];
+    isUnlockableContent: boolean;
+    unlockableContent?: string;
+    isExplicit: boolean;
+}
+export interface CreateFileState {
+    file?: File | null;
+}

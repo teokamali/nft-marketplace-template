@@ -45,6 +45,6 @@ export const MenuDropDounItemText = styled.span`
     ${tw`  text-[13px] font-semibold cursor-pointer`}
 `;
 
-export const SearchBox = styled.form`
+export const SearchBox = styled.div`
     ${tw` w-full h-[35px] mx-[10px]  absolute right-[0px] top-[5px]  `}
 `;
