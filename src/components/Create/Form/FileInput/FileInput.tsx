@@ -13,8 +13,8 @@ import {
     StyledInputDescription,
     StyledInputLabel,
     StyledInputWrapper,
-} from "../Input/FormInput";
-import { FileInputState, IFileInputProps } from "./fileInputTypes";
+} from "../Input/StyledInput";
+import { FileInputState, IFileInputProps } from "./FileInputType";
 
 import {
     StyledAudioPreviewWrapper,

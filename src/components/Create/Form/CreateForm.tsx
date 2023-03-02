@@ -1,7 +1,6 @@
 import { useFormik } from "formik";
 import React, { ChangeEvent, HtmlHTMLAttributes, useState } from "react";
-
-import FileInput from "./fileInput/fileInput";
+import FileInput from "./FileInput/FileInput";
 import Input from "./Input/Input";
 
 import { StyledFormWrapper } from "./StyledCreateForm";

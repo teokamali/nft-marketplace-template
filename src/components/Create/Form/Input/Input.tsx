@@ -5,7 +5,7 @@ import {
     StyledInputLabel,
     StyledInputWrapper,
     TextInput,
-} from "./FormInput";
+} from "./StyledInput";
 
 interface IProps extends InputHTMLAttributes<HTMLInputElement> {
     title: string;
