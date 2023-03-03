@@ -130,7 +130,7 @@ const FileInput = ({
                             <FilePlaceholder />
                         </StyledSVGWrapper>
                         <StyledFilePlaceHolderText>
-                            Click to select file or drag and drop files
+                            Click to select file or drag and drop file
                         </StyledFilePlaceHolderText>
                     </StyledFilePlaceHolderWrapper>
                 </StyledFileInputWrapper>

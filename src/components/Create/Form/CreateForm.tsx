@@ -2,6 +2,7 @@ import { useFormik } from "formik";
 import React, { ChangeEvent, HtmlHTMLAttributes, useState } from "react";
 import FileInput from "./FileInput/FileInput";
 import Input from "./Input/Input";
+import SelectInput from "./SelectInput/SelectInput";
 
 import { StyledFormWrapper } from "./StyledCreateForm";
 import { CreateFileState, FormState } from "./types";
@@ -73,8 +74,41 @@ const CreateForm = () => {
                     setValues({ ...values, name: event.target.value });
                 }}
                 title="Name"
-                value="adasdadada"
+                value={values.name}
             />
+            <Input
+                onChange={event => {
+                    setValues({ ...values, externalLink: event.target.value });
+                }}
+                title="External link"
+                description="NFT MP will include a link to this URL on this item's detail page, so that users can click to learn more about it. You are welcome to link to your own webpage with more details."
+                value={values.externalLink}
+            />
+            <Input
+                onChange={event => {
+                    setValues({ ...values, description: event.target.value });
+                }}
+                title="Description"
+                description=" The description will be included on the item's detail page underneath its image. Markdown syntax is supported."
+                value={values.description}
+            />
+            <SelectInput
+                title="Collection"
+                description="This is the collection where your item will appear"
+            />
+            <Input
+                onChange={event => {
+                    setValues({ ...values, supply: event.target.value });
+                }}
+                title="Supply"
+                description="The number of items that can be minted. No gas cost to you!"
+                value={values.supply}
+            />
+            <SelectInput
+                title="Blockchain"
+                description=" Ethereum chain image"
+            />
+            
         </StyledFormWrapper>
     );
 };
