@@ -3,6 +3,7 @@ import { ReactFC } from "src/types/types";
 import { createPortal } from "react-dom";
 import {
     StyledCloseButton,
+    StyledHeaderTitle,
     StyledModal,
     StyledModalContent,
     StyledModalHeader,
@@ -18,6 +19,7 @@ interface IModalProps {
     animation?: "fade" | "slide-down";
     header?: ReactNode;
     isOpen: boolean;
+    title?: string;
     closeOnBackDropClick?: boolean;
     onClose: () => void;
 }
@@ -26,6 +28,7 @@ const Modal: ReactFC<IModalProps> = ({
     isOpen,
     onClose,
     animation,
+    title,
     closeOnBackDropClick = true,
     children,
     header,
@@ -102,6 +105,10 @@ const Modal: ReactFC<IModalProps> = ({
                                             >
                                                 &times;
                                             </StyledCloseButton>
+                                            <StyledHeaderTitle>
+                                                {title}
+                                            </StyledHeaderTitle>
+                                            <div></div>
                                         </StyledModalHeaderWrapper>
                                     </StyledModalHeader>
                                 )}

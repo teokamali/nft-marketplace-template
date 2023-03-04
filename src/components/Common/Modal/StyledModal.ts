@@ -15,12 +15,15 @@ export const StyledModalHeader = styled.div`
     ${tw`w-full bg-white p-2 text-[1.5rem] rounded-[inherit]`}
 `;
 export const StyledCloseButton = styled.button`
-    ${tw`hover:border-gray-500`}
+    ${tw`text-black hover:border-gray-500  `}
 `;
 export const StyledModalHeaderWrapper = styled.div`
-    ${tw`w-full flex justify-start items-center `}
+    ${tw`flex justify-between items-center `}
 `;
 
 export const StyledModalContent = styled.div`
     ${tw`text-black`}
+`;
+export const StyledHeaderTitle = styled.h5`
+    ${tw`text-black text-title1`}
 `;

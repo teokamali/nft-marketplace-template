@@ -1,13 +1,20 @@
 import { useFormik } from "formik";
 import React, { ChangeEvent, HtmlHTMLAttributes, useState } from "react";
+import { useAppDispatch } from "src/redux/hooks";
+import { openAddProperty } from "src/redux/slices/modals/modalsSlice";
+import AddableInput from "./AddableInput/AddableInput";
 import FileInput from "./FileInput/FileInput";
 import Input from "./Input/Input";
+import { StyledInputDescription, StyledInputLabel } from "./Input/StyledInput";
+import AddPropertyModal from "./Modals/AddPropertyModal/AddPropertyModal";
 import SelectInput from "./SelectInput/SelectInput";
 
 import { StyledFormWrapper } from "./StyledCreateForm";
 import { CreateFileState, FormState } from "./types";
 
 const CreateForm = () => {
+    const dispatch = useAppDispatch();
+
     const [state, setState] = useState<CreateFileState>({
         file: null,
     });
@@ -108,7 +115,24 @@ const CreateForm = () => {
                 title="Blockchain"
                 description=" Ethereum chain image"
             />
-            
+            <div>
+                <div>
+                    <StyledInputLabel>Properties</StyledInputLabel>
+                    <StyledInputDescription>
+                        Textual traits that show up as rectangles
+                    </StyledInputDescription>
+                </div>
+                <div>
+                    <button
+                        type="button"
+                        onClick={() => dispatch(openAddProperty(true))}
+                    >
+                        Add Property
+                    </button>
+                </div>
+            </div>
+
+            <AddPropertyModal onSaveHandler={e => console.log(e)} />
         </StyledFormWrapper>
     );
 };

@@ -3,7 +3,7 @@ import { NormalButton, OutLinedButton } from "./ButtonStyles";
 
 interface IProps extends PropsWithChildren {
     variant: "normal" | "outlined";
-    size: "xs" | "sm" | "md" | "lg";
+    size: "xs" | "sm" | "md" | "lg" | "full";
     onClick: () => void;
 }
 

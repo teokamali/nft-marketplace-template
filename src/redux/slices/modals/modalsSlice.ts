@@ -38,7 +38,7 @@ const modalsSlice = createSlice({
             state.showFilter = action.payload;
         },
         openAddProperty(state, action: PayloadAction<boolean>) {
-            state.showFilter = action.payload;
+            state.addProperty = action.payload;
         },
     },
 });
