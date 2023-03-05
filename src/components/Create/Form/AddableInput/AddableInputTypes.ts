@@ -1,7 +1,6 @@
-export interface AddableInputValue {
-    name: string;
-    value: string;
-}
+import { Properties } from "../types";
+
 export interface IAddableInputProps {
-    onSave: (properties: AddableInputValue[]) => void;
+    onSave: (properties: Properties[]) => void;
+    values: Properties[];
 }

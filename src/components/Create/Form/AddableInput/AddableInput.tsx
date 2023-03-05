@@ -1,6 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Button from "src/components/Common/Button/Button";
-import { AddableInputValue, IAddableInputProps } from "./AddableInputTypes";
+import { useAppDispatch } from "src/redux/hooks";
+import { openAddProperty } from "src/redux/slices/modals/modalsSlice";
+import { Properties } from "../types";
+import { IAddableInputProps } from "./AddableInputTypes";
 import {
     StyledAddableInput,
     StyledAddableInputComponentWrapper,
@@ -12,10 +15,9 @@ import {
     StyledInputWrapper,
 } from "./StyledAddableInput";
 
-const AddableInput = ({ onSave }: IAddableInputProps) => {
-    const [state, setState] = useState<AddableInputValue[]>([
-        { name: "", value: "" },
-    ]);
+const AddableInput = ({ onSave, values }: IAddableInputProps) => {
+    const [state, setState] = useState<Properties[]>([{ type: "", value: "" }]);
+    const dispatch = useAppDispatch();
 
     const handleRemoveItem = (indexToRemove: number) => {
         setState(prevState =>
@@ -29,7 +31,7 @@ const AddableInput = ({ onSave }: IAddableInputProps) => {
         const { value } = event.target;
         setState(prevState => {
             const newState = [...prevState];
-            newState[index] = { ...newState[index], name: value };
+            newState[index] = { ...newState[index], type: value };
             return newState;
         });
     };
@@ -44,6 +46,12 @@ const AddableInput = ({ onSave }: IAddableInputProps) => {
             return newState;
         });
     };
+
+    useEffect(() => {
+        if (values.length) {
+            setState(values);
+        }
+    }, [values]);
 
     return (
         <StyledAddableInputComponentWrapper>
@@ -64,7 +72,7 @@ const AddableInput = ({ onSave }: IAddableInputProps) => {
                                 </StyledDeleteItemIcon>
                                 <StyledAddableInputWithDeleteButton
                                     type="text"
-                                    value={item.name}
+                                    value={item.type}
                                     onChange={e => {
                                         handleNameInputChange(e, index);
                                     }}
@@ -88,7 +96,7 @@ const AddableInput = ({ onSave }: IAddableInputProps) => {
                     size="sm"
                     variant="outlined"
                     onClick={() => {
-                        setState(prev => [...prev, { name: "", value: "" }]);
+                        setState(prev => [...prev, { type: "", value: "" }]);
                     }}
                 >
                     Add More
@@ -99,6 +107,7 @@ const AddableInput = ({ onSave }: IAddableInputProps) => {
                 variant="normal"
                 onClick={() => {
                     onSave(state);
+                    dispatch(openAddProperty(false));
                 }}
             >
                 Save

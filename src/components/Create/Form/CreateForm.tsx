@@ -1,5 +1,7 @@
 import { useFormik } from "formik";
+import PlusIcon from "public/Icon/PlusIcon";
 import React, { ChangeEvent, HtmlHTMLAttributes, useState } from "react";
+import Button from "src/components/Common/Button/Button";
 import { useAppDispatch } from "src/redux/hooks";
 import { openAddProperty } from "src/redux/slices/modals/modalsSlice";
 import AddableInput from "./AddableInput/AddableInput";
@@ -9,8 +11,15 @@ import { StyledInputDescription, StyledInputLabel } from "./Input/StyledInput";
 import AddPropertyModal from "./Modals/AddPropertyModal/AddPropertyModal";
 import SelectInput from "./SelectInput/SelectInput";
 
-import { StyledFormWrapper } from "./StyledCreateForm";
-import { CreateFileState, FormState } from "./types";
+import {
+    StyledFormWrapper,
+    StyledInputTitleAndDescriptionWrapper,
+    StyledInputWrapper,
+    StyledPropertiesWrapper,
+    StyledProperty,
+    StyledViewPropertiesWrapper,
+} from "./StyledCreateForm";
+import { CreateFileState, FormState, Properties } from "./types";
 
 const CreateForm = () => {
     const dispatch = useAppDispatch();
@@ -65,6 +74,18 @@ const CreateForm = () => {
         }
     };
 
+    const handleSaveProperties: (
+        properties: Properties[]
+    ) => void = properties => {
+        const validProperties = properties.filter(
+            property => property.value !== ""
+        );
+        setValues(prev => ({
+            ...prev,
+            properties: validProperties,
+        }));
+    };
+
     const { errors, handleSubmit, values, setValues } = formik;
 
     return (
@@ -115,24 +136,36 @@ const CreateForm = () => {
                 title="Blockchain"
                 description=" Ethereum chain image"
             />
-            <div>
-                <div>
-                    <StyledInputLabel>Properties</StyledInputLabel>
-                    <StyledInputDescription>
-                        Textual traits that show up as rectangles
-                    </StyledInputDescription>
-                </div>
-                <div>
-                    <button
-                        type="button"
+            <StyledPropertiesWrapper>
+                <StyledInputWrapper>
+                    <StyledInputTitleAndDescriptionWrapper>
+                        <StyledInputLabel>Properties</StyledInputLabel>
+                        <StyledInputDescription>
+                            Textual traits that show up as rectangles
+                        </StyledInputDescription>
+                    </StyledInputTitleAndDescriptionWrapper>
+                    <Button
+                        size="sm"
+                        variant="outlined"
                         onClick={() => dispatch(openAddProperty(true))}
                     >
-                        Add Property
-                    </button>
-                </div>
-            </div>
+                        <PlusIcon />
+                    </Button>
+                </StyledInputWrapper>
+                <StyledViewPropertiesWrapper>
+                    {values.properties.map((property, index) => (
+                        <StyledProperty key={index}>
+                            <span>{property.type}</span>
+                            <span>{property.value}</span>
+                        </StyledProperty>
+                    ))}
+                </StyledViewPropertiesWrapper>
+            </StyledPropertiesWrapper>
 
-            <AddPropertyModal onSaveHandler={e => console.log(e)} />
+            <AddPropertyModal
+                onSaveHandler={properties => handleSaveProperties(properties)}
+                values={values.properties}
+            />
         </StyledFormWrapper>
     );
 };

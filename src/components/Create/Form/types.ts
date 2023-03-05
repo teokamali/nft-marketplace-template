@@ -1,6 +1,6 @@
-interface Properties {
+export interface Properties {
     type: string;
-    name: string;
+    value: string;
 }
 interface Levels {
     name: string;
