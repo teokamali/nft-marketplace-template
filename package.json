@@ -13,6 +13,7 @@
     "dependencies": {
         "@fontsource/poppins": "^4.5.10",
         "@reduxjs/toolkit": "^1.9.0",
+        "@tailwindcss/line-clamp": "^0.4.2",
         "@tailwindcss/typography": "^0.5.8",
         "@thirdweb-dev/react": "^3.6.7",
         "@thirdweb-dev/sdk": "^3.6.7",

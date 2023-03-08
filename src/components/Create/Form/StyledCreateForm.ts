@@ -14,8 +14,12 @@ export const StyledPropertiesWrapper = styled.div`
     ${tw`w-full flex items-start flex-col gap-2`}
 `;
 export const StyledViewPropertiesWrapper = styled.div`
-    ${tw`w-full flex items-start gap-2`}
+    ${tw`flex items-start gap-2`}
 `;
 export const StyledProperty = styled.div`
-    ${tw`flex flex-col p-3 text-black bg-purple-9 border border-purple-2 rounded-[8px] gap-2`}
+    ${tw`w-[120px] flex flex-col items-center p-3 overflow-hidden border border-purple-2 bg-purple-9 rounded-[8px] gap-2`}
+`;
+export const StyledPropertyText = styled.span`
+    ${tw`text-black max-w-[90%] mx-auto overflow-hidden text-[13px]`}
+    text-overflow:ellipsis;
 `;

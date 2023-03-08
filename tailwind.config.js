@@ -59,8 +59,7 @@ module.exports = {
                 "layout-bg-footer-dark": "url('/images/FooterBackground.png')",
                 "footer-bg": "url('/images/FooterLightBackground.png')",
             },
-
         },
     },
-    plugins: [],
+    plugins: [require("@tailwindcss/line-clamp")],
 };

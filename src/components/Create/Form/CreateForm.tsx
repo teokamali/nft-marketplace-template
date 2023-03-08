@@ -17,6 +17,7 @@ import {
     StyledInputWrapper,
     StyledPropertiesWrapper,
     StyledProperty,
+    StyledPropertyText,
     StyledViewPropertiesWrapper,
 } from "./StyledCreateForm";
 import { CreateFileState, FormState, Properties } from "./types";
@@ -155,8 +156,12 @@ const CreateForm = () => {
                 <StyledViewPropertiesWrapper>
                     {values.properties.map((property, index) => (
                         <StyledProperty key={index}>
-                            <span>{property.type}</span>
-                            <span>{property.value}</span>
+                            <StyledPropertyText>
+                                {property.type}
+                            </StyledPropertyText>
+                            <StyledPropertyText>
+                                {property.value}
+                            </StyledPropertyText>
                         </StyledProperty>
                     ))}
                 </StyledViewPropertiesWrapper>
