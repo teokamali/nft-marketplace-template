@@ -8,6 +8,7 @@ type Modals = {
     showFilter: boolean;
     addProperty: boolean;
     addLevel: boolean;
+    addStat: boolean;
 };
 
 const initialState: Modals = {
@@ -18,6 +19,7 @@ const initialState: Modals = {
     showFilter: false,
     addProperty: false,
     addLevel: false,
+    addStat: false,
 };
 
 const modalsSlice = createSlice({
@@ -45,6 +47,9 @@ const modalsSlice = createSlice({
         openAddLevel(state, action: PayloadAction<boolean>) {
             state.addLevel = action.payload;
         },
+        openAddStat(state, action: PayloadAction<boolean>) {
+            state.addStat = action.payload;
+        },
     },
 });
 
@@ -56,6 +61,7 @@ export const {
     openShowFilter,
     openAddProperty,
     openAddLevel,
+    openAddStat,
 } = modalsSlice.actions;
 export const selectModal = (state: RootState) => state.modals;
 

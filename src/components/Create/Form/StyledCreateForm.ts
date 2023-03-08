@@ -17,10 +17,10 @@ export const StyledViewPropertiesWrapper = styled.div`
     ${tw`flex items-start gap-2`}
 `;
 export const StyledProperty = styled.div`
-    ${tw`w-[120px] flex flex-col items-center p-3 overflow-hidden border border-purple-2 bg-purple-9 rounded-[8px] gap-2`}
+    ${tw`w-[120px] flex flex-col items-center p-3 overflow-hidden border border-purple-2 bg-[rgba(118, 130, 243, 0.5)] rounded-[8px] gap-2`}
 `;
 export const StyledPropertyText = styled.span`
-    ${tw`text-black max-w-[90%] mx-auto overflow-hidden text-[13px]`}
+    ${tw`text-black dark:text-smokeWhite max-w-[90%] mx-auto overflow-hidden text-[13px]`}
     text-overflow:ellipsis;
 `;
 
@@ -34,5 +34,8 @@ export const StyledLevel = styled.div`
     ${tw`w-full flex flex-col gap-1 bg-[rgba(217, 217, 217, 0.38)] py-1 px-3.5 rounded`}
 `;
 export const StyledLevelInfo = styled.div`
-    ${tw`w-full flex justify-between text-[12px] text-[#212121] font-normal`}
+    ${tw`w-full flex justify-between text-[12px] text-[#212121] dark:text-smokeWhite font-normal`}
+`;
+export const StyledStat = styled.div`
+    ${tw`w-[50%] flex justify-between text-[12px] px-3.5 py-1 rounded bg-[rgba(217, 217, 217, 0.38)]  text-[#212121] dark:text-smokeWhite font-normal`}
 `;

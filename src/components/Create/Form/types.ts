@@ -9,8 +9,8 @@ export interface Levels {
 }
 export interface Stats {
     name: string;
-    value: string;
-    of: string;
+    value: number;
+    of: number;
 }
 
 export interface FormState {

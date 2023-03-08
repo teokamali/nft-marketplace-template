@@ -7,6 +7,7 @@ import { useAppDispatch } from "src/redux/hooks";
 import {
     openAddLevel,
     openAddProperty,
+    openAddStat,
 } from "src/redux/slices/modals/modalsSlice";
 import AddableInput from "./AddableInput/AddableInput";
 import FileInput from "./FileInput/FileInput";
@@ -14,6 +15,7 @@ import Input from "./Input/Input";
 import { StyledInputDescription, StyledInputLabel } from "./Input/StyledInput";
 import AddLevelsModal from "./Modals/AddLevelsModal/AddLevelsModal";
 import AddPropertyModal from "./Modals/AddPropertyModal/AddPropertyModal";
+import AddStatsModal from "./Modals/AddStatsModal/AddStatsModal";
 import SelectInput from "./SelectInput/SelectInput";
 
 import {
@@ -27,9 +29,10 @@ import {
     StyledPropertiesWrapper,
     StyledProperty,
     StyledPropertyText,
+    StyledStat,
     StyledViewPropertiesWrapper,
 } from "./StyledCreateForm";
-import { CreateFileState, FormState, Levels, Properties } from "./types";
+import { CreateFileState, FormState, Levels, Properties, Stats } from "./types";
 
 const CreateForm = () => {
     const dispatch = useAppDispatch();
@@ -104,10 +107,17 @@ const CreateForm = () => {
             levels: validLevels,
         }));
     };
+    const handleSaveStats: (stats: Stats[]) => void = stats => {
+        const validStats = stats.filter(
+            stat => stat.value !== 0 && stat.name !== ""
+        );
+        setValues(prev => ({
+            ...prev,
+            stats: validStats,
+        }));
+    };
 
     const { errors, handleSubmit, values, setValues } = formik;
-
-    console.log(values);
 
     return (
         <StyledFormWrapper onSubmit={handleSubmit}>
@@ -222,6 +232,34 @@ const CreateForm = () => {
                 </StyledLevelsPreview>
             </StyledLevelsWrapper>
 
+            <StyledLevelsWrapper>
+                <StyledInputWrapper>
+                    <StyledInputTitleAndDescriptionWrapper>
+                        <StyledInputLabel>Stats</StyledInputLabel>
+                        <StyledInputDescription>
+                            Numerical traits that just show as numbers
+                        </StyledInputDescription>
+                    </StyledInputTitleAndDescriptionWrapper>
+                    <Button
+                        size="sm"
+                        variant="outlined"
+                        onClick={() => dispatch(openAddStat(true))}
+                    >
+                        <PlusIcon />
+                    </Button>
+                </StyledInputWrapper>
+                <StyledLevelsPreview>
+                    {values.stats.map((stat, index) => (
+                        <StyledStat key={index}>
+                            <span>{stat.name}</span>
+                            <span>
+                                {stat.value} of {stat.of}
+                            </span>
+                        </StyledStat>
+                    ))}
+                </StyledLevelsPreview>
+            </StyledLevelsWrapper>
+
             <AddPropertyModal
                 onSaveHandler={properties => handleSaveProperties(properties)}
                 values={values.properties}
@@ -230,6 +268,10 @@ const CreateForm = () => {
             <AddLevelsModal
                 onSaveHandler={levels => handleSaveLevels(levels)}
                 values={values.levels}
+            />
+            <AddStatsModal
+                onSaveHandler={stats => handleSaveStats(stats)}
+                values={values.stats}
             />
         </StyledFormWrapper>
     );
