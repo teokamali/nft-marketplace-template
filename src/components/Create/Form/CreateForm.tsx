@@ -210,12 +210,12 @@ const CreateForm = () => {
                             <StyledLevelInfo>
                                 <span>{level.name}</span>
                                 <span>
-                                    {level.value} of {level.maxValue}
+                                    {level.value} of {level.of}
                                 </span>
                             </StyledLevelInfo>
                             <Progressbar
                                 value={level.value}
-                                maxValue={level.maxValue}
+                                maxValue={level.of}
                             />
                         </StyledLevel>
                     ))}

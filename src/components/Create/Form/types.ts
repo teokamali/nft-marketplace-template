@@ -5,12 +5,12 @@ export interface Properties {
 export interface Levels {
     name: string;
     value: number;
-    maxValue: number;
+    of: number;
 }
 export interface Stats {
     name: string;
     value: string;
-    maxValue: string;
+    of: string;
 }
 
 export interface FormState {
