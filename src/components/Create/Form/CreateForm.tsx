@@ -2,6 +2,7 @@ import { useFormik } from "formik";
 import PlusIcon from "public/Icon/PlusIcon";
 import React, { ChangeEvent, HtmlHTMLAttributes, useState } from "react";
 import Button from "src/components/Common/Button/Button";
+import CheckboxToggleSlider from "src/components/Common/CheckboxToggleSlider/CheckboxToggleSlider";
 import Progressbar from "src/components/Common/Progressbar/Progressbar";
 import { useAppDispatch } from "src/redux/hooks";
 import {
@@ -258,6 +259,16 @@ const CreateForm = () => {
                         </StyledStat>
                     ))}
                 </StyledLevelsPreview>
+
+                <CheckboxToggleSlider
+                    isChecked={values.isUnlockableContent}
+                    setIsChecked={checked => {
+                        setValues(prev => ({
+                            ...prev,
+                            isUnlockableContent: checked,
+                        }));
+                    }}
+                />
             </StyledLevelsWrapper>
 
             <AddPropertyModal
