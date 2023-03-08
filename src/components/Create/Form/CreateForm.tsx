@@ -2,12 +2,17 @@ import { useFormik } from "formik";
 import PlusIcon from "public/Icon/PlusIcon";
 import React, { ChangeEvent, HtmlHTMLAttributes, useState } from "react";
 import Button from "src/components/Common/Button/Button";
+import Progressbar from "src/components/Common/Progressbar/Progressbar";
 import { useAppDispatch } from "src/redux/hooks";
-import { openAddProperty } from "src/redux/slices/modals/modalsSlice";
+import {
+    openAddLevel,
+    openAddProperty,
+} from "src/redux/slices/modals/modalsSlice";
 import AddableInput from "./AddableInput/AddableInput";
 import FileInput from "./FileInput/FileInput";
 import Input from "./Input/Input";
 import { StyledInputDescription, StyledInputLabel } from "./Input/StyledInput";
+import AddLevelsModal from "./Modals/AddLevelsModal/AddLevelsModal";
 import AddPropertyModal from "./Modals/AddPropertyModal/AddPropertyModal";
 import SelectInput from "./SelectInput/SelectInput";
 
@@ -15,12 +20,16 @@ import {
     StyledFormWrapper,
     StyledInputTitleAndDescriptionWrapper,
     StyledInputWrapper,
+    StyledLevel,
+    StyledLevelInfo,
+    StyledLevelsPreview,
+    StyledLevelsWrapper,
     StyledPropertiesWrapper,
     StyledProperty,
     StyledPropertyText,
     StyledViewPropertiesWrapper,
 } from "./StyledCreateForm";
-import { CreateFileState, FormState, Properties } from "./types";
+import { CreateFileState, FormState, Levels, Properties } from "./types";
 
 const CreateForm = () => {
     const dispatch = useAppDispatch();
@@ -86,8 +95,19 @@ const CreateForm = () => {
             properties: validProperties,
         }));
     };
+    const handleSaveLevels: (levels: Levels[]) => void = levels => {
+        const validLevels = levels.filter(
+            level => level.value !== 0 && level.name !== ""
+        );
+        setValues(prev => ({
+            ...prev,
+            levels: validLevels,
+        }));
+    };
 
     const { errors, handleSubmit, values, setValues } = formik;
+
+    console.log(values);
 
     return (
         <StyledFormWrapper onSubmit={handleSubmit}>
@@ -137,6 +157,7 @@ const CreateForm = () => {
                 title="Blockchain"
                 description=" Ethereum chain image"
             />
+
             <StyledPropertiesWrapper>
                 <StyledInputWrapper>
                     <StyledInputTitleAndDescriptionWrapper>
@@ -167,9 +188,48 @@ const CreateForm = () => {
                 </StyledViewPropertiesWrapper>
             </StyledPropertiesWrapper>
 
+            <StyledLevelsWrapper>
+                <StyledInputWrapper>
+                    <StyledInputTitleAndDescriptionWrapper>
+                        <StyledInputLabel>Levels</StyledInputLabel>
+                        <StyledInputDescription>
+                            Numerical traits that show as a progress bar
+                        </StyledInputDescription>
+                    </StyledInputTitleAndDescriptionWrapper>
+                    <Button
+                        size="sm"
+                        variant="outlined"
+                        onClick={() => dispatch(openAddLevel(true))}
+                    >
+                        <PlusIcon />
+                    </Button>
+                </StyledInputWrapper>
+                <StyledLevelsPreview>
+                    {values.levels.map((level, index) => (
+                        <StyledLevel key={index}>
+                            <StyledLevelInfo>
+                                <span>{level.name}</span>
+                                <span>
+                                    {level.value} of {level.maxValue}
+                                </span>
+                            </StyledLevelInfo>
+                            <Progressbar
+                                value={level.value}
+                                maxValue={level.maxValue}
+                            />
+                        </StyledLevel>
+                    ))}
+                </StyledLevelsPreview>
+            </StyledLevelsWrapper>
+
             <AddPropertyModal
                 onSaveHandler={properties => handleSaveProperties(properties)}
                 values={values.properties}
+            />
+
+            <AddLevelsModal
+                onSaveHandler={levels => handleSaveLevels(levels)}
+                values={values.levels}
             />
         </StyledFormWrapper>
     );

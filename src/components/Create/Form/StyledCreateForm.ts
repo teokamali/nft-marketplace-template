@@ -23,3 +23,16 @@ export const StyledPropertyText = styled.span`
     ${tw`text-black max-w-[90%] mx-auto overflow-hidden text-[13px]`}
     text-overflow:ellipsis;
 `;
+
+export const StyledLevelsWrapper = styled.div`
+    ${tw`w-full flex items-start flex-col gap-2`}
+`;
+export const StyledLevelsPreview = styled.div`
+    ${tw`w-full flex items-start flex-col gap-2`}
+`;
+export const StyledLevel = styled.div`
+    ${tw`w-full flex flex-col gap-1 bg-[rgba(217, 217, 217, 0.38)] py-1 px-3.5 rounded`}
+`;
+export const StyledLevelInfo = styled.div`
+    ${tw`w-full flex justify-between text-[12px] text-[#212121] font-normal`}
+`;

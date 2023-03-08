@@ -2,12 +2,12 @@ export interface Properties {
     type: string;
     value: string;
 }
-interface Levels {
+export interface Levels {
     name: string;
-    value: string;
-    maxValue: string;
+    value: number;
+    maxValue: number;
 }
-interface Stats {
+export interface Stats {
     name: string;
     value: string;
     maxValue: string;
