@@ -2,7 +2,7 @@ import styled from "styled-components";
 import tw from "twin.macro";
 
 export const StyledFormWrapper = styled.form`
-    ${tw`max-w-3xl mx-auto flex flex-col gap-7`}
+    ${tw`max-w-3xl mx-auto flex flex-col gap-7 py-6`}
 `;
 export const StyledInputWrapper = styled.div`
     ${tw`w-full flex items-center justify-between`}
@@ -38,4 +38,18 @@ export const StyledLevelInfo = styled.div`
 `;
 export const StyledStat = styled.div`
     ${tw`w-[50%] flex justify-between text-[12px] px-3.5 py-1 rounded bg-[rgba(217, 217, 217, 0.38)]  text-[#212121] dark:text-smokeWhite font-normal`}
+`;
+
+export const StyledSwitchableInputsWrapper = styled.div`
+    ${tw`w-full flex flex-col items-start gap-1`}
+`;
+export const StyledSwitchableInputsContent = styled.div`
+    ${tw`w-full flex justify-between gap-1`}
+`;
+
+export const StyledSwitchableInputsContentTextWrapper = styled.div`
+    ${tw`w-full flex flex-col items-start gap-1`}
+`;
+export const StyledTextArea = styled.textarea`
+    ${tw`w-full h-32 rounded p-3 outline-none border bg-white text-black focus:border-purple-6 transition-colors duration-300`}
 `;

@@ -31,16 +31,16 @@ import {
     StyledProperty,
     StyledPropertyText,
     StyledStat,
+    StyledSwitchableInputsContent,
+    StyledSwitchableInputsContentTextWrapper,
+    StyledSwitchableInputsWrapper,
+    StyledTextArea,
     StyledViewPropertiesWrapper,
 } from "./StyledCreateForm";
-import { CreateFileState, FormState, Levels, Properties, Stats } from "./types";
+import { FormState, Levels, Properties, Stats } from "./types";
 
 const CreateForm = () => {
     const dispatch = useAppDispatch();
-
-    const [state, setState] = useState<CreateFileState>({
-        file: null,
-    });
 
     const initialFormState: FormState = {
         file: null,
@@ -72,7 +72,7 @@ const CreateForm = () => {
     const handleFileProcess = (file: File) => {
         if (file) {
             const selectedFile: File = file;
-            setState(prev => ({
+            setValues(prev => ({
                 ...prev,
                 file: selectedFile,
             }));
@@ -80,8 +80,8 @@ const CreateForm = () => {
     };
 
     const handleDelete = () => {
-        if (state.file) {
-            setState(prev => ({
+        if (values.file) {
+            setValues(prev => ({
                 ...prev,
                 file: null,
             }));
@@ -126,7 +126,7 @@ const CreateForm = () => {
                 title="Image, Video, Audio, or 3D Model"
                 description="File types supported: JPG, PNG, GIF, SVG, MP4, WEBM, MP3, WAV, OGG, GLB, GLTF. Max size: 100 MB"
                 onFileChange={file => handleFileProcess(file)}
-                file={state.file}
+                file={values.file}
                 onDeleteFileHandler={handleDelete}
             />
             <Input
@@ -259,17 +259,72 @@ const CreateForm = () => {
                         </StyledStat>
                     ))}
                 </StyledLevelsPreview>
-
-                <CheckboxToggleSlider
-                    isChecked={values.isUnlockableContent}
-                    setIsChecked={checked => {
-                        setValues(prev => ({
-                            ...prev,
-                            isUnlockableContent: checked,
-                        }));
-                    }}
-                />
             </StyledLevelsWrapper>
+
+            {/* unLockable Content */}
+            <StyledSwitchableInputsWrapper>
+                <StyledSwitchableInputsContent>
+                    <StyledSwitchableInputsContentTextWrapper>
+                        <StyledInputLabel>Unlockable Content</StyledInputLabel>
+                        <StyledInputDescription>
+                            Include unlockable content that can only be revealed
+                            by the owner of the item.
+                        </StyledInputDescription>
+                    </StyledSwitchableInputsContentTextWrapper>
+                    <CheckboxToggleSlider
+                        isChecked={values.isUnlockableContent}
+                        setIsChecked={checked => {
+                            setValues(prev => ({
+                                ...prev,
+                                isUnlockableContent: checked,
+                            }));
+                        }}
+                    />
+                </StyledSwitchableInputsContent>
+                {values.isUnlockableContent && (
+                    <StyledTextArea
+                        name=""
+                        id=""
+                        placeholder="Enter content (access key, code to redeem, link to a file, etc.)"
+                        onChange={e => {
+                            setValues(prev => ({
+                                ...prev,
+                                unlockableContent: e.target.value,
+                            }));
+                        }}
+                    ></StyledTextArea>
+                )}
+            </StyledSwitchableInputsWrapper>
+            {/* Explicit & Sensitive Content */}
+            <StyledSwitchableInputsWrapper>
+                <StyledSwitchableInputsContent>
+                    <StyledSwitchableInputsContentTextWrapper>
+                        <StyledInputLabel>
+                            Explicit & Sensitive Content
+                        </StyledInputLabel>
+                        <StyledInputDescription>
+                            Set this item as explicit and sensitive content
+                        </StyledInputDescription>
+                    </StyledSwitchableInputsContentTextWrapper>
+                    <CheckboxToggleSlider
+                        isChecked={values.isExplicit}
+                        setIsChecked={checked => {
+                            setValues(prev => ({
+                                ...prev,
+                                isExplicit: checked,
+                            }));
+                        }}
+                    />
+                </StyledSwitchableInputsContent>
+            </StyledSwitchableInputsWrapper>
+
+            <Button
+                size="full"
+                variant="normal"
+                onClick={() => onSubmitHandler(values)}
+            >
+                Create
+            </Button>
 
             <AddPropertyModal
                 onSaveHandler={properties => handleSaveProperties(properties)}

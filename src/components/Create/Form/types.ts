@@ -14,7 +14,7 @@ export interface Stats {
 }
 
 export interface FormState {
-    file: FileList | null;
+    file: File | null;
     name: string;
     externalLink: string;
     description: string;
@@ -28,7 +28,4 @@ export interface FormState {
     isUnlockableContent: boolean;
     unlockableContent?: string;
     isExplicit: boolean;
-}
-export interface CreateFileState {
-    file?: File | null;
 }
