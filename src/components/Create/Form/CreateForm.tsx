@@ -1,6 +1,12 @@
 import { useFormik } from "formik";
 import { useRouter } from "next/router";
+import DotIcon from "public/Icon/DotIcon";
+import ExclamationMarkIcon from "public/Icon/ExclamationMarkIcon";
+import LockIcon from "public/Icon/LockIcon";
 import PlusIcon from "public/Icon/PlusIcon";
+import PropertyListIcon from "public/Icon/PropertyListIcon";
+import StarIcon from "public/Icon/StarIcon";
+import WifiSignalIcon from "public/Icon/WifiSignalIcon";
 import React, { ChangeEvent, HtmlHTMLAttributes, useState } from "react";
 import Button from "src/components/Common/Button/Button";
 import CheckboxToggleSlider from "src/components/Common/CheckboxToggleSlider/CheckboxToggleSlider";
@@ -24,6 +30,8 @@ import SelectInput from "./SelectInput/SelectInput";
 import {
     StyledDisabledFreezeMetaDataDescription,
     StyledFormWrapper,
+    StyledIconAndInputWrapper,
+    StyledIconAndTextWrapper,
     StyledInputTitleAndDescriptionWrapper,
     StyledInputWrapper,
     StyledLevel,
@@ -123,8 +131,6 @@ const CreateForm = () => {
         }));
     };
 
-    console.log(errors);
-
     return (
         <StyledFormWrapper onSubmit={handleSubmit}>
             {/* file input */}
@@ -134,16 +140,20 @@ const CreateForm = () => {
                 onFileChange={file => handleFileProcess(file)}
                 file={values.file}
                 onDeleteFileHandler={handleDelete}
+                icon={<DotIcon />}
+                
             />
-
             {/* name input */}
-            <Input
-                onChange={event => {
-                    setValues({ ...values, name: event.target.value });
-                }}
-                title="Name"
-                value={values.name}
-            />
+            <StyledIconAndInputWrapper>
+                <Input
+                    onChange={event => {
+                        setValues({ ...values, name: event.target.value });
+                    }}
+                    title="Name"
+                    value={values.name}
+                    icon={<DotIcon />}
+                />
+            </StyledIconAndInputWrapper>
 
             {/* external Link */}
             <Input
@@ -153,6 +163,7 @@ const CreateForm = () => {
                 title="External link"
                 description="NFT MP will include a link to this URL on this item's detail page, so that users can click to learn more about it. You are welcome to link to your own webpage with more details."
                 value={values.externalLink}
+                icon={<DotIcon />}
             />
 
             {/* description input */}
@@ -163,12 +174,14 @@ const CreateForm = () => {
                 title="Description"
                 description=" The description will be included on the item's detail page underneath its image. Markdown syntax is supported."
                 value={values.description}
+                icon={<DotIcon />}
             />
 
             {/* collection select */}
             <SelectInput
                 title="Collection"
                 description="This is the collection where your item will appear"
+                icon={<DotIcon />}
             />
 
             <Input
@@ -178,16 +191,23 @@ const CreateForm = () => {
                 title="Supply"
                 description="The number of items that can be minted. No gas cost to you!"
                 value={values.supply}
+                icon={<DotIcon />}
             />
             <SelectInput
                 title="Blockchain"
                 description=" Ethereum chain image"
+                icon={<DotIcon />}
             />
 
             <StyledPropertiesWrapper>
                 <StyledInputWrapper>
                     <StyledInputTitleAndDescriptionWrapper>
-                        <StyledInputLabel>Properties</StyledInputLabel>
+                        <StyledInputLabel>
+                            <StyledIconAndTextWrapper>
+                                <PropertyListIcon />
+                                <span>Properties</span>
+                            </StyledIconAndTextWrapper>
+                        </StyledInputLabel>
                         <StyledInputDescription>
                             Textual traits that show up as rectangles
                         </StyledInputDescription>
@@ -217,7 +237,12 @@ const CreateForm = () => {
             <StyledLevelsWrapper>
                 <StyledInputWrapper>
                     <StyledInputTitleAndDescriptionWrapper>
-                        <StyledInputLabel>Levels</StyledInputLabel>
+                        <StyledInputLabel>
+                            <StyledIconAndTextWrapper>
+                                <StarIcon />
+                                Levels
+                            </StyledIconAndTextWrapper>
+                        </StyledInputLabel>
                         <StyledInputDescription>
                             Numerical traits that show as a progress bar
                         </StyledInputDescription>
@@ -251,7 +276,12 @@ const CreateForm = () => {
             <StyledLevelsWrapper>
                 <StyledInputWrapper>
                     <StyledInputTitleAndDescriptionWrapper>
-                        <StyledInputLabel>Stats</StyledInputLabel>
+                        <StyledInputLabel>
+                            <StyledIconAndInputWrapper>
+                                <WifiSignalIcon />
+                                Stats
+                            </StyledIconAndInputWrapper>
+                        </StyledInputLabel>
                         <StyledInputDescription>
                             Numerical traits that just show as numbers
                         </StyledInputDescription>
@@ -281,7 +311,12 @@ const CreateForm = () => {
             <StyledSwitchableInputsWrapper>
                 <StyledSwitchableInputsContent>
                     <StyledSwitchableInputsContentTextWrapper>
-                        <StyledInputLabel>Unlockable Content</StyledInputLabel>
+                        <StyledInputLabel>
+                            <StyledIconAndTextWrapper>
+                                <LockIcon />
+                                Unlockable Content
+                            </StyledIconAndTextWrapper>
+                        </StyledInputLabel>
                         <StyledInputDescription>
                             Include unlockable content that can only be revealed
                             by the owner of the item.
@@ -318,7 +353,10 @@ const CreateForm = () => {
                 <StyledSwitchableInputsContent>
                     <StyledSwitchableInputsContentTextWrapper>
                         <StyledInputLabel>
-                            Explicit & Sensitive Content
+                            <StyledIconAndTextWrapper>
+                                <ExclamationMarkIcon />
+                                Explicit & Sensitive Content
+                            </StyledIconAndTextWrapper>
                         </StyledInputLabel>
                         <StyledInputDescription>
                             Set this item as explicit and sensitive content
@@ -341,7 +379,12 @@ const CreateForm = () => {
             <StyledSwitchableInputsWrapper>
                 <StyledSwitchableInputsContent>
                     <StyledSwitchableInputsContentTextWrapper>
-                        <StyledInputLabel>Freeze metadata</StyledInputLabel>
+                        <StyledInputLabel>
+                            <StyledIconAndTextWrapper>
+                                <DotIcon />
+                                Freeze metadata
+                            </StyledIconAndTextWrapper>
+                        </StyledInputLabel>
                     </StyledSwitchableInputsContentTextWrapper>
 
                     <CheckboxToggleSlider

@@ -1,4 +1,5 @@
-import React, { ChangeEvent, InputHTMLAttributes } from "react";
+import React, { ChangeEvent, InputHTMLAttributes, ReactNode } from "react";
+import { StyledIconAndTextWrapper } from "../StyledCreateForm";
 import {
     InputError,
     StyledInputDescription,
@@ -13,6 +14,7 @@ interface IProps extends InputHTMLAttributes<HTMLInputElement> {
     value: string;
     onChange: (e: ChangeEvent<HTMLInputElement>) => void;
     error?: string;
+    icon?: ReactNode;
 }
 
 const Input = ({
@@ -21,11 +23,17 @@ const Input = ({
     error,
     title,
     description,
+    icon,
     ...props
 }: IProps) => {
     return (
         <StyledInputWrapper>
-            <StyledInputLabel htmlFor={props.name}>{title}</StyledInputLabel>
+            <StyledInputLabel htmlFor={props.name}>
+                <StyledIconAndTextWrapper>
+                    {icon && <span>{icon}</span>}
+                    {title}
+                </StyledIconAndTextWrapper>
+            </StyledInputLabel>
             <StyledInputDescription>{description}</StyledInputDescription>
             <TextInput
                 value={value}

@@ -14,6 +14,7 @@ import {
     StyledInputLabel,
     StyledInputWrapper,
 } from "../Input/StyledInput";
+import { StyledIconAndTextWrapper } from "../StyledCreateForm";
 import { FileInputState, IFileInputProps } from "./FileInputType";
 
 import {
@@ -38,6 +39,7 @@ const FileInput = ({
     file,
     onFileChange,
     onDeleteFileHandler,
+    icon,
     ...props
 }: IFileInputProps) => {
     const [state, setState] = useState<FileInputState>({
@@ -100,7 +102,12 @@ const FileInput = ({
     const { fileType } = state;
     return (
         <StyledInputWrapper>
-            <StyledInputLabel htmlFor={props.name}>{title}</StyledInputLabel>
+            <StyledInputLabel htmlFor={props.name}>
+                <StyledIconAndTextWrapper>
+                    {icon && <span>{icon}</span>}
+                    {title}
+                </StyledIconAndTextWrapper>
+            </StyledInputLabel>
             <StyledInputDescription>{description}</StyledInputDescription>
             {!file && (
                 <StyledFileInputWrapper isDraggedIn={state.draggedInto}>
