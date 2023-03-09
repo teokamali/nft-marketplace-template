@@ -1,4 +1,5 @@
 import { useFormik } from "formik";
+import { useRouter } from "next/router";
 import PlusIcon from "public/Icon/PlusIcon";
 import React, { ChangeEvent, HtmlHTMLAttributes, useState } from "react";
 import Button from "src/components/Common/Button/Button";
@@ -10,6 +11,7 @@ import {
     openAddProperty,
     openAddStat,
 } from "src/redux/slices/modals/modalsSlice";
+import { createNftValidation } from "src/validations/createNftValidation";
 import AddableInput from "./AddableInput/AddableInput";
 import FileInput from "./FileInput/FileInput";
 import Input from "./Input/Input";
@@ -20,6 +22,7 @@ import AddStatsModal from "./Modals/AddStatsModal/AddStatsModal";
 import SelectInput from "./SelectInput/SelectInput";
 
 import {
+    StyledDisabledFreezeMetaDataDescription,
     StyledFormWrapper,
     StyledInputTitleAndDescriptionWrapper,
     StyledInputWrapper,
@@ -41,7 +44,7 @@ import { FormState, Levels, Properties, Stats } from "./types";
 
 const CreateForm = () => {
     const dispatch = useAppDispatch();
-
+    const router = useRouter();
     const initialFormState: FormState = {
         file: null,
         name: "",
@@ -50,7 +53,6 @@ const CreateForm = () => {
         collection: "",
         supply: "",
         blockChain: "",
-        freezeMetaData: "",
         properties: [],
         levels: [],
         stats: [],
@@ -59,16 +61,17 @@ const CreateForm = () => {
         isExplicit: false,
     };
 
-    const formik = useFormik({
-        initialValues: initialFormState,
-        onSubmit: (values: FormState) => {
-            onSubmitHandler(values);
-        },
-    });
-
-    const onSubmitHandler: (values: FormState) => void = values => {
+    const onSubmitHandler = () => {
         console.log(values);
     };
+
+    const formik = useFormik({
+        initialValues: initialFormState,
+        validationSchema: createNftValidation,
+        onSubmit: onSubmitHandler,
+    });
+    const { errors, handleSubmit, values, setValues } = formik;
+
     const handleFileProcess = (file: File) => {
         if (file) {
             const selectedFile: File = file;
@@ -99,6 +102,7 @@ const CreateForm = () => {
             properties: validProperties,
         }));
     };
+
     const handleSaveLevels: (levels: Levels[]) => void = levels => {
         const validLevels = levels.filter(
             level => level.value !== 0 && level.name !== ""
@@ -108,6 +112,7 @@ const CreateForm = () => {
             levels: validLevels,
         }));
     };
+
     const handleSaveStats: (stats: Stats[]) => void = stats => {
         const validStats = stats.filter(
             stat => stat.value !== 0 && stat.name !== ""
@@ -118,10 +123,11 @@ const CreateForm = () => {
         }));
     };
 
-    const { errors, handleSubmit, values, setValues } = formik;
+    console.log(errors);
 
     return (
         <StyledFormWrapper onSubmit={handleSubmit}>
+            {/* file input */}
             <FileInput
                 title="Image, Video, Audio, or 3D Model"
                 description="File types supported: JPG, PNG, GIF, SVG, MP4, WEBM, MP3, WAV, OGG, GLB, GLTF. Max size: 100 MB"
@@ -129,6 +135,8 @@ const CreateForm = () => {
                 file={values.file}
                 onDeleteFileHandler={handleDelete}
             />
+
+            {/* name input */}
             <Input
                 onChange={event => {
                     setValues({ ...values, name: event.target.value });
@@ -136,6 +144,8 @@ const CreateForm = () => {
                 title="Name"
                 value={values.name}
             />
+
+            {/* external Link */}
             <Input
                 onChange={event => {
                     setValues({ ...values, externalLink: event.target.value });
@@ -144,6 +154,8 @@ const CreateForm = () => {
                 description="NFT MP will include a link to this URL on this item's detail page, so that users can click to learn more about it. You are welcome to link to your own webpage with more details."
                 value={values.externalLink}
             />
+
+            {/* description input */}
             <Input
                 onChange={event => {
                     setValues({ ...values, description: event.target.value });
@@ -152,10 +164,13 @@ const CreateForm = () => {
                 description=" The description will be included on the item's detail page underneath its image. Markdown syntax is supported."
                 value={values.description}
             />
+
+            {/* collection select */}
             <SelectInput
                 title="Collection"
                 description="This is the collection where your item will appear"
             />
+
             <Input
                 onChange={event => {
                     setValues({ ...values, supply: event.target.value });
@@ -262,6 +277,7 @@ const CreateForm = () => {
             </StyledLevelsWrapper>
 
             {/* unLockable Content */}
+
             <StyledSwitchableInputsWrapper>
                 <StyledSwitchableInputsContent>
                     <StyledSwitchableInputsContentTextWrapper>
@@ -273,6 +289,7 @@ const CreateForm = () => {
                     </StyledSwitchableInputsContentTextWrapper>
                     <CheckboxToggleSlider
                         isChecked={values.isUnlockableContent}
+                        disabled={false}
                         setIsChecked={checked => {
                             setValues(prev => ({
                                 ...prev,
@@ -295,6 +312,7 @@ const CreateForm = () => {
                     ></StyledTextArea>
                 )}
             </StyledSwitchableInputsWrapper>
+
             {/* Explicit & Sensitive Content */}
             <StyledSwitchableInputsWrapper>
                 <StyledSwitchableInputsContent>
@@ -308,6 +326,7 @@ const CreateForm = () => {
                     </StyledSwitchableInputsContentTextWrapper>
                     <CheckboxToggleSlider
                         isChecked={values.isExplicit}
+                        disabled={false}
                         setIsChecked={checked => {
                             setValues(prev => ({
                                 ...prev,
@@ -318,11 +337,25 @@ const CreateForm = () => {
                 </StyledSwitchableInputsContent>
             </StyledSwitchableInputsWrapper>
 
-            <Button
-                size="full"
-                variant="normal"
-                onClick={() => onSubmitHandler(values)}
-            >
+            {/* Freeze metadata */}
+            <StyledSwitchableInputsWrapper>
+                <StyledSwitchableInputsContent>
+                    <StyledSwitchableInputsContentTextWrapper>
+                        <StyledInputLabel>Freeze metadata</StyledInputLabel>
+                    </StyledSwitchableInputsContentTextWrapper>
+
+                    <CheckboxToggleSlider
+                        isChecked={false}
+                        disabled={true}
+                        setIsChecked={checked => null}
+                    />
+                </StyledSwitchableInputsContent>
+                <StyledDisabledFreezeMetaDataDescription>
+                    To freeze your metadata, you must create your item first.
+                </StyledDisabledFreezeMetaDataDescription>
+            </StyledSwitchableInputsWrapper>
+
+            <Button size="full" variant="normal" type="submit">
                 Create
             </Button>
 

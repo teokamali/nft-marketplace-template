@@ -21,7 +21,6 @@ export interface FormState {
     collection: string;
     supply: string;
     blockChain: string;
-    freezeMetaData: string;
     properties: Properties[];
     levels: Levels[];
     stats: Stats[];

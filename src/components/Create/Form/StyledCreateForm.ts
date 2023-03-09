@@ -53,3 +53,6 @@ export const StyledSwitchableInputsContentTextWrapper = styled.div`
 export const StyledTextArea = styled.textarea`
     ${tw`w-full h-32 rounded p-3 outline-none border bg-white text-black focus:border-purple-6 transition-colors duration-300`}
 `;
+export const StyledDisabledFreezeMetaDataDescription = styled.p`
+    ${tw`w-full text-center bg-gray-300 text-black text-[13px] font-medium rounded p-2`}
+`;
