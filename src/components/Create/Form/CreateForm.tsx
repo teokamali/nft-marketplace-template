@@ -10,6 +10,7 @@ import WifiSignalIcon from "public/Icon/WifiSignalIcon";
 import React, { ChangeEvent, HtmlHTMLAttributes, useState } from "react";
 import Button from "src/components/Common/Button/Button";
 import CheckboxToggleSlider from "src/components/Common/CheckboxToggleSlider/CheckboxToggleSlider";
+import { InputWrapper } from "src/components/Common/Input/StyledInput";
 import Progressbar from "src/components/Common/Progressbar/Progressbar";
 import { useAppDispatch } from "src/redux/hooks";
 import {
@@ -21,7 +22,11 @@ import { createNftValidation } from "src/validations/createNftValidation";
 import AddableInput from "./AddableInput/AddableInput";
 import FileInput from "./FileInput/FileInput";
 import Input from "./Input/Input";
-import { StyledInputDescription, StyledInputLabel } from "./Input/StyledInput";
+import {
+    InputError,
+    StyledInputDescription,
+    StyledInputLabel,
+} from "./Input/StyledInput";
 import AddLevelsModal from "./Modals/AddLevelsModal/AddLevelsModal";
 import AddPropertyModal from "./Modals/AddPropertyModal/AddPropertyModal";
 import AddStatsModal from "./Modals/AddStatsModal/AddStatsModal";
@@ -30,8 +35,8 @@ import SelectInput from "./SelectInput/SelectInput";
 import {
     StyledDisabledFreezeMetaDataDescription,
     StyledFormWrapper,
-    StyledIconAndInputWrapper,
     StyledIconAndTextWrapper,
+    StyledInputHolder,
     StyledInputTitleAndDescriptionWrapper,
     StyledInputWrapper,
     StyledLevel,
@@ -130,21 +135,24 @@ const CreateForm = () => {
             stats: validStats,
         }));
     };
-
+    console.log(errors);
     return (
         <StyledFormWrapper onSubmit={handleSubmit}>
             {/* file input */}
-            <FileInput
-                title="Image, Video, Audio, or 3D Model"
-                description="File types supported: JPG, PNG, GIF, SVG, MP4, WEBM, MP3, WAV, OGG, GLB, GLTF. Max size: 100 MB"
-                onFileChange={file => handleFileProcess(file)}
-                file={values.file}
-                onDeleteFileHandler={handleDelete}
-                icon={<DotIcon />}
-                
-            />
+            <StyledInputHolder>
+                <FileInput
+                    title="Image, Video, Audio, or 3D Model"
+                    description="File types supported: JPG, PNG, GIF, SVG, MP4, WEBM, MP3, WAV, OGG, GLB, GLTF. Max size: 100 MB"
+                    onFileChange={file => handleFileProcess(file)}
+                    file={values.file}
+                    onDeleteFileHandler={handleDelete}
+                    icon={<DotIcon />}
+                />
+                {errors.file && <InputError>{errors.file}</InputError>}
+            </StyledInputHolder>
+
             {/* name input */}
-            <StyledIconAndInputWrapper>
+            <StyledInputHolder>
                 <Input
                     onChange={event => {
                         setValues({ ...values, name: event.target.value });
@@ -153,73 +161,114 @@ const CreateForm = () => {
                     value={values.name}
                     icon={<DotIcon />}
                 />
-            </StyledIconAndInputWrapper>
+                {errors.name && <InputError>{errors.name}</InputError>}
+            </StyledInputHolder>
 
             {/* external Link */}
-            <Input
-                onChange={event => {
-                    setValues({ ...values, externalLink: event.target.value });
-                }}
-                title="External link"
-                description="NFT MP will include a link to this URL on this item's detail page, so that users can click to learn more about it. You are welcome to link to your own webpage with more details."
-                value={values.externalLink}
-                icon={<DotIcon />}
-            />
+
+            <StyledInputHolder>
+                <Input
+                    onChange={event => {
+                        setValues({
+                            ...values,
+                            externalLink: event.target.value,
+                        });
+                    }}
+                    title="External link"
+                    description="NFT MP will include a link to this URL on this item's detail page, so that users can click to learn more about it. You are welcome to link to your own webpage with more details."
+                    value={values.externalLink}
+                    icon={<DotIcon />}
+                />
+                {errors.externalLink && (
+                    <InputError>{errors.externalLink}</InputError>
+                )}
+            </StyledInputHolder>
 
             {/* description input */}
-            <Input
-                onChange={event => {
-                    setValues({ ...values, description: event.target.value });
-                }}
-                title="Description"
-                description=" The description will be included on the item's detail page underneath its image. Markdown syntax is supported."
-                value={values.description}
-                icon={<DotIcon />}
-            />
+            <StyledInputHolder>
+                <Input
+                    onChange={event => {
+                        setValues({
+                            ...values,
+                            description: event.target.value,
+                        });
+                    }}
+                    title="Description"
+                    description=" The description will be included on the item's detail page underneath its image. Markdown syntax is supported."
+                    value={values.description}
+                    icon={<DotIcon />}
+                />
+                {errors.description && (
+                    <InputError>{errors.description}</InputError>
+                )}
+            </StyledInputHolder>
 
             {/* collection select */}
-            <SelectInput
-                title="Collection"
-                description="This is the collection where your item will appear"
-                icon={<DotIcon />}
-            />
 
-            <Input
-                onChange={event => {
-                    setValues({ ...values, supply: event.target.value });
-                }}
-                title="Supply"
-                description="The number of items that can be minted. No gas cost to you!"
-                value={values.supply}
-                icon={<DotIcon />}
-            />
-            <SelectInput
-                title="Blockchain"
-                description=" Ethereum chain image"
-                icon={<DotIcon />}
-            />
+            <StyledInputHolder>
+                <SelectInput
+                    title="Collection"
+                    description="This is the collection where your item will appear"
+                    icon={<DotIcon />}
+                />
+                {errors.collection && (
+                    <InputError>{errors.collection}</InputError>
+                )}
+            </StyledInputHolder>
 
+            {/* supply input*/}
+            <StyledInputHolder>
+                <Input
+                    onChange={event => {
+                        setValues({ ...values, supply: event.target.value });
+                    }}
+                    title="Supply"
+                    description="The number of items that can be minted. No gas cost to you!"
+                    value={values.supply}
+                    icon={<DotIcon />}
+                />
+                {errors.supply && <InputError>{errors.supply}</InputError>}
+            </StyledInputHolder>
+            {/* blockchain select */}
+            <StyledInputHolder>
+                <SelectInput
+                    title="Blockchain"
+                    description=" Ethereum chain image"
+                    icon={<DotIcon />}
+                />
+                {errors.blockChain && (
+                    <InputError>{errors.blockChain}</InputError>
+                )}
+            </StyledInputHolder>
+
+            {/* properties */}
             <StyledPropertiesWrapper>
-                <StyledInputWrapper>
-                    <StyledInputTitleAndDescriptionWrapper>
-                        <StyledInputLabel>
-                            <StyledIconAndTextWrapper>
-                                <PropertyListIcon />
-                                <span>Properties</span>
-                            </StyledIconAndTextWrapper>
-                        </StyledInputLabel>
-                        <StyledInputDescription>
-                            Textual traits that show up as rectangles
-                        </StyledInputDescription>
-                    </StyledInputTitleAndDescriptionWrapper>
-                    <Button
-                        size="sm"
-                        variant="outlined"
-                        onClick={() => dispatch(openAddProperty(true))}
-                    >
-                        <PlusIcon />
-                    </Button>
-                </StyledInputWrapper>
+                <StyledInputHolder>
+                    <StyledInputWrapper>
+                        <StyledInputTitleAndDescriptionWrapper>
+                            <StyledInputLabel>
+                                <StyledIconAndTextWrapper>
+                                    <PropertyListIcon />
+                                    <span>Properties</span>
+                                </StyledIconAndTextWrapper>
+                            </StyledInputLabel>
+                            <StyledInputDescription>
+                                Textual traits that show up as rectangles
+                            </StyledInputDescription>
+                        </StyledInputTitleAndDescriptionWrapper>
+                        <Button
+                            size="sm"
+                            variant="outlined"
+                            onClick={() => dispatch(openAddProperty(true))}
+                        >
+                            <PlusIcon />
+                        </Button>
+                    </StyledInputWrapper>
+                    {errors.properties && (
+                        <InputError>{errors.properties.length > 1}</InputError>
+                    )}
+                </StyledInputHolder>
+
                 <StyledViewPropertiesWrapper>
                     {values.properties.map((property, index) => (
                         <StyledProperty key={index}>
@@ -277,10 +326,10 @@ const CreateForm = () => {
                 <StyledInputWrapper>
                     <StyledInputTitleAndDescriptionWrapper>
                         <StyledInputLabel>
-                            <StyledIconAndInputWrapper>
+                            <StyledIconAndTextWrapper>
                                 <WifiSignalIcon />
                                 Stats
-                            </StyledIconAndInputWrapper>
+                            </StyledIconAndTextWrapper>
                         </StyledInputLabel>
                         <StyledInputDescription>
                             Numerical traits that just show as numbers

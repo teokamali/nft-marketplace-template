@@ -56,9 +56,10 @@ export const StyledTextArea = styled.textarea`
 export const StyledDisabledFreezeMetaDataDescription = styled.p`
     ${tw`w-full text-center bg-gray-300 text-black text-[13px] font-medium rounded p-2`}
 `;
-export const StyledIconAndInputWrapper = styled.div`
-    ${tw`flex items-center gap-2`}
-`;
+
 export const StyledIconAndTextWrapper = styled.div`
     ${tw`flex items-center gap-2`}
+`;
+export const StyledInputHolder = styled.div`
+    ${tw`w-full relative`}
 `;
