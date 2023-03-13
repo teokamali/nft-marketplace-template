@@ -1,54 +1,8 @@
 import { useIntl } from "react-intl";
 import abbrNum from "src/utils/abbrNum";
-import messages from "./messages";
-import BallIcon from "../../../public/Icon/BallIcon"
-import {
-    SearchBox,
-    StyleCollectionHeaderAvatarSection,
-    StyleCollectionHeaderBackground,
-    StyleCollectionHeaderDesc,
-    StyleCollectionHeaderInfoSection,
-    StyleCollectionHeaderName,
-    StyleCollectionHeaderProfileInfoBox,
-    StyleCollectionHeaderProfileInfoItemCount,
-    StyleCollectionHeaderProfileInfoItemName,
-    StyleCollectionHeaderProfileInfoSection,
-    StyleCollectionHeaderSection,
-    StyleCollectionHeaderSocialBox,
-    StyleCollectionHeaderSocialSection,
-    StyleCollectionHeaderTitle,
-    StyleCollectionMain,
-    StyleCollectionMainBodyFilter,
-    StyleCollectionMainCardBox,
-    StyleCollectionMainCardImage,
-    StyleCollectionMainCardSeenBox,
-    StyleCollectionMainCardSpanColor,
-    StyleCollectionMainCardSpanItem,
-    StyleCollectionMainCardUpdateBox,
-    StyleCollectionMainFilterPriceBodyItemBox,
-    StyleCollectionMainHeaderBox,
-    StyleCollectionMainHeaderItemBox,
-    StyleCollectionMainHeaderItemFilterBodyBox,
-    StyleCollectionMainHeaderItemFilterBodyItemBox,
-    StyleCollectionMainHeaderItemFilterBodyItemBoxCurrency,
-    StyleCollectionMainHeaderItemFilterBodyItemBoxQuantity,
-    StyleCollectionMainHeaderItemFilterBodyItemBoxStatus,
-    StyleCollectionMainHeaderItemFilterBodyItemHeaderBox,
-    StyleCollectionMainHeaderItemFilterBodyItemHeaderItemBox,
-    StyleCollectionMainHeaderItemFilterBodyItemHeaderNameBox,
-    StyleCollectionMainHeaderItemFilterBodyPriceBox,
-    StyleCollectionMainHeaderItemFilterBox,
-    StyleCollectionMainHeaderItemFilterBoxHeader,
-    StyleCollectionMainHeaderItemFilterName,
-    StyleCollectionMainHeaderLayout,
-    StyleCollectionMainHeaderLayout2,
-    StyleCollectionMainHeaderLayoutBox,
-    StyleCollectionMainItemFilterBodyItemBox,
-    StyleCollectionMainItemFilterBodyItemPriceInput,
-    StyleCollectionMainWrapper,
-    StyleCollectionSection,
-    StyledCollectionIconWrapper
-} from "./StyleCollection"
+import messages from "../messages";
+import BallIcon from "../../../../public/Icon/BallIcon"
+import { StyleItemFiltersSection, SearchBox, StyleCollectionHeaderAvatarSection, StyleCollectionHeaderBackground, StyleCollectionHeaderDesc, StyleCollectionHeaderInfoSection, StyleCollectionHeaderName, StyleCollectionHeaderProfileInfoBox, StyleCollectionHeaderProfileInfoItemCount, StyleCollectionHeaderProfileInfoItemName, StyleCollectionHeaderProfileInfoSection, StyleCollectionHeaderSection, StyleCollectionHeaderSocialBox, StyleCollectionHeaderSocialSection, StyleCollectionHeaderTitle, StyleCollectionMainWrapper, StyleCollectionSection, StyleItemFiltersBox, StyledCollectionIconWrapper, StyleSearchBoxSection, StyleCollectionMainHeaderLayoutBox, StyleCollectionMainHeaderLayout, StyleCollectionMainHeaderLayout2, StyleCollectionMainHeaderItemFilterBox, StyleCollectionMainHeaderItemFilterBoxHeader, StyleCollectionMainHeaderItemFilterName, StyleCollectionMainBodyFilter, StyleCollectionMainHeaderItemFilterBodyBox, StyleCollectionMainHeaderItemFilterBodyItemHeaderBox, StyleCollectionMainHeaderItemFilterBodyItemHeaderNameBox, StyleCollectionMainHeaderItemFilterBodyItemBoxStatus, StyleCollectionMainItemFilterBodyItemBox, StyleCollectionMainHeaderItemFilterBodyItemHeaderItemBox, StyleCollectionMainHeaderItemFilterBodyItemBoxQuantity, StyleCollectionMainHeaderItemFilterBodyItemBoxCurrency, StyleCollectionMainFilterPriceBodyItemBox, StyleCollectionMainHeaderItemFilterBodyPriceBox, StyleCollectionMainItemFilterBodyItemPriceInput, StyleCollectionCardSection, StyleCollectionMainCardBox, StyleCollectionMainCardImage, StyleCollectionMainCardSpanColor, StyleCollectionMainCardSpanItem, StyleCollectionMainCardUpdateBox, StyleCollectionMainCardSeenBox } from "./StyleMobileCollection"
 import SocialIcon from "public/Icon/SocialIcon";
 import FoxIcon from "public/Icon/FoxIcon";
 import TwitterIcon from "public/Icon/TwitterIcon";
@@ -56,12 +10,13 @@ import TwitterSIcon from "public/Icon/TwitterSIcon";
 import BeIcon from "public/Icon/BeIcon";
 import ShareIcon from "public/Icon/ShareIcon";
 import MoreIcon from "public/Icon/MoreIcon";
-import FilterIcon from "public/Icon/FilterIcon";
-import ChevronDownIcon from "public/Icon/ChevronDownIcon";
-import Input from "../Input/Input";
+import { Mobile } from "src/utils/BreakPoints";
 import { useState } from "react";
+import Input from "src/components/Input/Input";
+import ChevronDownIcon from "public/Icon/ChevronDownIcon";
 import ClassifyIcon from "public/Icon/ClassifyIcon";
 import ClassifyIcon2 from "public/Icon/ClassifyIcon2";
+import FilterIcon from "public/Icon/FilterIcon";
 import ChevronUpIcon from "public/Icon/ChevronUpIcon";
 import EyeBlueIcon from "public/Icon/EyeBlueIcon";
 
@@ -136,81 +91,125 @@ const filterCurrency = [
         checked: false
     },
 ]
-
-
-
-const Collection = ({ profile, collections }: ICollectionProps) => {
+const MobileCollection = ({ profile, collections }: ICollectionProps) => {
     const { formatMessage } = useIntl();
     const [search, setSearch] = useState("");
     const [check, setCheck] = useState(false);
     const [statusVisible, setStatusVisible] = useState<boolean>(false);
     const [quantityVisible, setQuantityVisible] = useState<boolean>(false);
     const [currencyVisible, setCurrencyVisible] = useState<boolean>(false);
-    const [filterVisible, setFilterVisible] = useState<boolean>(false);
-
-    console.log(check);
+    const [filterVisible, setFilterVisible] = useState<boolean>(true);
     return (
-        <StyleCollectionSection>
-            <StyleCollectionHeaderSection >
-                <StyleCollectionHeaderBackground bgImage={profile.imgSrc} style={{ backdropFilter: " blur(10px)" }} />
-                <StyleCollectionHeaderInfoSection>
-                    <StyleCollectionHeaderAvatarSection src={profile.avatarSrc} />
-                    <StyleCollectionHeaderName>
-                        {profile.name}
-                    </StyleCollectionHeaderName>
-                    <StyleCollectionHeaderTitle>
-                        {profile.title}
-                    </StyleCollectionHeaderTitle>
-                    <StyleCollectionHeaderDesc>
-                        {profile.details}
-                    </StyleCollectionHeaderDesc>
-                    <StyleCollectionHeaderProfileInfoSection>
-                        {profile.info.map((value, index) => {
-                            return (<>
-                                <StyleCollectionHeaderProfileInfoBox key={index}>
-                                    <StyleCollectionHeaderProfileInfoItemCount>
-                                        {abbrNum({
-                                            number: value.numItem,
-                                            decPlaces: 0,
-                                        })}
-                                    </StyleCollectionHeaderProfileInfoItemCount>
-                                    <StyleCollectionHeaderProfileInfoItemName>
-                                        {value.item}
-                                    </StyleCollectionHeaderProfileInfoItemName>
-                                </StyleCollectionHeaderProfileInfoBox>
-                            </>
-                            )
-                        })}
-                    </StyleCollectionHeaderProfileInfoSection>
-                    <StyleCollectionHeaderSocialSection>
-                        <StyleCollectionHeaderSocialBox href="">
-                            <BallIcon />
-                        </StyleCollectionHeaderSocialBox>
-                        <StyleCollectionHeaderSocialBox href="">
-                            <SocialIcon />
-                        </StyleCollectionHeaderSocialBox>
-                        <StyleCollectionHeaderSocialBox href="">
-                            <FoxIcon />
-                        </StyleCollectionHeaderSocialBox>
-                        <StyleCollectionHeaderSocialBox href="">
-                            <TwitterSIcon />
-                        </StyleCollectionHeaderSocialBox>
-                        <StyleCollectionHeaderSocialBox href="">
-                            <BeIcon />
-                        </StyleCollectionHeaderSocialBox>
-                        <StyleCollectionHeaderSocialBox href="">
-                            <ShareIcon />
-                        </StyleCollectionHeaderSocialBox>
-                        <StyleCollectionHeaderSocialBox href="">
-                            <MoreIcon />
-                        </StyleCollectionHeaderSocialBox>
-                    </StyleCollectionHeaderSocialSection>
-                </StyleCollectionHeaderInfoSection>
-            </StyleCollectionHeaderSection>
-            <StyleCollectionMainWrapper>
-                <StyleCollectionMainHeaderBox >
+        <Mobile>
+            <StyleCollectionSection>
+                <StyleCollectionHeaderSection >
+                    <StyleCollectionHeaderBackground bgImage={profile.imgSrc} style={{ backdropFilter: " blur(10px)" }} />
+                    <StyleCollectionHeaderInfoSection>
+                        <StyleCollectionHeaderAvatarSection src={profile.avatarSrc} />
+                        <StyleCollectionHeaderName>
+                            {profile.name}
+                        </StyleCollectionHeaderName>
+                        <StyleCollectionHeaderTitle>
+                            {profile.title}
+                        </StyleCollectionHeaderTitle>
+                        <StyleCollectionHeaderDesc>
+                            {profile.details}
+                        </StyleCollectionHeaderDesc>
+                        <StyleCollectionHeaderProfileInfoSection>
+                            {profile.info.map((value, index) => {
+                                return (<>
+                                    <StyleCollectionHeaderProfileInfoBox key={index}>
+                                        <StyleCollectionHeaderProfileInfoItemCount>
+                                            {abbrNum({
+                                                number: value.numItem,
+                                                decPlaces: 0,
+                                            })}
+                                        </StyleCollectionHeaderProfileInfoItemCount>
+                                        <StyleCollectionHeaderProfileInfoItemName>
+                                            {value.item}
+                                        </StyleCollectionHeaderProfileInfoItemName>
+                                    </StyleCollectionHeaderProfileInfoBox>
+                                </>
+                                )
+                            })}
+                        </StyleCollectionHeaderProfileInfoSection>
+                        <StyleCollectionHeaderSocialSection>
+                            <StyleCollectionHeaderSocialBox href="">
+                                <BallIcon />
+                            </StyleCollectionHeaderSocialBox>
+                            <StyleCollectionHeaderSocialBox href="">
+                                <SocialIcon />
+                            </StyleCollectionHeaderSocialBox>
+                            <StyleCollectionHeaderSocialBox href="">
+                                <FoxIcon />
+                            </StyleCollectionHeaderSocialBox>
+                            <StyleCollectionHeaderSocialBox href="">
+                                <TwitterSIcon />
+                            </StyleCollectionHeaderSocialBox>
+                            <StyleCollectionHeaderSocialBox href="">
+                                <BeIcon />
+                            </StyleCollectionHeaderSocialBox>
+                            <StyleCollectionHeaderSocialBox href="">
+                                <ShareIcon />
+                            </StyleCollectionHeaderSocialBox>
+                            <StyleCollectionHeaderSocialBox href="">
+                                <MoreIcon />
+                            </StyleCollectionHeaderSocialBox>
+                        </StyleCollectionHeaderSocialSection>
+                    </StyleCollectionHeaderInfoSection>
+                </StyleCollectionHeaderSection>
+                <StyleCollectionMainWrapper>
+                    <StyleSearchBoxSection>
+                        <SearchBox>
+                            <form className="flex items-center">
+                                <Input
+                                    value={search}
+                                    onChange={e => {
+                                        setSearch(e.target.value);
+                                    }}
+                                    placeholder="Search items , collections and accounts"
+                                    type="text"
+                                    inputMode="search"
+                                    style={{
+                                        backgroundImage: "url(/images/search.png)",
+                                        backgroundRepeat: "no-repeat",
+                                        backgroundPosition: " 8px center",
+                                        textIndent: "27px",
+                                        fontSize: "12px",
+                                        border: "1px solid rgba(33, 33, 33, 0.5)"
+                                    }}
+                                />
+                            </form>
+                        </SearchBox>
+
+
+
+                        <StyleCollectionMainHeaderLayoutBox>
+                            <StyleCollectionMainHeaderLayout>
+                                <ClassifyIcon />
+                            </StyleCollectionMainHeaderLayout>
+                            <StyleCollectionMainHeaderLayout2>
+                                <ClassifyIcon2 />
+                            </StyleCollectionMainHeaderLayout2>
+                        </StyleCollectionMainHeaderLayoutBox>
+                    </StyleSearchBoxSection>
+
+                    <StyleItemFiltersSection>
+                        <StyleItemFiltersBox>
+                            <span className="line-clamp-1"> Price Low To High</span>
+                            <StyledCollectionIconWrapper>
+                                <ChevronDownIcon />
+                            </StyledCollectionIconWrapper>
+                        </StyleItemFiltersBox>
+                        <StyleItemFiltersBox>
+                            <span className="line-clamp-1">Rarity Low To high</span>
+                        </StyleItemFiltersBox>
+                        <StyleItemFiltersBox style={{ color: "#4858EF" }}>
+                            <span className="line-clamp-1">Make Collection Offer</span>
+                        </StyleItemFiltersBox>
+                    </StyleItemFiltersSection>
                     <StyleCollectionMainHeaderItemFilterBox >
-                        <StyleCollectionMainHeaderItemFilterBoxHeader>
+                        <StyleCollectionMainHeaderItemFilterBoxHeader filterVisible={filterVisible} >
                             <StyleCollectionMainHeaderItemFilterName>
                                 <StyledCollectionIconWrapper>
                                     <FilterIcon />
@@ -339,7 +338,6 @@ const Collection = ({ profile, collections }: ICollectionProps) => {
                             <StyleCollectionMainFilterPriceBodyItemBox>
                                 <StyleCollectionMainHeaderItemFilterBodyPriceBox style={{ padding: "10px 10px" }}>
                                     <StyleCollectionMainItemFilterBodyItemPriceInput type="text" placeholder="USD" style={{ outline: "none", width: "30px" }} />
-
                                     <StyledCollectionIconWrapper>
                                         <ChevronDownIcon />
                                     </StyledCollectionIconWrapper>
@@ -354,75 +352,32 @@ const Collection = ({ profile, collections }: ICollectionProps) => {
                             </StyleCollectionMainFilterPriceBodyItemBox>
                         </StyleCollectionMainBodyFilter>
                     </StyleCollectionMainHeaderItemFilterBox>
-
-                    <SearchBox>
-                        <form className="flex items-center">
-                            <Input
-                                value={search}
-                                onChange={e => {
-                                    setSearch(e.target.value);
-                                }}
-                                placeholder="Search items , collections and accounts"
-                                type="text"
-                                inputMode="search"
-                                style={{
-                                    backgroundImage: "url(/images/search.png)",
-                                    backgroundRepeat: "no-repeat",
-                                    backgroundPosition: " 8px center",
-                                    textIndent: "27px",
-                                    fontSize: "12px",
-                                    border: "1px solid rgba(33, 33, 33, 0.5)"
-                                }}
-                            />
-                        </form>
-                    </SearchBox>
-                    <StyleCollectionMainHeaderItemBox>
-                        <span className="line-clamp-1">Price Low To High</span>
-                        <StyledCollectionIconWrapper>
-                            <ChevronDownIcon />
-                        </StyledCollectionIconWrapper>
-                    </StyleCollectionMainHeaderItemBox>
-                    <StyleCollectionMainHeaderItemBox>
-                        <span className="line-clamp-1">Rarity Low To high</span>
-                    </StyleCollectionMainHeaderItemBox>
-                    <StyleCollectionMainHeaderItemBox style={{ color: "#4858EF" }}>
-                        <span className="line-clamp-1">Make Collection Offer</span>
-                    </StyleCollectionMainHeaderItemBox>
-                    <StyleCollectionMainHeaderLayoutBox>
-                        <StyleCollectionMainHeaderLayout>
-                            <ClassifyIcon />
-                        </StyleCollectionMainHeaderLayout>
-                        <StyleCollectionMainHeaderLayout2>
-                            <ClassifyIcon2 />
-                        </StyleCollectionMainHeaderLayout2>
-                    </StyleCollectionMainHeaderLayoutBox>
-                </StyleCollectionMainHeaderBox>
-                <StyleCollectionMain>
-                    {collections.map((dataCard, index) => {
-                        return (<>
-                            <StyleCollectionMainCardBox>
-                                <StyleCollectionMainCardImage src={dataCard.imgSrc} />
-                                <StyleCollectionMainCardSpanColor>{dataCard.color}</StyleCollectionMainCardSpanColor>
-                                <StyleCollectionMainCardSpanItem>
-                                    {dataCard.name}
-                                </StyleCollectionMainCardSpanItem>
-                                <StyleCollectionMainCardSpanItem>
-                                    {formatMessage({ ...messages.PRICE_FORMAT }, { price: dataCard.price })}
-                                </StyleCollectionMainCardSpanItem>
-                                <StyleCollectionMainCardUpdateBox>
-                                    <span>{formatMessage({ ...messages.LAST_UPDATE }, { date: dataCard.lastUpdate })}</span>
-                                    <StyleCollectionMainCardSeenBox>
-                                        <EyeBlueIcon />
-                                        <span>{dataCard.seen}</span>
-                                    </StyleCollectionMainCardSeenBox>
-                                </StyleCollectionMainCardUpdateBox>
-                            </StyleCollectionMainCardBox>
-                        </>)
-                    })}
-
-                </StyleCollectionMain>
-            </StyleCollectionMainWrapper>
-        </StyleCollectionSection>
+                    <StyleCollectionCardSection>
+                        {collections.map((dataCard, index) => {
+                            return (<>
+                                <StyleCollectionMainCardBox>
+                                    <StyleCollectionMainCardImage src={dataCard.imgSrc} />
+                                    <StyleCollectionMainCardSpanColor>{dataCard.color}</StyleCollectionMainCardSpanColor>
+                                    <StyleCollectionMainCardSpanItem>
+                                        {dataCard.name}
+                                    </StyleCollectionMainCardSpanItem>
+                                    <StyleCollectionMainCardSpanItem>
+                                        {formatMessage({ ...messages.PRICE_FORMAT }, { price: dataCard.price })}
+                                    </StyleCollectionMainCardSpanItem>
+                                    <StyleCollectionMainCardUpdateBox>
+                                        <span>{formatMessage({ ...messages.LAST_UPDATE }, { date: dataCard.lastUpdate })}</span>
+                                        <StyleCollectionMainCardSeenBox>
+                                            <EyeBlueIcon />
+                                            <span>{dataCard.seen}</span>
+                                        </StyleCollectionMainCardSeenBox>
+                                    </StyleCollectionMainCardUpdateBox>
+                                </StyleCollectionMainCardBox>
+                            </>)
+                        })}
+                    </StyleCollectionCardSection>
+                </StyleCollectionMainWrapper>
+            </StyleCollectionSection>
+        </Mobile>
     )
 }
-export default Collection 
+export default MobileCollection 

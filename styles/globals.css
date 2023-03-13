@@ -45,6 +45,31 @@ h6 {
     font-size: 20px;
 }
 
+.check_box {
+    display: none;
+}
+
+.check_box+.check_box_label {
+    /* background: url('/Icon/CheckboxEmpty.svg') no-repeat; */
+    border: 2px solid #DBDBDB;
+    border-radius: 4px;
+    height: 16px;
+    width: 16px;
+    padding: 0 0 0 0px;
+    background: url("/svg/checkBox.svg") no-repeat;
+
+}
+
+.check_box:checked+.check_box_label {
+    background: url("/svg/CheckboxTick.svg") no-repeat;
+    background-size: cover;
+    border: none;
+    height: 16px;
+    width: 16px;
+    padding: 0 0 0 0px;
+    border-radius: 0;
+}
+
 @media (prefers-color-scheme: dark) {
     html {
         color-scheme: dark;
@@ -55,3 +80,8 @@ h6 {
         background: black;
     }
 }
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  

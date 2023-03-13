@@ -8,6 +8,7 @@ module.exports = {
     ],
     darkMode: "class",
     theme: {
+       
         fontSize: {
             sm: "0.8rem",
             base: "16px",
@@ -62,5 +63,7 @@ module.exports = {
 
         },
     },
-    plugins: [],
+    plugins: [
+        require('@tailwindcss/line-clamp')
+    ],
 };
