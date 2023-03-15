@@ -251,7 +251,7 @@ function HomePage() {
             price: 0.2,
             likeCount: 400,
             seeCount: 88,
-            link: "#"
+            link: "#",
         },
         {
             imgSrc: "/images/nft-4.png",
@@ -260,7 +260,7 @@ function HomePage() {
             price: 0.2,
             likeCount: 400,
             seeCount: 88,
-            link: "#"
+            link: "#",
         },
         {
             imgSrc: "/images/nft-4.png",
@@ -269,7 +269,7 @@ function HomePage() {
             price: 0.2,
             likeCount: 400,
             seeCount: 88,
-            link: "#"
+            link: "#",
         },
         {
             imgSrc: "/images/nft-4.png",
@@ -278,7 +278,7 @@ function HomePage() {
             price: 0.2,
             likeCount: 400,
             seeCount: 88,
-            link: "#"
+            link: "#",
         },
         {
             imgSrc: "/images/nft-4.png",
@@ -287,7 +287,7 @@ function HomePage() {
             price: 0.2,
             likeCount: 400,
             seeCount: 88,
-            link: "#"
+            link: "#",
         },
         {
             imgSrc: "/images/nft-4.png",
@@ -296,7 +296,7 @@ function HomePage() {
             price: 0.2,
             likeCount: 400,
             seeCount: 88,
-            link: "#"
+            link: "#",
         },
         {
             imgSrc: "/images/nft-4.png",
@@ -305,7 +305,7 @@ function HomePage() {
             price: 0.2,
             likeCount: 400,
             seeCount: 88,
-            link: "#"
+            link: "#",
         },
         {
             imgSrc: "/images/nft-4.png",
@@ -314,10 +314,9 @@ function HomePage() {
             price: 0.2,
             likeCount: 400,
             seeCount: 88,
-            link: "#"
+            link: "#",
         },
-
-    ]
+    ];
 
     return (
         <div>
