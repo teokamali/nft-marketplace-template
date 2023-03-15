@@ -4,19 +4,27 @@ import { NormalButton, OutLinedButton } from "./ButtonStyles";
 interface IProps extends PropsWithChildren {
     variant: "normal" | "outlined";
     size: "xs" | "sm" | "md" | "lg" | "full";
-    onClick: () => void;
+    type?: "button" | "submit" | "reset" | undefined;
+    onClick?: () => void;
 }
 
-const Button: FC<IProps> = ({ children, variant, size, onClick, ...props }) => {
+const Button: FC<IProps> = ({
+    children,
+    variant,
+    size,
+    type,
+    onClick,
+    ...props
+}) => {
     if (variant !== "outlined") {
         return (
-            <NormalButton size={size} onClick={onClick} {...props}>
+            <NormalButton size={size} onClick={onClick} type={type} {...props}>
                 {children}
             </NormalButton>
         );
     }
     return (
-        <OutLinedButton size={size} onClick={onClick} {...props}>
+        <OutLinedButton size={size} onClick={onClick} type={type} {...props}>
             {children}
         </OutLinedButton>
     );

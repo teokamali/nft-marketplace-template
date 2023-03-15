@@ -2,33 +2,29 @@ export interface Properties {
     type: string;
     value: string;
 }
-interface Levels {
+export interface Levels {
     name: string;
-    value: string;
-    maxValue: string;
+    value: number;
+    of: number;
 }
-interface Stats {
+export interface Stats {
     name: string;
-    value: string;
-    maxValue: string;
+    value: number;
+    of: number;
 }
 
 export interface FormState {
-    file: FileList | null;
+    file: File | null;
     name: string;
     externalLink: string;
     description: string;
     collection: string;
     supply: string;
     blockChain: string;
-    freezeMetaData: string;
     properties: Properties[];
     levels: Levels[];
     stats: Stats[];
     isUnlockableContent: boolean;
     unlockableContent?: string;
     isExplicit: boolean;
-}
-export interface CreateFileState {
-    file?: File | null;
 }
