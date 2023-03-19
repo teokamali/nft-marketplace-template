@@ -58,7 +58,7 @@ import ShareIcon from "public/Icon/ShareIcon";
 import MoreIcon from "public/Icon/MoreIcon";
 import FilterIcon from "public/Icon/FilterIcon";
 import ChevronDownIcon from "public/Icon/ChevronDownIcon";
-import Input from "../Input/Input";
+import Input from "../Common/Input/Input";
 import { useState } from "react";
 import ClassifyIcon from "public/Icon/ClassifyIcon";
 import ClassifyIcon2 from "public/Icon/ClassifyIcon2";
