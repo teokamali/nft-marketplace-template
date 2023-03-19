@@ -2,7 +2,7 @@ import styled, { css } from "styled-components";
 import tw from "twin.macro";
 
 export const StyleRankingWrapper = styled.div`
-    ${tw`flex flex-col  mt-[10px]  w-full max-w-[1640px] px-9 mx-auto relative`}
+    ${tw`flex flex-col  mt-[10px]  w-full max-w-[1640px] px-9 mx-auto relative text-black dark:text-white`}
 `;
 export const StyleRankingHeaderSection = styled.div`
     ${tw`flex flex-row justify-between   w-full  `}
