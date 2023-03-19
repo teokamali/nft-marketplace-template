@@ -13,7 +13,7 @@ export default defineMessages({
     },
     CREATE_AN_ITEM: {
         id: `${scope}.CREATE_AN_ITEM`,
-        defaultMessage: "Create an item",
+        defaultMessage: "Create",
     },
     EXPLORE: {
         id: `${scope}.EXPLORE`,

@@ -14,6 +14,7 @@ import {
     RoundedButton,
     SearchBox,
     Section,
+    StyledOptionWrapper,
     Title,
     TitleDropDounBox,
     TitleDropDounText,
@@ -66,22 +67,34 @@ const DefaultHeader = () => {
                 </form>
             </SearchBox>
             <MenuSection>
-                <MenuItem>{formatMessage({ ...messages.HOME })}</MenuItem>
+                <MenuItem href="/">
+                    {formatMessage({ ...messages.HOME })}
+                </MenuItem>
                 <MenuItem
+                    href="/create"
                     style={{
                         textOverflow: "ellipsis",
                         overflow: "hidden",
                         whiteSpace: "nowrap",
                     }}
                 >
-                    {" "}
                     {formatMessage({ ...messages.CREATE_AN_ITEM })}
                 </MenuItem>
-                <MenuItem>{formatMessage({ ...messages.EXPLORE })}</MenuItem>
-                <MenuItem>{formatMessage({ ...messages.COMMUNITY })}</MenuItem>
-                <MenuItem>{formatMessage({ ...messages.RESOURECE })}</MenuItem>
+                <MenuItem href="/explore">
+                    {formatMessage({ ...messages.EXPLORE })}
+                </MenuItem>
+                <MenuItem href="#">
+                    {formatMessage({ ...messages.COMMUNITY })}
+                </MenuItem>
+                <MenuItem href="#">
+                    {formatMessage({ ...messages.RESOURECE })}
+                </MenuItem>
+            </MenuSection>
+            <StyledOptionWrapper>
                 <LanguageVsWalletSection>
-                    <MenuItem>{formatMessage({ ...messages.AR })}</MenuItem>
+                    <MenuItem href="#">
+                        {formatMessage({ ...messages.AR })}
+                    </MenuItem>
                     <div
                         style={{
                             width: "1px",
@@ -92,7 +105,7 @@ const DefaultHeader = () => {
                     <ButtonWallet onClick={handleOpen}>
                         <WalletWhiteIcon />
                     </ButtonWallet>
-                    <MenuItem>
+                    <MenuItem href="#">
                         {wallet && (
                             <DropDounBox>
                                 <TitleDropDounBox>
@@ -187,8 +200,8 @@ const DefaultHeader = () => {
                         )}
                     </MenuItem>
                 </LanguageVsWalletSection>
-            </MenuSection>
-            <RoundedButton />
+                <RoundedButton />
+            </StyledOptionWrapper>
         </Section>
     );
 };

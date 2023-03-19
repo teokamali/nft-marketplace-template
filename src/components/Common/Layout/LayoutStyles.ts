@@ -9,7 +9,7 @@ export const LayoutMain = styled.main<{
     isWalletDropDownOpen: boolean;
     isMenuDropDownOpen: boolean;
 }>`
-    ${tw`w-full transition-all duration-500`}
+    ${tw`w-full transition-all min-h-[calc(100vh - 370px)] duration-500`}
     ${props => props.isWalletDropDownOpen && "filter: blur(12px)"}
     ${props => props.isMenuDropDownOpen && "filter: blur(12px)"}
 `;

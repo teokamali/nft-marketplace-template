@@ -16,7 +16,11 @@ import {
     StyledNavigationLink,
     StyledMainContentTitle,
     StyledMainContentDescription,
+    StyledMobileExplorePagesHeaderWrapper,
+    StyledMobileMainContentWrapper,
+    StyledMobileHeaderWrapper,
 } from "./StyledExplorePagesHeader";
+import { Mobile, ExceptMobile } from "../../../utils/BreakPoints";
 
 interface IProps {
     categories: Category[];
@@ -51,48 +55,94 @@ const ExplorePagesHeader = ({ categories }: IProps) => {
             <Head>
                 <title>Explore {category?.name}</title>
             </Head>
-
-            <StyledExplorePagesHeaderWrapper>
-                <StyledNavigationLink href={prevCategory?.slug || ""}>
-                    <StyledIconWrapper>
-                        <ChevronLeft />
-                    </StyledIconWrapper>
-                    <StyledNavigationWrapper>
-                        <StyledNavigationCategoryName>
-                            {prevCategory?.name}
-                        </StyledNavigationCategoryName>
-                        <StyledButtonInfoText>
-                            {formatMessage({ ...messages.Before })}
-                        </StyledButtonInfoText>
-                    </StyledNavigationWrapper>
-                </StyledNavigationLink>
-                <StyledMainContentWrapper>
-                    <StyledMainContentTitle>
-                        {formatMessage(
-                            { ...messages.ExploreCategory },
-                            { category: category?.name }
-                        )}
-                    </StyledMainContentTitle>
-                    <StyledMainContentDescription>
-                        {formatMessage({
-                            ...messages.ExploreCategoryDescription,
-                        })}
-                    </StyledMainContentDescription>
-                </StyledMainContentWrapper>
-                <StyledNavigationLink href={nextCategory?.slug || ""}>
-                    <StyledNavigationWrapper>
-                        <StyledNavigationCategoryName>
-                            {nextCategory?.name}
-                        </StyledNavigationCategoryName>
-                        <StyledButtonInfoText>
-                            {formatMessage({ ...messages.NEXT })}
-                        </StyledButtonInfoText>
-                    </StyledNavigationWrapper>
-                    <StyledIconWrapper>
-                        <ChevronRight />
-                    </StyledIconWrapper>
-                </StyledNavigationLink>
-            </StyledExplorePagesHeaderWrapper>
+            <Mobile>
+                <StyledMobileExplorePagesHeaderWrapper>
+                    <StyledMobileMainContentWrapper>
+                        <StyledMainContentTitle>
+                            {formatMessage(
+                                { ...messages.ExploreCategory },
+                                { category: category?.name }
+                            )}
+                        </StyledMainContentTitle>
+                        <StyledMainContentDescription>
+                            {formatMessage({
+                                ...messages.ExploreCategoryDescription,
+                            })}
+                        </StyledMainContentDescription>
+                    </StyledMobileMainContentWrapper>
+                    <StyledMobileHeaderWrapper>
+                        <StyledNavigationLink href={prevCategory?.slug || ""}>
+                            <StyledIconWrapper>
+                                <ChevronLeft />
+                            </StyledIconWrapper>
+                            <StyledNavigationWrapper>
+                                <StyledNavigationCategoryName>
+                                    {prevCategory?.name}
+                                </StyledNavigationCategoryName>
+                                <StyledButtonInfoText>
+                                    {formatMessage({ ...messages.Before })}
+                                </StyledButtonInfoText>
+                            </StyledNavigationWrapper>
+                        </StyledNavigationLink>
+                        <StyledNavigationLink href={nextCategory?.slug || ""}>
+                            <StyledNavigationWrapper>
+                                <StyledNavigationCategoryName>
+                                    {nextCategory?.name}
+                                </StyledNavigationCategoryName>
+                                <StyledButtonInfoText>
+                                    {formatMessage({ ...messages.NEXT })}
+                                </StyledButtonInfoText>
+                            </StyledNavigationWrapper>
+                            <StyledIconWrapper>
+                                <ChevronRight />
+                            </StyledIconWrapper>
+                        </StyledNavigationLink>
+                    </StyledMobileHeaderWrapper>
+                </StyledMobileExplorePagesHeaderWrapper>
+            </Mobile>
+            <ExceptMobile>
+                <StyledExplorePagesHeaderWrapper>
+                    <StyledNavigationLink href={prevCategory?.slug || ""}>
+                        <StyledIconWrapper>
+                            <ChevronLeft />
+                        </StyledIconWrapper>
+                        <StyledNavigationWrapper>
+                            <StyledNavigationCategoryName>
+                                {prevCategory?.name}
+                            </StyledNavigationCategoryName>
+                            <StyledButtonInfoText>
+                                {formatMessage({ ...messages.Before })}
+                            </StyledButtonInfoText>
+                        </StyledNavigationWrapper>
+                    </StyledNavigationLink>
+                    <StyledMainContentWrapper>
+                        <StyledMainContentTitle>
+                            {formatMessage(
+                                { ...messages.ExploreCategory },
+                                { category: category?.name }
+                            )}
+                        </StyledMainContentTitle>
+                        <StyledMainContentDescription>
+                            {formatMessage({
+                                ...messages.ExploreCategoryDescription,
+                            })}
+                        </StyledMainContentDescription>
+                    </StyledMainContentWrapper>
+                    <StyledNavigationLink href={nextCategory?.slug || ""}>
+                        <StyledNavigationWrapper>
+                            <StyledNavigationCategoryName>
+                                {nextCategory?.name}
+                            </StyledNavigationCategoryName>
+                            <StyledButtonInfoText>
+                                {formatMessage({ ...messages.NEXT })}
+                            </StyledButtonInfoText>
+                        </StyledNavigationWrapper>
+                        <StyledIconWrapper>
+                            <ChevronRight />
+                        </StyledIconWrapper>
+                    </StyledNavigationLink>
+                </StyledExplorePagesHeaderWrapper>
+            </ExceptMobile>
         </>
     );
 };

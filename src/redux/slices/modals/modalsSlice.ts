@@ -6,6 +6,9 @@ type Modals = {
     showsearch: boolean;
     TradingCategoriesd: boolean;
     showFilter: boolean;
+    addProperty: boolean;
+    addLevel: boolean;
+    addStat: boolean;
 };
 
 const initialState: Modals = {
@@ -14,6 +17,9 @@ const initialState: Modals = {
     showsearch: false,
     TradingCategoriesd: false,
     showFilter: false,
+    addProperty: false,
+    addLevel: false,
+    addStat: false,
 };
 
 const modalsSlice = createSlice({
@@ -35,6 +41,15 @@ const modalsSlice = createSlice({
         openShowFilter(state, action: PayloadAction<boolean>) {
             state.showFilter = action.payload;
         },
+        openAddProperty(state, action: PayloadAction<boolean>) {
+            state.addProperty = action.payload;
+        },
+        openAddLevel(state, action: PayloadAction<boolean>) {
+            state.addLevel = action.payload;
+        },
+        openAddStat(state, action: PayloadAction<boolean>) {
+            state.addStat = action.payload;
+        },
     },
 });
 
@@ -44,6 +59,9 @@ export const {
     openSearchInput,
     openTradingCategories,
     openShowFilter,
+    openAddProperty,
+    openAddLevel,
+    openAddStat,
 } = modalsSlice.actions;
 export const selectModal = (state: RootState) => state.modals;
 

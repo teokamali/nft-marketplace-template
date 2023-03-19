@@ -8,7 +8,6 @@ module.exports = {
     ],
     darkMode: "class",
     theme: {
-       
         fontSize: {
             sm: "0.8rem",
             base: "16px",
@@ -60,10 +59,7 @@ module.exports = {
                 "layout-bg-footer-dark": "url('/images/FooterBackground.png')",
                 "footer-bg": "url('/images/FooterLightBackground.png')",
             },
-
         },
     },
-    plugins: [
-        require('@tailwindcss/line-clamp')
-    ],
+    plugins: [require("@tailwindcss/line-clamp")],
 };

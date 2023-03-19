@@ -1,19 +1,20 @@
+import Link from "next/link";
 import styled, { css } from "styled-components";
 import tw from "twin.macro";
 
 export const Section = styled.div`
-    ${tw`w-full  flex flex-row items-center  h-[113px] bg-transparent justify-between relative`}
+    ${tw`w-full flex flex-row items-center h-[113px] bg-transparent justify-between relative gap-2.5`}
 `;
 export const Title = styled.h6`
     ${tw`font-bold light:text-black dark:text-smokeWhite`}
 `;
-export const SearchBox = styled.form`
+export const SearchBox = styled.div`
     ${tw`w-[504px] h-[40px] mx-[10px]  `}
 `;
 export const MenuSection = styled.div`
     ${tw`flex flex-row justify-between text-[17px]  gap-[10px] items-center  font-bold light:text-black dark:text-smokeWhite`}
 `;
-export const MenuItem = styled.a`
+export const MenuItem = styled(Link)`
     ${tw`cursor-pointer font-medium  light:stroke-[#212121] dark:stroke-[#fff] `}
 `;
 export const LanguageVsWalletSection = styled.a`
@@ -47,5 +48,8 @@ export const MenuDropDounItemImg = styled.div`
     ${tw` w-[33px]`}
 `;
 export const MenuDropDounItemText = styled.span`
-    ${tw`  text-[15px] font-semibold cursor-pointer`}
+    ${tw`text-[15px] font-semibold cursor-pointer`}
+`;
+export const StyledOptionWrapper = styled.div`
+    ${tw`flex items-center justify-end gap-2`}
 `;
