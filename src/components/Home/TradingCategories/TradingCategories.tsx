@@ -27,6 +27,7 @@ import { useDispatch } from "react-redux";
 import { openTradingCategories } from "src/redux/slices/modals/modalsSlice";
 import TrendingCard from "src/components/Common/TrendingCard/TrendingCard";
 import { TradingCategoriesType } from "src/types/types";
+import { useState } from "react";
 
 type Props = {
     TradingCategoriesData: TradingCategoriesType[];
@@ -52,9 +53,14 @@ const TradingCategories = ({ TradingCategoriesData }: Props) => {
         e.stopPropagation();
         dispatch(openTradingCategories(!TradingCategoriesd));
     };
+    const [filterName, setFilterName] = useState("All categories")
+    const handleSetText = (item: string) => {
+        console.log(item);
+        setFilterName(item)
+    }
     return (
         <>
-            <ExceptMobile>
+            <ExceptMobile >
                 <StyleTradingCategoriesSection>
                     <StyleTradingCategoriesTitleBox>
                         <StyleTradingCategoriesTitleText>
@@ -62,9 +68,10 @@ const TradingCategories = ({ TradingCategoriesData }: Props) => {
                                 {formatMessage({ ...messages.TRENDING_IN })}
                             </StyleTradingCategoriesTitleTextone>
                             <StyleTradingCategoriesTitleTextTow
+
                                 onClick={handleOpen}
                             >
-                                {formatMessage({ ...messages.ALL_CATEGORIES })}
+                                {filterName}
                                 <svg
                                     width="16"
                                     height="8"
@@ -88,6 +95,7 @@ const TradingCategories = ({ TradingCategoriesData }: Props) => {
                                     {itemDropdown.map((item, index) => {
                                         return (
                                             <StyleTradingCategorieDropDownText
+                                                onClick={() => handleSetText(item)}
                                                 key={index}
                                             >
                                                 {item}
