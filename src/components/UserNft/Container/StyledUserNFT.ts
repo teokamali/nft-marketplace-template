@@ -1,16 +1,20 @@
 import styled from "styled-components";
 import tw from "twin.macro";
 
+export const StyledUserNFTContainer = styled.div`
+    ${tw`flex flex-col gap-5`}
+`
+
 export const StyledUserNFTRow = styled.div`
-    ${tw`w-full flex flex-col md:flex-row justify-between items-stretch`}
+    ${tw`w-full flex flex-col md:flex-row justify-between items-stretch gap-14`}
 
 `
-export const StyledNFTinformationColumn = styled.div`
-    ${tw`flex-grow `}
+export const StyledNFTColumn = styled.div`
+    ${tw`w-1/2`}
 `
 
 export const StyledInformationSection = styled.div`
-    ${tw`w-full h-full flex flex-col md:flex-row justify-between gap-1.5 p-4`}
+    ${tw`w-full flex flex-col md:flex-row justify-between gap-1.5 py-4`}
 `
 export const StyledNftDetailWrapper = styled.div`
     ${tw`w-full md:w-[50%] flex flex-col items-start gap-3`}
@@ -45,5 +49,21 @@ export const StyledShareAndButtonsWrapper = styled.div`
 `
 export const StyledMobileShareBoxWrapper = styled.div`
     ${tw`w-[90%] fixed left-[50%] bottom-1 z-10`}
-    transform:translateX(-50%)
+    transform:translateX(-50%);
+`
+export const StyledAccordionGroupWrapper = styled.div`
+    ${tw`border border-gray-300/50 rounded-[8px]`}
+`
+export const StyledAccordionGroupItem = styled.div`
+    ${tw`border-b border-gray-300/50 `}
+`
+
+export const StyledAccordionContent = styled.div`
+    ${tw`w-full p-2 text-black dark:text-white`}
+`
+export const StyledAccordionTitle = styled.div`
+    ${tw`p-2 text-black dark:text-white flex items-center gap-2`}
+`
+export const StyledButtonContentWrapper = styled.div`
+    ${tw`w-full flex justify-between items-center text-black dark:text-white`}
 `
