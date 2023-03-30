@@ -1,6 +1,6 @@
 import React from "react";
 import { Container } from "src/components/Common/Layout/LayoutStyles";
-import UserNFT from "src/components/UserNft/UserNFT";
+import UserNFT from "src/components/UserNft/Container/UserNFT";
 
 function UserSingleNFT() {
     return (

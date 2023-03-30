@@ -1,12 +1,35 @@
-import React from "react"
+import React from "react";
 const MoreVerticalIcon = () => {
     return (
-        <svg width="49" height="49" viewBox="0 0 49 49" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M36.2852 24.2794L36.0852 24.2779" stroke="black" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
-            <path d="M24.2856 24.1863L24.0856 24.1847" stroke="black" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
-            <path d="M12.2859 24.0931L12.0859 24.0916" stroke="black" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+        <svg
+            width="25"
+            height="25"
+            viewBox="0 0 25 25"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+        >
+            <path
+                d="M12.9092 18.1934L12.9088 18.0934"
+                stroke="currentColor"
+                stroke-width="3.07426"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+            />
+            <path
+                d="M12.8896 12.1943L12.8893 12.0943"
+                stroke="currentColor"
+                stroke-width="3.07426"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+            />
+            <path
+                d="M12.8691 6.19434L12.8688 6.09434"
+                stroke="currentColor"
+                stroke-width="3.07426"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+            />
         </svg>
-
-    )
-}
-export default MoreVerticalIcon
+    );
+};
+export default MoreVerticalIcon;

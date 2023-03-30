@@ -1,30 +1,21 @@
-import React, { FC, PropsWithChildren } from "react";
+import React, { FC, HtmlHTMLAttributes, PropsWithChildren } from "react";
+import { ReactFC } from "src/types/types";
 import { NormalButton, OutLinedButton } from "./ButtonStyles";
 
-interface IProps extends PropsWithChildren {
+interface IProps extends HtmlHTMLAttributes<HTMLButtonElement> {
     variant: "normal" | "outlined";
-    size: "xs" | "sm" | "md" | "lg" | "full";
-    type?: "button" | "submit" | "reset" | undefined;
-    onClick?: () => void;
 }
 
-const Button: FC<IProps> = ({
-    children,
-    variant,
-    size,
-    type,
-    onClick,
-    ...props
-}) => {
+const Button: ReactFC<IProps> = ({ children, variant, onClick, ...props }) => {
     if (variant !== "outlined") {
         return (
-            <NormalButton size={size} onClick={onClick} type={type} {...props}>
+            <NormalButton onClick={onClick} {...props}>
                 {children}
             </NormalButton>
         );
     }
     return (
-        <OutLinedButton size={size} onClick={onClick} type={type} {...props}>
+        <OutLinedButton onClick={onClick} {...props}>
             {children}
         </OutLinedButton>
     );
