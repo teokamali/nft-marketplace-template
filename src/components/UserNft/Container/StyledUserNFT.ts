@@ -10,7 +10,7 @@ export const StyledUserNFTRow = styled.div`
 
 `
 export const StyledNFTColumn = styled.div`
-    ${tw`w-full md:w-1/2`}
+    ${tw`w-full md:w-1/2 `}
 `
 
 export const StyledInformationSection = styled.div`
@@ -52,7 +52,7 @@ export const StyledMobileShareBoxWrapper = styled.div`
     transform:translateX(-50%);
 `
 export const StyledAccordionGroupWrapper = styled.div`
-    ${tw`border border-gray-300/50 rounded-[8px]`}
+    ${tw`w-full border border-gray-300/50 rounded-[8px]`}
 `
 export const StyledAccordionGroupItem = styled.div`
     ${tw`border-b border-gray-300/50 `}
@@ -61,9 +61,33 @@ export const StyledAccordionGroupItem = styled.div`
 export const StyledAccordionContent = styled.div`
     ${tw`w-full p-2 text-black dark:text-white`}
 `
+export const StyledNFTDescription = styled.p`
+    ${tw`text-gray-300`}
+`
 export const StyledAccordionTitle = styled.div`
     ${tw`p-2 text-black dark:text-white flex items-center gap-2`}
 `
 export const StyledButtonContentWrapper = styled.div`
     ${tw`w-full flex justify-between items-center text-black dark:text-white`}
+`
+export const StyledChartDescriptionWrapper = styled.div`
+    ${tw`flex justify-between items-center gap-4 px-10 text-black dark:text-white`}
+`
+export const StyledChartDescriptionItem = styled.div`
+    ${tw`w-full  md:w-1/2 text-black`}
+`
+export const StyledCartAverageContentWrapper = styled.div`
+    ${tw`mt-1.5 flex flex-col justify-center text-black dark:text-white`}
+`
+export const StyledAverageText = styled.span`
+    ${tw`text-purple-5 dark:text-purple-5`}
+
+`
+export const StyledOffersAndListingTableWrapper = styled.div`
+    ${tw`flex flex-col gap-8`}
+
+`
+export const StyledActivityContentWrapper = styled.div`
+    ${tw`flex flex-col gap-3 text-black dark:text-white`}
+
 `

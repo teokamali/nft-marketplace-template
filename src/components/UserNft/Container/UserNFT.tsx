@@ -7,7 +7,7 @@ import DiscordIcon from "public/Icon/DiscordIcon";
 import EyeIcon from "public/Icon/EyeIcon";
 import StickyNote from "public/Icon/StickyNote";
 import TopTrend from "public/Icon/TopTrend";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
     Accordion,
     AccordionButton,
@@ -38,30 +38,67 @@ import {
     StyledViewIconWrapper,
     StyledViewWrapper,
     StyledUserNFTContainer,
+    StyledChartDescriptionWrapper,
+    StyledChartDescriptionItem,
+    StyledCartAverageContentWrapper,
+    StyledAverageText,
+    StyledNFTDescription,
+    StyledOffersAndListingTableWrapper,
+    StyledActivityContentWrapper,
 } from "./StyledUserNFT";
 import dynamic from "next/dynamic";
+import moment from "moment";
+import SelectInput from "src/components/Create/Form/SelectInput/SelectInput";
+import ChartColumnIcon from "public/Icon/ChartColumnIcon";
+import OffersTable from "../OffersTable/OffersTable";
+import ListingTable from "../ListingTable/ListingTable";
+import TransferIcon from "public/Icon/TransferIcon";
+import ActivityTable from "../ActivityTable/ActivityTable";
 
 const Chart = dynamic(() => import("react-apexcharts"), {
     ssr: false,
 });
 
 export default function UserNFT() {
-    const last30Days = [];
-    for (let index = 0; index < 31; index++) {
-        const start = new Date();
-        last30Days.push(
-            new Date(
-                start.getFullYear(),
-                start.getMonth(),
-                start.getDate() + index
-            ).getUTCDate()
-        );
-    }
-    const priceHistory = last30Days.map(day => Math.floor(Math.random() * 100));
+    const [state, setState] = useState({
+        chartFilter: "",
+    });
+
+    const lastThirtyDays = [...new Array(30)]
+        .map((i, idx) =>
+            moment().startOf("day").subtract(idx, "days").format("DD")
+        )
+        .reverse();
+    const lastSevenDays = [...new Array(7)]
+        .map((i, idx) =>
+            moment().startOf("day").subtract(idx, "days").format("DD")
+        )
+        .reverse();
+
+    const priceHistory = () => {
+        if (state.chartFilter === "all") {
+            return lastThirtyDays.map(day => Math.floor(Math.random() * 10));
+        }
+        if (state.chartFilter === "30d") {
+            return lastThirtyDays.map(day => Math.floor(Math.random() * 10));
+        }
+        return lastSevenDays.map(day => Math.floor(Math.random() * 10));
+    };
+
+    const averagePrice = () => {
+        let total = 0;
+        let count = 0;
+        priceHistory().forEach(function (item, index) {
+            total += item;
+            count++;
+        });
+        return total / count;
+    };
 
     const options = {
         xaxis: {
-            categories: last30Days,
+            categories:
+                state.chartFilter === "7d" ? lastSevenDays : lastThirtyDays,
         },
         chart: {
             id: "basic-bar",
@@ -87,7 +124,35 @@ export default function UserNFT() {
     const series = [
         {
             name: "series-1",
-            data: priceHistory,
+            data: priceHistory(),
+        },
+    ];
+    const chartFilterOptions = [
+        {
+            label: "All Time",
+            value: "all",
+        },
+        {
+            label: "Last 7 Days",
+            value: "7d",
+        },
+        {
+            label: "Last 30 Days",
+            value: "30d",
+        },
+    ];
+    const ActivityFilterOptions = [
+        {
+            label: "Filter",
+            value: "none",
+        },
+        {
+            label: "Transfer",
+            value: "transfer",
+        },
+        {
+            label: "Sales",
+            value: "sales",
         },
     ];
 
@@ -122,8 +187,20 @@ export default function UserNFT() {
                                 <ShareBox />
                             </ExceptMobile>
                             <StyledNFTDetailsButtonWrapper>
-                                <Button variant="outlined">Edit</Button>
-                                <Button variant="normal">Sell</Button>
+                                <Button
+                                    size="sm"
+                                    onClick={() => {}}
+                                    variant="outlined"
+                                >
+                                    Edit
+                                </Button>
+                                <Button
+                                    size="sm"
+                                    onClick={() => {}}
+                                    variant="normal"
+                                >
+                                    Sell
+                                </Button>
                             </StyledNFTDetailsButtonWrapper>
                         </StyledShareAndButtonsWrapper>
                     </StyledInformationSection>
@@ -154,8 +231,10 @@ export default function UserNFT() {
                                         </AccordionButton>
                                         <AccordionPanel>
                                             <StyledAccordionContent>
-                                                By test name 100 absoluteli
-                                                zooted nft getting backed .
+                                                <StyledNFTDescription>
+                                                    By test name 100 absoluteli
+                                                    zooted nft getting backed .
+                                                </StyledNFTDescription>
                                             </StyledAccordionContent>
                                         </AccordionPanel>
                                     </>
@@ -189,14 +268,17 @@ export default function UserNFT() {
                                         </AccordionButton>
                                         <AccordionPanel>
                                             <StyledAccordionContent>
-                                                Lorem ipsum dolor sit amet,
-                                                consectetur adipisicing elit.
-                                                Atque explicabo suscipit
-                                                deleniti molestiae accusantium
-                                                quidem esse ex, laudantium cum
-                                                recusandae non necessitatibus
-                                                ratione saepe amet! Cupiditate
-                                                id fugiat modi ipsum.
+                                                <StyledNFTDescription>
+                                                    Lorem ipsum dolor sit amet,
+                                                    consectetur adipisicing
+                                                    elit. Atque explicabo
+                                                    suscipit deleniti molestiae
+                                                    accusantium quidem esse ex,
+                                                    laudantium cum recusandae
+                                                    non necessitatibus ratione
+                                                    saepe amet! Cupiditate id
+                                                    fugiat modi ipsum.
+                                                </StyledNFTDescription>
                                             </StyledAccordionContent>
                                         </AccordionPanel>
                                     </>
@@ -229,14 +311,17 @@ export default function UserNFT() {
                                         </AccordionButton>
                                         <AccordionPanel>
                                             <StyledAccordionContent>
-                                                Lorem ipsum dolor sit, amet
-                                                consectetur adipisicing elit.
-                                                Amet id quos saepe enim
-                                                inventore? Recusandae, saepe
-                                                excepturi ex voluptates fugiat
-                                                commodi delectus culpa, cumque,
-                                                voluptatem facilis alias
-                                                inventore. Ea, quidem.
+                                                <StyledNFTDescription>
+                                                    Lorem ipsum dolor sit, amet
+                                                    consectetur adipisicing
+                                                    elit. Amet id quos saepe
+                                                    enim inventore? Recusandae,
+                                                    saepe excepturi ex
+                                                    voluptates fugiat commodi
+                                                    delectus culpa, cumque,
+                                                    voluptatem facilis alias
+                                                    inventore. Ea, quidem.
+                                                </StyledNFTDescription>
                                             </StyledAccordionContent>
                                         </AccordionPanel>
                                     </>
@@ -273,18 +358,175 @@ export default function UserNFT() {
                                         </StyledButtonContentWrapper>
                                     </AccordionButton>
                                     <AccordionPanel>
-                                        <Chart
-                                            options={options}
-                                            type="area"
-                                            series={series}
-                                        />
+                                        <StyledAccordionContent>
+                                            <StyledChartDescriptionWrapper>
+                                                <StyledChartDescriptionItem>
+                                                    <SelectInput
+                                                        isSearchable={false}
+                                                        defaultValue={
+                                                            chartFilterOptions[0]
+                                                        }
+                                                        onChange={filter => {
+                                                            console.log(filter);
+                                                            setState(prev => ({
+                                                                ...prev,
+                                                                chartFilter:
+                                                                    //@ts-ignore
+                                                                    filter.value,
+                                                            }));
+                                                        }}
+                                                        options={
+                                                            chartFilterOptions
+                                                        }
+                                                    />
+                                                </StyledChartDescriptionItem>
+                                                <StyledChartDescriptionItem>
+                                                    <StyledCartAverageContentWrapper>
+                                                        <span>
+                                                            All time avg . price
+                                                        </span>
+                                                        <StyledAverageText>
+                                                            {averagePrice().toFixed(
+                                                                2
+                                                            )}
+                                                        </StyledAverageText>
+                                                    </StyledCartAverageContentWrapper>
+                                                </StyledChartDescriptionItem>
+                                            </StyledChartDescriptionWrapper>
+                                            <Chart
+                                                options={options}
+                                                type="area"
+                                                series={series}
+                                            />
+                                        </StyledAccordionContent>
                                     </AccordionPanel>
                                 </>
                             )}
                         </Accordion>
                     </StyledAccordionGroupWrapper>
                 </StyledNFTColumn>
-                <StyledNFTColumn></StyledNFTColumn>
+                <StyledNFTColumn>
+                    <StyledOffersAndListingTableWrapper>
+                        <StyledAccordionGroupWrapper>
+                            <StyledAccordionGroupItem>
+                                <Accordion defaultOpen>
+                                    {({ open, disabled }) => (
+                                        <>
+                                            <AccordionButton
+                                                open={!!open}
+                                                disabled={disabled}
+                                            >
+                                                <StyledButtonContentWrapper>
+                                                    <StyledAccordionTitle>
+                                                        <ChartColumnIcon />
+                                                        Offers
+                                                    </StyledAccordionTitle>
+                                                    {!disabled && (
+                                                        <>
+                                                            {open ? (
+                                                                <ChevronUpIcon />
+                                                            ) : (
+                                                                <ChevronDownIcon />
+                                                            )}
+                                                        </>
+                                                    )}
+                                                </StyledButtonContentWrapper>
+                                            </AccordionButton>
+                                            <AccordionPanel>
+                                                <StyledAccordionContent>
+                                                    <OffersTable />
+                                                </StyledAccordionContent>
+                                            </AccordionPanel>
+                                        </>
+                                    )}
+                                </Accordion>
+                            </StyledAccordionGroupItem>
+                        </StyledAccordionGroupWrapper>
+
+                        <StyledAccordionGroupWrapper>
+                            <StyledAccordionGroupItem>
+                                <Accordion defaultOpen>
+                                    {({ open, disabled }) => (
+                                        <>
+                                            <AccordionButton
+                                                open={!!open}
+                                                disabled={disabled}
+                                            >
+                                                <StyledButtonContentWrapper>
+                                                    <StyledAccordionTitle>
+                                                        <ChartColumnIcon />
+                                                        Offers
+                                                    </StyledAccordionTitle>
+                                                    {!disabled && (
+                                                        <>
+                                                            {open ? (
+                                                                <ChevronUpIcon />
+                                                            ) : (
+                                                                <ChevronDownIcon />
+                                                            )}
+                                                        </>
+                                                    )}
+                                                </StyledButtonContentWrapper>
+                                            </AccordionButton>
+                                            <AccordionPanel>
+                                                <StyledAccordionContent>
+                                                    <ListingTable />
+                                                </StyledAccordionContent>
+                                            </AccordionPanel>
+                                        </>
+                                    )}
+                                </Accordion>
+                            </StyledAccordionGroupItem>
+                        </StyledAccordionGroupWrapper>
+                    </StyledOffersAndListingTableWrapper>
+                </StyledNFTColumn>
+            </StyledUserNFTRow>
+            <StyledUserNFTRow>
+                <StyledAccordionGroupWrapper>
+                    <StyledAccordionGroupItem>
+                        <Accordion defaultOpen>
+                            {({ open, disabled }) => (
+                                <>
+                                    <AccordionButton
+                                        open={!!open}
+                                        disabled={disabled}
+                                    >
+                                        <StyledButtonContentWrapper>
+                                            <StyledAccordionTitle>
+                                                <TransferIcon />
+                                                Item Activity
+                                            </StyledAccordionTitle>
+                                            {!disabled && (
+                                                <>
+                                                    {open ? (
+                                                        <ChevronUpIcon />
+                                                    ) : (
+                                                        <ChevronDownIcon />
+                                                    )}
+                                                </>
+                                            )}
+                                        </StyledButtonContentWrapper>
+                                    </AccordionButton>
+                                    <AccordionPanel>
+                                        <StyledAccordionContent>
+                                            <StyledActivityContentWrapper>
+                                                <SelectInput
+                                                    options={
+                                                        ActivityFilterOptions
+                                                    }
+                                                    defaultValue={
+                                                        ActivityFilterOptions[0]
+                                                    }
+                                                />
+                                                <ActivityTable />
+                                            </StyledActivityContentWrapper>
+                                        </StyledAccordionContent>
+                                    </AccordionPanel>
+                                </>
+                            )}
+                        </Accordion>
+                    </StyledAccordionGroupItem>
+                </StyledAccordionGroupWrapper>
             </StyledUserNFTRow>
         </StyledUserNFTContainer>
     );

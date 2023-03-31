@@ -18,6 +18,7 @@ import { StyledIconAndTextWrapper } from "../StyledCreateForm";
 import { FileInputState, IFileInputProps } from "./FileInputType";
 
 import {
+    StyledAddButton,
     StyledAudioPreviewWrapper,
     StyledDeleteIconWrapper,
     StyledFileInput,
@@ -167,10 +168,11 @@ const FileInput = ({
                                         type={file.type}
                                     />
                                 </audio>
+
                                 <Button
-                                    size="sm"
                                     variant="normal"
                                     onClick={onDeleteFile}
+                                    size="md"
                                 >
                                     Change
                                 </Button>

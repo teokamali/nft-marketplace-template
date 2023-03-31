@@ -447,7 +447,12 @@ const CreateForm = () => {
                 </StyledDisabledFreezeMetaDataDescription>
             </StyledSwitchableInputsWrapper>
 
-            <Button size="full" variant="normal" type="submit">
+            <Button
+                size="full"
+                variant="normal"
+                onClick={() => {}}
+                type="submit"
+            >
                 Create
             </Button>
 

@@ -8,8 +8,8 @@ import {
 import { StyledIconAndTextWrapper } from "../StyledCreateForm";
 
 interface ISelectInput extends SelectProps {
-    title: string;
-    description: string;
+    title?: string;
+    description?: string;
     icon?: ReactNode;
 }
 const SelectInput = ({ title, description, icon, ...props }: ISelectInput) => {
