@@ -10,7 +10,7 @@ export const StyledUserNFTRow = styled.div`
 
 `
 export const StyledNFTColumn = styled.div`
-    ${tw`w-1/2`}
+    ${tw`w-full md:w-1/2`}
 `
 
 export const StyledInformationSection = styled.div`

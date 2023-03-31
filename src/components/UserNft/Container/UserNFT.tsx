@@ -46,9 +46,22 @@ const Chart = dynamic(() => import("react-apexcharts"), {
 });
 
 export default function UserNFT() {
+    const last30Days = [];
+    for (let index = 0; index < 31; index++) {
+        const start = new Date();
+        last30Days.push(
+            new Date(
+                start.getFullYear(),
+                start.getMonth(),
+                start.getDate() + index
+            ).getUTCDate()
+        );
+    }
+    const priceHistory = last30Days.map(day => Math.floor(Math.random() * 100));
+
     const options = {
         xaxis: {
-            categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999],
+            categories: last30Days,
         },
         chart: {
             id: "basic-bar",
@@ -74,7 +87,7 @@ export default function UserNFT() {
     const series = [
         {
             name: "series-1",
-            data: [30, 40, 45, 50, 49, 60, 70, 91],
+            data: priceHistory,
         },
     ];
 
@@ -260,13 +273,11 @@ export default function UserNFT() {
                                         </StyledButtonContentWrapper>
                                     </AccordionButton>
                                     <AccordionPanel>
-                                        <StyledAccordionContent>
-                                            <Chart
-                                                options={options}
-                                                type="area"
-                                                series={series}
-                                            />
-                                        </StyledAccordionContent>
+                                        <Chart
+                                            options={options}
+                                            type="area"
+                                            series={series}
+                                        />
                                     </AccordionPanel>
                                 </>
                             )}
