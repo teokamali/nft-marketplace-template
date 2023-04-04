@@ -91,3 +91,7 @@ export const StyledActivityContentWrapper = styled.div`
     ${tw`flex flex-col gap-3 text-black dark:text-white`}
 
 `
+export const StyledMoreItemsContentWrapper = styled.div`
+    ${tw`flex items-center gap-2 text-black dark:text-white`}
+
+`

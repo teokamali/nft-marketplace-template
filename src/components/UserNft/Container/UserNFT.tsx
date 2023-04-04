@@ -45,15 +45,20 @@ import {
     StyledNFTDescription,
     StyledOffersAndListingTableWrapper,
     StyledActivityContentWrapper,
+    StyledMoreItemsContentWrapper,
 } from "./StyledUserNFT";
 import dynamic from "next/dynamic";
 import moment from "moment";
-import SelectInput from "src/components/Create/Form/SelectInput/SelectInput";
+import SelectInput from "src/components/Common/SelectInput/SelectInput";
 import ChartColumnIcon from "public/Icon/ChartColumnIcon";
 import OffersTable from "../OffersTable/OffersTable";
 import ListingTable from "../ListingTable/ListingTable";
 import TransferIcon from "public/Icon/TransferIcon";
 import ActivityTable from "../ActivityTable/ActivityTable";
+import DashboardAltIcon from "public/Icon/DashboardAltIcon";
+import { MoreItemsCard } from "../MoreItemsCard/MoreItemsCard";
+import Slider from "src/components/Common/Slider/Slider";
+import { SwiperSlide } from "swiper/react";
 
 const Chart = dynamic(() => import("react-apexcharts"), {
     ssr: false,
@@ -61,7 +66,7 @@ const Chart = dynamic(() => import("react-apexcharts"), {
 
 export default function UserNFT() {
     const [state, setState] = useState({
-        chartFilter: "",
+        chartFilter: "all",
     });
 
     const lastThirtyDays = [...new Array(30)]
@@ -99,6 +104,40 @@ export default function UserNFT() {
         xaxis: {
             categories:
                 state.chartFilter === "7d" ? lastSevenDays : lastThirtyDays,
+
+            labels: {
+                show: true,
+                style: {
+                    colors: "#ffffffb5",
+                    fontSize: "12px",
+                },
+            },
+
+            axisBorder: {
+                show: true,
+                color: "#ffffffb5",
+                height: 1,
+                width: "100%",
+                offsetX: 0,
+                offsetY: 0,
+            },
+            axisTicks: {
+                show: true,
+                borderType: "solid",
+                color: "#ffffffb5",
+                height: 6,
+                offsetX: 0,
+                offsetY: 0,
+            },
+        },
+        yaxis: {
+            labels: {
+                show: true,
+                style: {
+                    colors: "#ffffffb5",
+                    fontSize: "12px",
+                },
+            },
         },
         chart: {
             id: "basic-bar",
@@ -367,7 +406,6 @@ export default function UserNFT() {
                                                             chartFilterOptions[0]
                                                         }
                                                         onChange={filter => {
-                                                            console.log(filter);
                                                             setState(prev => ({
                                                                 ...prev,
                                                                 chartFilter:
@@ -520,6 +558,70 @@ export default function UserNFT() {
                                                 />
                                                 <ActivityTable />
                                             </StyledActivityContentWrapper>
+                                        </StyledAccordionContent>
+                                    </AccordionPanel>
+                                </>
+                            )}
+                        </Accordion>
+                    </StyledAccordionGroupItem>
+                </StyledAccordionGroupWrapper>
+            </StyledUserNFTRow>
+            <StyledUserNFTRow>
+                <StyledAccordionGroupWrapper>
+                    <StyledAccordionGroupItem>
+                        <Accordion defaultOpen>
+                            {({ open, disabled }) => (
+                                <>
+                                    <AccordionButton
+                                        open={!!open}
+                                        disabled={disabled}
+                                    >
+                                        <StyledButtonContentWrapper>
+                                            <StyledAccordionTitle>
+                                                <DashboardAltIcon />
+                                                More From This Collection
+                                            </StyledAccordionTitle>
+                                            {!disabled && (
+                                                <>
+                                                    {open ? (
+                                                        <ChevronUpIcon />
+                                                    ) : (
+                                                        <ChevronDownIcon />
+                                                    )}
+                                                </>
+                                            )}
+                                        </StyledButtonContentWrapper>
+                                    </AccordionButton>
+                                    <AccordionPanel>
+                                        <StyledAccordionContent>
+                                            <StyledMoreItemsContentWrapper>
+                                                <Slider>
+                                                    <SwiperSlide>
+                                                        <MoreItemsCard />
+                                                    </SwiperSlide>
+                                                    <SwiperSlide>
+                                                        <MoreItemsCard />
+                                                    </SwiperSlide>
+                                                    <SwiperSlide>
+                                                        <MoreItemsCard />
+                                                    </SwiperSlide>
+                                                    <SwiperSlide>
+                                                        <MoreItemsCard />
+                                                    </SwiperSlide>
+                                                    <SwiperSlide>
+                                                        <MoreItemsCard />
+                                                    </SwiperSlide>
+                                                    <SwiperSlide>
+                                                        <MoreItemsCard />
+                                                    </SwiperSlide>
+                                                    <SwiperSlide>
+                                                        <MoreItemsCard />
+                                                    </SwiperSlide>
+                                                    <SwiperSlide>
+                                                        <MoreItemsCard />
+                                                    </SwiperSlide>
+                                                </Slider>
+                                            </StyledMoreItemsContentWrapper>
                                         </StyledAccordionContent>
                                     </AccordionPanel>
                                 </>

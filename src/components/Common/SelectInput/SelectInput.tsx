@@ -4,8 +4,9 @@ import {
     StyledInputDescription,
     StyledInputLabel,
     StyledInputWrapper,
-} from "../Input/StyledInput";
-import { StyledIconAndTextWrapper } from "../StyledCreateForm";
+} from "../../Create/Form/Input/StyledInput";
+import { StyledIconAndTextWrapper } from "../../Create/Form/StyledCreateForm";
+import { StyledSelectInput } from "./StyledSelectInput";
 
 interface ISelectInput extends SelectProps {
     title?: string;
@@ -22,7 +23,7 @@ const SelectInput = ({ title, description, icon, ...props }: ISelectInput) => {
                 </StyledIconAndTextWrapper>
             </StyledInputLabel>
             <StyledInputDescription>{description}</StyledInputDescription>
-            <Select
+            <StyledSelectInput
                 {...props}
                 styles={{
                     control: (
