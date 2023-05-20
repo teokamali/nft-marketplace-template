@@ -42,3 +42,6 @@ export const StyledFilePlaceHolderText = styled.span`
 export const StyledSVGWrapper = styled.div`
     ${tw`max-w-[128px] max-h-[128px] `}
 `;
+export const StyledAddButton = styled.div`
+    ${tw`max-w-[100px]`}
+`

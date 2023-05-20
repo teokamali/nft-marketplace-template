@@ -1,6 +1,6 @@
 import React, { useCallback, useState } from "react";
 import { ReactFC } from "src/types/types";
-import { Swiper, useSwiper } from "swiper/react";
+import { Swiper, useSwiper,SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper";
 import { ButtonNext, ButtonPrev, SliderWrapper } from "./styledSlider";
 

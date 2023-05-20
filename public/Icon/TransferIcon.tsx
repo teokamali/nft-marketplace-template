@@ -1,35 +1,37 @@
 import React from "react";
-const MoreVerticalIcon = () => {
+
+function TransferIcon() {
     return (
         <svg
-            width="25"
-            height="25"
-            viewBox="0 0 25 25"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
         >
             <path
-                d="M12.9092 18.1934L12.9088 18.0934"
+                d="M13 17L16 20L19 17"
                 stroke="currentColor"
-                stroke-width="3.07426"
+                stroke-width="2"
                 stroke-linecap="round"
                 stroke-linejoin="round"
             />
             <path
-                d="M12.8896 12.1943L12.8893 12.0943"
+                d="M8 20V4M16 4V20V4Z"
                 stroke="currentColor"
-                stroke-width="3.07426"
+                stroke-width="2"
                 stroke-linecap="round"
                 stroke-linejoin="round"
             />
             <path
-                d="M12.8691 6.19434L12.8688 6.09434"
+                d="M11 7L8 4L5 7"
                 stroke="currentColor"
-                stroke-width="3.07426"
+                stroke-width="2"
                 stroke-linecap="round"
                 stroke-linejoin="round"
             />
         </svg>
     );
-};
-export default MoreVerticalIcon;
+}
+
+export default TransferIcon;

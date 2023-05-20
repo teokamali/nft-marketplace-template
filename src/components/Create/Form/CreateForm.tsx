@@ -30,7 +30,7 @@ import {
 import AddLevelsModal from "./Modals/AddLevelsModal/AddLevelsModal";
 import AddPropertyModal from "./Modals/AddPropertyModal/AddPropertyModal";
 import AddStatsModal from "./Modals/AddStatsModal/AddStatsModal";
-import SelectInput from "./SelectInput/SelectInput";
+import SelectInput from "../../Common/SelectInput/SelectInput";
 
 import {
     StyledDisabledFreezeMetaDataDescription,
@@ -447,7 +447,12 @@ const CreateForm = () => {
                 </StyledDisabledFreezeMetaDataDescription>
             </StyledSwitchableInputsWrapper>
 
-            <Button size="full" variant="normal" type="submit">
+            <Button
+                size="full"
+                variant="normal"
+                onClick={() => {}}
+                type="submit"
+            >
                 Create
             </Button>
 

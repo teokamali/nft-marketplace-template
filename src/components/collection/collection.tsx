@@ -148,7 +148,6 @@ const Collection = ({ profile, collections }: ICollectionProps) => {
     const [currencyVisible, setCurrencyVisible] = useState<boolean>(false);
     const [filterVisible, setFilterVisible] = useState<boolean>(false);
 
-    console.log(check);
     return (
         <StyleCollectionSection>
             <StyleCollectionHeaderSection >
