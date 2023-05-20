@@ -5,7 +5,7 @@ interface IProps extends PropsWithChildren {
     variant: "normal" | "outlined";
     size: "xs" | "sm" | "md" | "lg" | "full";
     type?: "button" | "submit" | "reset";
-    onClick: () => void;
+    onClick?: () => void;
 }
 
 const Button: FC<IProps> = ({
