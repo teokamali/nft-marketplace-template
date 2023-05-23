@@ -122,7 +122,6 @@ export default function AddableLevel({
                     </StyledInputWrapper>
                 ))}
                 <Button
-                    size="sm"
                     variant="outlined"
                     onClick={() => {
                         setState(prev => [
@@ -135,7 +134,6 @@ export default function AddableLevel({
                 </Button>
             </StyledAddableInputWrapper>
             <Button
-                size="full"
                 variant="normal"
                 onClick={() => {
                     onSave(state);

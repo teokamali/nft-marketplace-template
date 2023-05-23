@@ -93,7 +93,6 @@ const AddableInput = ({ onSave, values }: IAddableInputProps) => {
                     </StyledInputWrapper>
                 ))}
                 <Button
-                    size="sm"
                     variant="outlined"
                     onClick={() => {
                         setState(prev => [...prev, { type: "", value: "" }]);
@@ -103,7 +102,6 @@ const AddableInput = ({ onSave, values }: IAddableInputProps) => {
                 </Button>
             </StyledAddableInputWrapper>
             <Button
-                size="full"
                 variant="normal"
                 onClick={() => {
                     onSave(state);

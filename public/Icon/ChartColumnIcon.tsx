@@ -12,9 +12,9 @@ function ChartColumnIcon() {
             <path
                 d="M6 21H3V12H6V21ZM21 7H18V21H21V7ZM13.5 3H10.5V21H13.5V3Z"
                 stroke="currentColor"
-                stroke-width="2"
+                strokeWidth="2"
                 stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeLinejoin="round"
             />
         </svg>
     );

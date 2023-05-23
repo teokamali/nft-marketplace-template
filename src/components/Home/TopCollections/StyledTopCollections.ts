@@ -5,7 +5,7 @@ export const StyledTopCollectionsWrapper = styled.div`
     ${tw`w-full text-black dark:text-smokeWhite p-6 mt-6`}
 `;
 export const StyledTopCollectionTitleWrapper = styled.div`
-    ${tw`flex items-center justify-center gap-1`}
+    ${tw`flex flex-col items-center justify-center gap-1 md:flex-row`}
 `;
 export const StyledTopCollectionSubTitle = styled.h6`
     ${tw`text-[rgba(33, 33, 33, 0.6)] dark:text-[rgba(249, 249, 249, 0.8)] text-title1 font-light text-center`}
@@ -24,7 +24,7 @@ export const StyledTopCollectionDropdownButton = styled.button`
     ${tw`text-[14px] md:text-[25px] text-purple-6 font-medium dark:text-darkMode-purple-7 flex items-center gap-1`}
 `;
 export const StyledTopCollectionDropdownList = styled.ul<{ show: boolean }>`
-    ${tw`bg-white text-black transition-all ease-linear duration-75 invisible opacity-0 shadow-md absolute w-full md:translate-x-[90%] transform-gpu rounded-[10px]`}
+    ${tw`bg-white text-black min-w-[120px]  transition-all ease-linear duration-75 invisible opacity-0 shadow-md absolute w-full md:translate-x-[40%] transform-gpu rounded-[10px] z-30`}
     ${props =>
         props.show && tw`visible opacity-100`} /* transform:translateX(90%) */
 `;

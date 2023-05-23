@@ -1,19 +1,31 @@
 import { useIntl } from "react-intl";
-import { StyleExploreCard, StyleExploreHeaderDesc, StyleExploreHeaderMobileDesc, StyleExploreHeaderMobileTitle, StyleExploreHeaderSection, StyleExploreHeaderTitle, StyleExploreImageDesc, StyleExploreImageTitle, StyleExploreMainMobileSection, StyleExploreMainSection, StyleExploreMobileCard, StyleExploreSection } from "./StyleExploreCollections"
+import {
+    StyleExploreCard,
+    StyleExploreHeaderDesc,
+    StyleExploreHeaderMobileDesc,
+    StyleExploreHeaderMobileTitle,
+    StyleExploreHeaderSection,
+    StyleExploreHeaderTitle,
+    StyleExploreImageDesc,
+    StyleExploreImageTitle,
+    StyleExploreMainMobileSection,
+    StyleExploreMainSection,
+    StyleExploreMobileCard,
+    StyleExploreSection,
+} from "./StyleExploreCollections";
 import messages from "./messages";
 import abbrNum from "src/utils/abbrNum";
 import { ExceptMobile, Mobile } from "src/utils/BreakPoints";
-const imgSrc = "/images/explore.png"
+import Link from "next/link";
+const imgSrc = "/images/explore.png";
 export interface IExploreProps {
-    data: IExploreDataProps[]
+    data: IExploreDataProps[];
 }
 export interface IExploreDataProps {
     image: string;
-    name: string
-    collectionsCount: number
+    name: string;
+    collectionsCount: number;
 }
-
-
 
 const ExploreCollections = ({ data }: IExploreProps) => {
     const { formatMessage } = useIntl();
@@ -32,13 +44,26 @@ const ExploreCollections = ({ data }: IExploreProps) => {
                 <StyleExploreMainSection>
                     {data.map((value, index) => {
                         return (
-                            <StyleExploreCard key={index} bgImage={value.image}>
-                                <StyleExploreImageTitle> {value.name}</StyleExploreImageTitle>
-                                <StyleExploreImageDesc>
-                                    {formatMessage({ ...messages.NUMBER_COLLECTIONS }, { number: abbrNum({ number: value.collectionsCount, decPlaces: 0 }) })}
-                                </StyleExploreImageDesc>
-                            </StyleExploreCard>
-                        )
+                            <Link href={"/explore/art"} key={index}>
+                                <StyleExploreCard bgImage={value.image}>
+                                    <StyleExploreImageTitle>
+                                        {" "}
+                                        {value.name}
+                                    </StyleExploreImageTitle>
+                                    <StyleExploreImageDesc>
+                                        {formatMessage(
+                                            { ...messages.NUMBER_COLLECTIONS },
+                                            {
+                                                number: abbrNum({
+                                                    number: value.collectionsCount,
+                                                    decPlaces: 0,
+                                                }),
+                                            }
+                                        )}
+                                    </StyleExploreImageDesc>
+                                </StyleExploreCard>
+                            </Link>
+                        );
                     })}
                 </StyleExploreMainSection>
             </ExceptMobile>
@@ -54,18 +79,31 @@ const ExploreCollections = ({ data }: IExploreProps) => {
                 <StyleExploreMainMobileSection>
                     {data.map((value, index) => {
                         return (
-                            <StyleExploreMobileCard key={index} bgImage={value.image}>
-                                <StyleExploreImageTitle> {value.name}</StyleExploreImageTitle>
+                            <StyleExploreMobileCard
+                                key={index}
+                                bgImage={value.image}
+                            >
+                                <StyleExploreImageTitle>
+                                    {" "}
+                                    {value.name}
+                                </StyleExploreImageTitle>
                                 <StyleExploreImageDesc>
-                                    {formatMessage({ ...messages.NUMBER_COLLECTIONS }, { number: abbrNum({ number: value.collectionsCount, decPlaces: 0 }) })}
+                                    {formatMessage(
+                                        { ...messages.NUMBER_COLLECTIONS },
+                                        {
+                                            number: abbrNum({
+                                                number: value.collectionsCount,
+                                                decPlaces: 0,
+                                            }),
+                                        }
+                                    )}
                                 </StyleExploreImageDesc>
                             </StyleExploreMobileCard>
-                        )
+                        );
                     })}
-
                 </StyleExploreMainMobileSection>
             </Mobile>
         </StyleExploreSection>
-    )
-}
-export default ExploreCollections
+    );
+};
+export default ExploreCollections;

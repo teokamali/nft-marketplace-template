@@ -136,12 +136,12 @@ function RankingTable({ data }: IProps) {
             </StyledRankingTable>
             <StyledRankingTableButton>
                 <Mobile>
-                    <Button size="xs" variant="normal">
+                    <Button  variant="normal">
                         {formatMessage({ ...messages.BUTTON })}
                     </Button>
                 </Mobile>
                 <ExceptMobile>
-                    <Button size="md" variant="normal">
+                    <Button  variant="normal">
                         {formatMessage({ ...messages.BUTTON })}
                     </Button>
                 </ExceptMobile>

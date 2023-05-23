@@ -75,26 +75,26 @@ const DefaultHeader = () => {
     const { menu } = useAppSelector(state => state.modals);
     const { showsearch } = useAppSelector(state => state.modals);
     const dispatch = useDispatch();
-    const handleOpen = () => {
-        dispatch(openWalletDropDown(!wallet));
-        dispatch(openMenuDropDown(false));
-        dispatch(openSearchInput(false));
-    };
-    const handleOpenMenu = () => {
-        dispatch(openMenuDropDown(!menu));
-        dispatch(openWalletDropDown(false));
-        dispatch(openSearchInput(false));
-    };
-    const handleShowSearch = () => {
-        dispatch(openSearchInput(!showsearch));
-        dispatch(openMenuDropDown(false));
-        dispatch(openWalletDropDown(false));
-    };
+    // const handleOpen = () => {
+    //     dispatch(openWalletDropDown(!wallet));
+    //     dispatch(openMenuDropDown(false));
+    //     dispatch(openSearchInput(false));
+    // };
+    // const handleOpenMenu = () => {
+    //     dispatch(openMenuDropDown(!menu));
+    //     dispatch(openWalletDropDown(false));
+    //     dispatch(openSearchInput(false));
+    // };
+    // const handleShowSearch = () => {
+    //     dispatch(openSearchInput(!showsearch));
+    //     dispatch(openMenuDropDown(false));
+    //     dispatch(openWalletDropDown(false));
+    // };
     return (
         <Section>
             <Title>{formatMessage({ ...messages.NFT_MARKETPLACE })}</Title>
             <MenuSection>
-                <MenuItem onClick={handleShowSearch}>
+                <MenuItem>
                     <svg
                         width="13"
                         height="13"
@@ -110,7 +110,7 @@ const DefaultHeader = () => {
                         />
                     </svg>
                 </MenuItem>
-                <MenuItem onClick={handleOpenMenu}>
+                <MenuItem>
                     <svg
                         width="13px"
                         height="13px"
@@ -126,7 +126,7 @@ const DefaultHeader = () => {
                         />
                     </svg>
                 </MenuItem>
-                <MenuItem onClick={handleOpen}>
+                <MenuItem>
                     <svg
                         width="13px"
                         height="13px"

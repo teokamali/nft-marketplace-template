@@ -226,18 +226,10 @@ export default function UserNFT() {
                                 <ShareBox />
                             </ExceptMobile>
                             <StyledNFTDetailsButtonWrapper>
-                                <Button
-                                    size="sm"
-                                    onClick={() => {}}
-                                    variant="outlined"
-                                >
+                                <Button onClick={() => {}} variant="outlined">
                                     Edit
                                 </Button>
-                                <Button
-                                    size="sm"
-                                    onClick={() => {}}
-                                    variant="normal"
-                                >
+                                <Button onClick={() => {}} variant="normal">
                                     Sell
                                 </Button>
                             </StyledNFTDetailsButtonWrapper>

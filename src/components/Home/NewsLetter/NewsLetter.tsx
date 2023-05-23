@@ -68,8 +68,6 @@ function NewsLetter({ }: IProps) {
 
                 <Button
                     variant="normal"
-                    size="sm"
-                    //@ts-ignore
                     style={{ borderRadius: "8px" }}
                 >
                     {formatMessage({ ...messages.SIGN_UP })}

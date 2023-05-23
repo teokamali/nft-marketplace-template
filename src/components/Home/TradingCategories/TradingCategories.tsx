@@ -27,7 +27,16 @@ import { useDispatch } from "react-redux";
 import { openTradingCategories } from "src/redux/slices/modals/modalsSlice";
 import TrendingCard from "src/components/Common/TrendingCard/TrendingCard";
 import { TradingCategoriesType } from "src/types/types";
-import { useState } from "react";
+import { useRef, useState } from "react";
+import {
+    StyledTopCollectionDropdownButton,
+    StyledTopCollectionDropdownItem,
+    StyledTopCollectionDropdownList,
+    StyledTopCollectionDropdownWrapper,
+    StyledTopCollectionIconWrapper,
+} from "../TopCollections/StyledTopCollections";
+import ChevronDownIcon from "public/Icon/ChevronDownIcon";
+import useOnClickOutside from "src/hooks/useOnClickOutside";
 
 type Props = {
     TradingCategoriesData: TradingCategoriesType[];
@@ -47,63 +56,53 @@ const TradingCategories = ({ TradingCategoriesData }: Props) => {
         "Trending cards",
     ];
     const { formatMessage } = useIntl();
-    const { TradingCategoriesd } = useAppSelector(state => state.modals);
-    const dispatch = useDispatch();
-    const handleOpen = (e: any) => {
-        e.stopPropagation();
-        dispatch(openTradingCategories(!TradingCategoriesd));
+
+    const [dropDown, setDropDown] = useState("All categories");
+    const [showDropDown, setShowDropDown] = useState(false);
+    const dropdownRef = useRef<any>(null);
+    const toggleDropdown = () => {
+        setShowDropDown(prev => !prev);
     };
-    const [filterName, setFilterName] = useState("All categories")
-    const handleSetText = (item: string) => {
-        console.log(item);
-        setFilterName(item)
-    }
+    useOnClickOutside(dropdownRef, () => {
+        setShowDropDown(false);
+    });
     return (
         <>
-            <ExceptMobile >
+            <ExceptMobile>
                 <StyleTradingCategoriesSection>
                     <StyleTradingCategoriesTitleBox>
                         <StyleTradingCategoriesTitleText>
                             <StyleTradingCategoriesTitleTextone>
                                 {formatMessage({ ...messages.TRENDING_IN })}
                             </StyleTradingCategoriesTitleTextone>
-                            <StyleTradingCategoriesTitleTextTow
 
-                                onClick={handleOpen}
+                            <StyledTopCollectionDropdownWrapper
+                                ref={dropdownRef}
                             >
-                                {filterName}
-                                <svg
-                                    width="16"
-                                    height="8"
-                                    viewBox="0 0 16 8"
-                                    fill="none"
-                                    xmlns="http://www.w3.org/2000/svg"
+                                <StyledTopCollectionDropdownButton
+                                    onClick={toggleDropdown}
                                 >
-                                    <path
-                                        d="M1.33301 0.666992L7.99967 7.33366L14.6663 0.666993"
-                                        stroke="#5F6DF1"
-                                        strokeWidth="1.25"
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                    />
-                                </svg>
-                            </StyleTradingCategoriesTitleTextTow>
-                            {TradingCategoriesd && (
-                                <StyleTradingCategorieDropDown
-                                    style={{ zIndex: "11" }}
+                                    {dropDown}
+                                    <StyledTopCollectionIconWrapper>
+                                        <ChevronDownIcon />
+                                    </StyledTopCollectionIconWrapper>
+                                </StyledTopCollectionDropdownButton>
+                                <StyledTopCollectionDropdownList
+                                    show={showDropDown}
                                 >
-                                    {itemDropdown.map((item, index) => {
-                                        return (
-                                            <StyleTradingCategorieDropDownText
-                                                onClick={() => handleSetText(item)}
-                                                key={index}
-                                            >
-                                                {item}
-                                            </StyleTradingCategorieDropDownText>
-                                        );
-                                    })}
-                                </StyleTradingCategorieDropDown>
-                            )}
+                                    {itemDropdown.map((item, index) => (
+                                        <StyledTopCollectionDropdownItem
+                                            key={index}
+                                            onClick={e => {
+                                                setDropDown(item);
+                                                toggleDropdown();
+                                            }}
+                                        >
+                                            {item}
+                                        </StyledTopCollectionDropdownItem>
+                                    ))}
+                                </StyledTopCollectionDropdownList>
+                            </StyledTopCollectionDropdownWrapper>
                         </StyleTradingCategoriesTitleText>
                         <StyleTradingCategoriesTitleDesc>
                             {formatMessage({
@@ -140,44 +139,36 @@ const TradingCategories = ({ TradingCategoriesData }: Props) => {
                 <StyleTradingCategoriesSectionMobile>
                     <StyleTradingCategoriesTitleBox>
                         <StyleTradingCategoriesTitleText>
-                            <StyleTradingCategoriesTitleTextoneMobile>
+                            <StyleTradingCategoriesTitleTextone>
                                 {formatMessage({ ...messages.TRENDING_IN })}
-                            </StyleTradingCategoriesTitleTextoneMobile>
-                            <StyleTradingCategoriesTitleTextMobile
-                                onClick={handleOpen}
+                            </StyleTradingCategoriesTitleTextone>
+                            <StyledTopCollectionDropdownWrapper
+                                ref={dropdownRef}
                             >
-                                {formatMessage({ ...messages.ALL_CATEGORIES })}
-                                <svg
-                                    width="16"
-                                    height="8"
-                                    viewBox="0 0 16 8"
-                                    fill="none"
-                                    xmlns="http://www.w3.org/2000/svg"
+                                <StyledTopCollectionDropdownButton
+                                    onClick={toggleDropdown}
                                 >
-                                    <path
-                                        d="M1.33301 0.666992L7.99967 7.33366L14.6663 0.666993"
-                                        stroke="#5F6DF1"
-                                        strokeWidth="1.25"
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                    />
-                                </svg>
-                            </StyleTradingCategoriesTitleTextMobile>
-                            {TradingCategoriesd && (
-                                <StyleTradingCategorieDropDown
-                                    style={{ zIndex: "11" }}
+                                    {dropDown}
+                                    <StyledTopCollectionIconWrapper>
+                                        <ChevronDownIcon />
+                                    </StyledTopCollectionIconWrapper>
+                                </StyledTopCollectionDropdownButton>
+                                <StyledTopCollectionDropdownList
+                                    show={showDropDown}
                                 >
-                                    {itemDropdown.map((item, index) => {
-                                        return (
-                                            <StyleTradingCategorieDropDownText
-                                                key={index}
-                                            >
-                                                {item}
-                                            </StyleTradingCategorieDropDownText>
-                                        );
-                                    })}
-                                </StyleTradingCategorieDropDown>
-                            )}
+                                    {itemDropdown.map((item, index) => (
+                                        <StyledTopCollectionDropdownItem
+                                            key={index}
+                                            onClick={e => {
+                                                setDropDown(item);
+                                                toggleDropdown();
+                                            }}
+                                        >
+                                            {item}
+                                        </StyledTopCollectionDropdownItem>
+                                    ))}
+                                </StyledTopCollectionDropdownList>
+                            </StyledTopCollectionDropdownWrapper>
                         </StyleTradingCategoriesTitleText>
                         <StyleTradingCategoriesTitleDescMobile>
                             {formatMessage({

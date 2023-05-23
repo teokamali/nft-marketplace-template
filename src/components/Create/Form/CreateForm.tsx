@@ -257,7 +257,6 @@ const CreateForm = () => {
                             </StyledInputDescription>
                         </StyledInputTitleAndDescriptionWrapper>
                         <Button
-                            size="sm"
                             variant="outlined"
                             onClick={() => dispatch(openAddProperty(true))}
                         >
@@ -297,7 +296,6 @@ const CreateForm = () => {
                         </StyledInputDescription>
                     </StyledInputTitleAndDescriptionWrapper>
                     <Button
-                        size="sm"
                         variant="outlined"
                         onClick={() => dispatch(openAddLevel(true))}
                     >
@@ -336,7 +334,6 @@ const CreateForm = () => {
                         </StyledInputDescription>
                     </StyledInputTitleAndDescriptionWrapper>
                     <Button
-                        size="sm"
                         variant="outlined"
                         onClick={() => dispatch(openAddStat(true))}
                     >
@@ -448,7 +445,6 @@ const CreateForm = () => {
             </StyledSwitchableInputsWrapper>
 
             <Button
-                size="full"
                 variant="normal"
                 onClick={() => {}}
                 type="submit"

@@ -8,7 +8,7 @@ export const StyleTradingCategoriesTitleBox = styled.div`
     ${tw`flex flex-col gap-[10px] text-black dark:text-white items-center`}
 `;
 export const StyleTradingCategoriesTitleText = styled.div`
-    ${tw`flex flex-row  items-center gap-[10px] relative `}
+    ${tw`flex flex-col md:flex-row  items-center gap-[10px] relative `}
 `;
 export const StyleTradingCategoriesTitleTextone = styled.h4`
     ${tw`font-semibold `}
@@ -17,7 +17,7 @@ export const StyleTradingCategoriesTitleTextTow = styled.h5`
     ${tw`font-medium text-[#5F6DF1] flex flex-row items-center gap-[10px] `}
 `;
 export const StyleTradingCategoriesTitleDesc = styled.span`
-    ${tw`font-light text-title1 text-[#212121]  opacity-60 `}
+    ${tw`font-light text-title1 text-[#212121] dark:text-white opacity-60 `}
 `;
 export const StyleTradingCategoriesSliderSection = styled.div`
     ${tw``}
@@ -34,7 +34,7 @@ export const StyleTradingCategoriesTitleTextMobile = styled.span`
     ${tw`font-medium text-[#5F6DF1] flex flex-row items-center gap-[10px] `}
 `;
 export const StyleTradingCategoriesTitleDescMobile = styled.span`
-    ${tw`font-light text-title2 text-[#212121] opacity-60 `}
+    ${tw`font-light text-title2 text-[#212121] dark:text-white opacity-60 `}
 `;
 export const StyleTradingCategoriesCardMobile = styled.span`
     ${tw`justify-center font-semibold text-title2 bg-white flex gap-[5px] flex-row `}

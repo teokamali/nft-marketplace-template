@@ -172,7 +172,6 @@ const FileInput = ({
                                 <Button
                                     variant="normal"
                                     onClick={onDeleteFile}
-                                    size="md"
                                 >
                                     Change
                                 </Button>
@@ -187,7 +186,6 @@ const FileInput = ({
                                     />
                                 </VideoElement>
                                 <Button
-                                    size="sm"
                                     variant="normal"
                                     onClick={onDeleteFile}
                                 >

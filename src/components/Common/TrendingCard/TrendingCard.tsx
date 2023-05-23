@@ -2,11 +2,12 @@ import VerifiedIcon from "public/Icon/VerifiedIcon";
 import React from "react";
 import {
     StyleTradingCategoriesCardBox,
-    StyleTradingCategoriesCardImage,
     StyleTradingCategoriesCardText,
     StyleTradingCategoriesCardTextBox,
     StyleTradingCategoriesThumbnailBox,
+    StyledTradingCategoriesCardBoxImageWrapper,
 } from "./StyledTrendingCard";
+import Image from "next/image";
 
 interface IProps {
     data: {
@@ -19,8 +20,21 @@ interface IProps {
 
 const TrendingCard = ({ data }: IProps) => {
     return (
-        <StyleTradingCategoriesCardBox style={{ paddingBottom: "20px" }}>
-            <StyleTradingCategoriesCardImage src={data.url} alt="" />
+        <StyleTradingCategoriesCardBox>
+            <StyledTradingCategoriesCardBoxImageWrapper>
+                <Image
+                    src={data.url}
+                    alt=""
+                    fill
+                    style={{
+                        position: "absolute",
+                        aspectRatio: "16/9",
+                        top: "0",
+                        left: "0",
+                        right: "0",
+                    }}
+                />
+            </StyledTradingCategoriesCardBoxImageWrapper>
             <StyleTradingCategoriesCardTextBox>
                 <div
                     style={{

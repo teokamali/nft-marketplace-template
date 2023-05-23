@@ -15,16 +15,16 @@ const LockIcon = () => {
                 height="7.94437"
                 rx="1.32406"
                 stroke="#4858EF"
-                stroke-width="1.32406"
+                strokeWidth="1.32406"
                 stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeLinejoin="round"
             />
             <path
                 d="M14.1243 9.7101V6.17927C14.1243 4.22924 12.5435 2.64844 10.5935 2.64844V2.64844C8.64343 2.64844 7.06262 4.22925 7.06262 6.17927V9.7101"
                 stroke="#4858EF"
-                stroke-width="1.32406"
+                strokeWidth="1.32406"
                 stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeLinejoin="round"
             />
         </svg>
     );

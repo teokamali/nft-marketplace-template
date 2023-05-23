@@ -60,21 +60,21 @@ const Hero = () => {
                 <ButtonsWrapper>
                     <Mobile>
                         <Link href="/explore">
-                            <Button variant="normal" size="xs">
+                            <Button variant="normal">
                                 {formatMessage({ ...messages.EXPLORE })}
                             </Button>
                         </Link>
-                        <Button variant="outlined" size="xs">
+                        <Button variant="outlined">
                             {formatMessage({ ...messages.CREATE })}
                         </Button>
                     </Mobile>
                     <ExceptMobile>
                         <Link href="/explore">
-                            <Button variant="normal" size="md">
+                            <Button variant="normal">
                                 {formatMessage({ ...messages.EXPLORE })}
                             </Button>
                         </Link>
-                        <Button variant="outlined" size="md">
+                        <Button variant="outlined">
                             {formatMessage({ ...messages.CREATE })}
                         </Button>
                     </ExceptMobile>

@@ -11,23 +11,23 @@ const MoreVerticalIcon = () => {
             <path
                 d="M12.9092 18.1934L12.9088 18.0934"
                 stroke="currentColor"
-                stroke-width="3.07426"
+                strokeWidth="3.07426"
                 stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeLinejoin="round"
             />
             <path
                 d="M12.8896 12.1943L12.8893 12.0943"
                 stroke="currentColor"
-                stroke-width="3.07426"
+                strokeWidth="3.07426"
                 stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeLinejoin="round"
             />
             <path
                 d="M12.8691 6.19434L12.8688 6.09434"
                 stroke="currentColor"
-                stroke-width="3.07426"
+                strokeWidth="3.07426"
                 stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeLinejoin="round"
             />
         </svg>
     );

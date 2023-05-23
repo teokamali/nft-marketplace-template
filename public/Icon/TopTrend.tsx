@@ -12,16 +12,16 @@ export default function TopTrend() {
             <path
                 d="M16.758 4.85449L11.192 10.4206L8.80652 8.0351L2.44531 14.3963"
                 stroke="currentColor"
-                stroke-width="1.5903"
+                strokeWidth="1.5903"
                 stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeLinejoin="round"
             />
             <path
                 d="M16.7578 8.0351V4.85449H13.5771"
                 stroke="currentColor"
-                stroke-width="1.5903"
+                strokeWidth="1.5903"
                 stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeLinejoin="round"
             />
         </svg>
     );

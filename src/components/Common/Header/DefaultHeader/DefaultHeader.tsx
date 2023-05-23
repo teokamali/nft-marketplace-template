@@ -71,7 +71,7 @@ const DefaultHeader = () => {
                     {formatMessage({ ...messages.HOME })}
                 </MenuItem>
                 <MenuItem
-                    href="/create"
+                    href="/nft/create"
                     style={{
                         textOverflow: "ellipsis",
                         overflow: "hidden",

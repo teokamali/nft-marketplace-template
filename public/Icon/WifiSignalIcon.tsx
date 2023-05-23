@@ -12,9 +12,9 @@ const WifiSignalIcon = () => {
             <path
                 d="M5.73853 12.3576V15.8884M10.5934 8.82673V15.8884M15.4483 5.2959L15.4483 15.8884"
                 stroke="#4858EF"
-                stroke-width="1.32406"
+                strokeWidth="1.32406"
                 stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeLinejoin="round"
             />
         </svg>
     );
